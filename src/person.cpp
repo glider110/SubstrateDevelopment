@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../include/person.h"
 // #include <person.h>
+#pragma once
 // class person
 // {
 // private:
@@ -10,6 +11,8 @@
 //     void say();
 //     ~person();
 // };
+
+
 
 person::person(/* args */)
 {
