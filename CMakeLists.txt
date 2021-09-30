@@ -23,22 +23,25 @@ message(STATUS "库文件"   ${ALL_LIBRARY})
 # 自定义库(cmake机制 自定义的库不需要link_directories)   
 link_directories(${PROJECT_SOURCE_DIR}/Release/lib)
 
-#第三方库
+#第三方库(查询是否安装：locate)
 # PCL
-# find_package(PCL REQUIRED)
-# include_directories(${PCL_INCLUDE_DIRS})
+#安装命令：sudo apt-get install libpcl-dev       
+find_package(PCL REQUIRED)
+include_directories(${PCL_INCLUDE_DIRS})   #第三方库需要头文件 自定义的库的话没有要
 # link_directories(${PCL_LIBRARY_DIRS})
 # add_definitions(${PCL_DEFINITIONS})
 
 #OpenCV
-# find_package( OpenCV REQUIRED )  
+find_package( OpenCV REQUIRED )  
+
+
 
 
 
 
 #############################生成编译文件#################################
 ####动静态库
-add_library( person  src/person.cpp)
+add_library( person SHARED  src/person.cpp)
 # # add_library(cat cat/cat.cpp)
 add_subdirectory(cat )  
 
@@ -47,6 +50,6 @@ add_subdirectory(cat )
 # add_executable(main  ${CXX_SRCS}  )
 ##1.链接动态库
 add_executable(main main.cpp  )
-target_link_libraries(main cat person  )#有没有后缀是
+target_link_libraries(main cat person 	${OpenCV_LIBS} ${PCL_LIBRARIES} )#有没有后缀是
 
 #############################安装位置#################################
