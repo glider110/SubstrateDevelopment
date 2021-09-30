@@ -13,4 +13,7 @@ int  main()
  std::cout<<"glider"<<std::endl;
  person glider;
  glider.say();
+ cat sta;
+ sta.say();
+
 }
