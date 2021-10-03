@@ -1,4 +1,4 @@
-## 项目框架
+项目框架
 
 > **解决一个项目的基本构建方式，理清结构；**
 >
@@ -18,14 +18,18 @@
 - [x] cmake编译：调用库编译可执行文件
 - [x] cmake编译：调用第三方库编译可执行文件
 - [x] 分CMakeLists编译，脚本一键执行
-
 - [ ] 宏定义的理解和常用方法；
 - [ ] 自备的点云处理工具库；
-- [ ] 调试：gdb调试和可视化调试
+- [x] 调试：gdb调试和可视化调试  
+  - [ ] gdb段错误 segmentation fault(core dump) 查找错误点
+  - [ ] 打断点方式  跳转(s n c)
+  - [ ] 查看变量值
 
 
 
 ### 前置基础：
+
+**`编译：`**
 
 ![image-20210930105858152](development_record.assets/image-20210930105858152.png)
 
@@ -56,6 +60,14 @@ g++常用命令：
 -L 要链接的库所在目录
 
 -l 指定链接时需要的动态库，隐含命名规则，即在前加lib，在后加.a或.so确定库文件名
+
+![webwxgetmsgimg](development_record.assets/webwxgetmsgimg.jpeg)
+
+**`调试：`**
+
+![webwxgetmsgimg (2)](development_record.assets/webwxgetmsgimg%20(2).jpeg)
+
+![webwxgetmsgimg (1)](development_record.assets/webwxgetmsgimg%20(1)-16332321203091.jpeg)
 
 ### 开发疑问：
 
