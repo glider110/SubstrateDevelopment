@@ -1,0 +1,28 @@
+//启动 F5
+{
+    "version": "0.2.0",
+    "configurations": [
+
+            {
+                    "name": "(gdb) 启动",
+                    "type": "cppdbg",
+                    "request": "launch",
+                    "program": "${workspaceFolder}/Release/bin/main",   //修改
+                    // "program": "${workspaceFolder}/main",   //修改
+                    "args": [],
+                    "stopAtEntry": true,
+                    "cwd": "${workspaceFolder}",
+                    "environment": [],
+                    "externalConsole": false,
+                    "MIMode": "gdb",
+                    "setupCommands": [
+                            {
+                                    "description": "为 gdb 启用整齐打印",
+                                    "text": "-enable-pretty-printing",
+                                    "ignoreFailures": true
+                            } 
+                    ],
+                    // "preLaunchTask": "build" //可以新增一条           调试前重新编译 建议开启 
+            }
+    ]
+}

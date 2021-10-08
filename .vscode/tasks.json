@@ -1,0 +1,16 @@
+//ctrl + shift+B 启动
+
+{
+    "version": "2.0.0",
+    "tasks": [
+            {
+                    "label": "build",                                               //修改 和后面  "preLaunchTask": "build" 一致名称
+                    "type": "shell",
+                    "command": "bash script/build.sh",                 //修改    
+                    "group": {
+                            "kind": "build",
+                            "isDefault": true
+                    }
+            }
+    ]
+}

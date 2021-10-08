@@ -21,9 +21,9 @@
 - [ ] 宏定义的理解和常用方法；
 - [ ] 自备的点云处理工具库；
 - [x] 调试：gdb调试和可视化调试  
-  - [ ] gdb段错误 segmentation fault(core dump) 查找错误点
-  - [ ] 打断点方式  跳转(s n c)
-  - [ ] 查看变量值
+  - [x] gdb段错误 segmentation fault(core dump) 查找错误点
+  - [x] 打断点方式  跳转(s n c)
+  - [x] 查看变量值
 
 
 
