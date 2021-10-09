@@ -12,6 +12,7 @@
             "cStandard": "gnu11",
             "cppStandard": "gnu++14",
             "intelliSenseMode": "linux-gcc-x64"
+            // "intelliSenseMode": "msvc-x64"
         }
     ],
     "version": 4

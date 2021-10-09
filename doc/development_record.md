@@ -65,6 +65,8 @@ g++常用命令：
 
 **`调试：`**
 
+Ctrl x ctrl a 进入调试
+
 ![webwxgetmsgimg (2)](development_record.assets/webwxgetmsgimg%20(2).jpeg)
 
 ![webwxgetmsgimg (1)](development_record.assets/webwxgetmsgimg%20(1)-16332321203091.jpeg)
@@ -83,7 +85,8 @@ g++常用命令：
   * 头文件<>    ""[**区别**]()
   * 通俗的说：在C系统的编程语言中，#include是为了声明在这个地方插入别的文件中的代码。
 
-- g++ main.cpp -Icat/  -Llib/  -lcat -o a 编译不过
+- g++ main.cpp -Icat/  -Llib/  -lcat -o a 编译不过   建立软连接可以编译过
+- g++ main.cpp -Icat/  -L/home/admins/桌面/github/Release/lib/  -lcat -o a   编译过了
 - 多文件编译时候 不会先编译so 再编译bin？
 - 多文件编译不需要包含头文件，cpp包含的的话会自动获取？
 
@@ -145,6 +148,8 @@ cmake报错：
 - 是否存在该库：find、locate
   - 没有：下载或者自己编译
   - 有：此目录权限不够 开启搜索权限   或者把库移到共享库/usr/lib /usr/local/lib和软连接
+
+![image-20211008170019233](development_record.assets/image-20211008170019233.png)
 
 ![img](https://img-bbs.csdn.net/upload/202103/01/1614581821_757462.png?x-oss-process=image/auto-orient,1)
 

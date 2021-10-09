@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(baseproject)
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -Wall  -std=c++14 -pthread -g")    #gdb调试时候是需要这句 -g
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W  -std=c++14 -pthread -g")    #gdb调试时候是需要这句 -g
 #############################预先设置################################
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/Release/lib) 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/Release/bin) 
@@ -22,6 +22,8 @@ set(ALL_LIBRARY cat person)
 message(STATUS "库文件"   ${ALL_LIBRARY})  
 # 自定义库(cmake机制 自定义的库不需要link_directories)   
 link_directories(${PROJECT_SOURCE_DIR}/Release/lib)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/cat/)
+
 
 #第三方库(查询是否安装：locate)
 # PCL
