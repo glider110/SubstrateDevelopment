@@ -25,6 +25,9 @@
   - [x] 打断点方式  跳转(s n c)
   - [x] 查看变量值
 
+- [ ] 常用数据类型的应用 eigen opencv 
+- [ ] 关于指针
+
 
 
 ### 前置基础：
@@ -153,3 +156,4 @@ cmake报错：
 
 ![img](https://img-bbs.csdn.net/upload/202103/01/1614581821_757462.png?x-oss-process=image/auto-orient,1)
 
+![image-20211009141928114](development_record.assets/image-20211009141928114.png)

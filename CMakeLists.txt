@@ -28,13 +28,13 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/cat/)
 #第三方库(查询是否安装：locate)
 # PCL
 #安装命令：sudo apt-get install libpcl-dev       
-find_package(PCL REQUIRED)
-include_directories(${PCL_INCLUDE_DIRS})   #第三方库需要头文件 自定义的库的话没有要
+# find_package(PCL REQUIRED)
+# include_directories(${PCL_INCLUDE_DIRS})   #第三方库需要头文件 自定义的库的话没有要
 # link_directories(${PCL_LIBRARY_DIRS})
 # add_definitions(${PCL_DEFINITIONS})
 
 #OpenCV
-find_package( OpenCV REQUIRED )  
+# find_package( OpenCV REQUIRED )  
 
 
 
@@ -52,6 +52,6 @@ add_subdirectory(cat )
 # add_executable(main  ${CXX_SRCS}  )
 ##1.链接动态库
 add_executable(main main.cpp  )
-target_link_libraries(main cat person 	${OpenCV_LIBS} ${PCL_LIBRARIES} )#有没有后缀是
-
+# target_link_libraries(main cat person 	${OpenCV_LIBS} ${PCL_LIBRARIES} )#有没有后缀是
+target_link_libraries(main cat person  )#有没有后缀是
 #############################安装位置#################################
