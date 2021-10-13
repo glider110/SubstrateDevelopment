@@ -7,7 +7,7 @@
                     "name": "(gdb) 启动",
                     "type": "cppdbg",
                     "request": "launch",
-                    "program": "${workspaceFolder}/Release/bin/main",   //修改
+                    "program": "${workspaceFolder}/Release/bin/chapter2",   //修改
                     // "program": "${workspaceFolder}/main",   //修改
                     "args": [],
                     "stopAtEntry": true,

@@ -6,6 +6,7 @@ SCRIPTPATH=$(readlink -f "$0")
 PROJECTPATH=$(dirname $(dirname ${SCRIPTPATH}))
 SOURCE_DIR=${PROJECTPATH}
 BUILD_DIR=${PROJECTPATH}/build
+RUN_DIR=${PROJECTPATH}/Release/bin
 BUILD_TYPE=${BUILD_TYPE:-release}
 INSTALL_DIR=${INSTALL_DIR:-../${BUILD_TYPE}-install}
 BUILD_NO_EXAMPLES=${BUILD_NO_EXAMPLES:-0}
@@ -30,6 +31,7 @@ mkdir -p $BUILD_DIR\
   && cd $BUILD_DIR \
   && cmake  ..
   make
+  cd   ${RUN_DIR}&& ./chapter2
 fi
 
 echo "#######################编译结束！###################"
