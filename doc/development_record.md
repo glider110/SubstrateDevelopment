@@ -1,35 +1,3 @@
-项目框架
-
-> **解决一个项目的基本构建方式，理清结构；**
->
-> **搭建编程环境，实际动手验证算法，不惧动手；**
->
-> **开发出现的编译错误能快速定位分析，而不是烦躁和逃避；**
-
-
-
-### 基版开发log：
-
-- [x] 建立框架模型
-- [x] g++编译一个main的可执行文件，单文件
-- [x] g++编译一个main的可执行文件，多文件   源头分目录
-- [x] g++编译一个main的可执行文件，多文件   源头同目录
-- [x] cmake编译：单文件 多文件  多目录形式   编译为动态库 可执行文件 
-- [x] cmake编译：调用库编译可执行文件
-- [x] cmake编译：调用第三方库编译可执行文件
-- [x] 分CMakeLists编译，脚本一键执行
-- [ ] 宏定义的理解和常用方法；
-- [ ] 自备的点云处理工具库；
-- [x] 调试：gdb调试和可视化调试  
-  - [x] gdb段错误 segmentation fault(core dump) 查找错误点
-  - [x] 打断点方式  跳转(s n c)
-  - [x] 查看变量值
-
-- [ ] 常用数据类型的应用 eigen opencv 
-- [ ] 关于指针
-
-
-
 ### 前置基础：
 
 **`编译：`**
@@ -95,9 +63,28 @@ Ctrl x ctrl a 进入调试
 
 
 
-### 报错汇总：(特别熟练的看明白报错信息)
+### 报错汇总：
 
-1. 定义了没实现
+> (特别熟练的看明白报错信息) 很重要！！！特别是控制台的报错提醒
+
+1. 未声明 
+
+   ```
+   ../../src/aktof.cc:940:9: 错误： ‘queue’在此作用域中尚未声明
+            queue<cv::Point> checkList;
+            ^~~~~
+   ../../src/aktof.cc:940:24: 错误： expected primary-expression before ‘>’ token
+            queue<cv::Point> checkList;
+                           ^
+   ../../src/aktof.cc:940:26: 错误： ‘checkList’在此作用域中尚未声明
+            queue<cv::Point> checkList;
+   ```
+
+   reason：头文件没有导入
+
+   clear && sh build_aarch64_rk3326.sh  ：如果报错很多 看第一个错误和清空屏幕 不然影响判断
+
+2. 定义了没实现
 
    ```shell
    ：/tmp/ccIji8Yp.o：在函数‘main’中：
@@ -107,7 +94,8 @@ Ctrl x ctrl a 进入调试
    main.cpp:(.text+0x85)：对‘person::~person()’未定义的引用
    collect2: error: ld returned 1 exit status
    ```
-2. 重复定义/重复实现
+
+3. 重复定义/重复实现
 
    ```shell
    ./src/person.cpp:4:7: error: redefinition of ‘class person’
@@ -120,7 +108,23 @@ Ctrl x ctrl a 进入调试
           ^~~~~~  
    ```
    **[\#pragma once](https://www.cnblogs.com/qiang-upc/p/11407364.html)**  能解决部分问题（只能处理同一个文件的定义被多次include的问题）
-3. 重复声明
+
+4. 源文件没找到
+
+   ![image-20211014164023475](development_record.assets/image-20211014164023475.png)
+
+   ![image-20211014164128179](development_record.assets/image-20211014164128179.png)
+
+   ![image-20211014164401217](development_record.assets/image-20211014164401217.png)
+
+   ```
+   /home/admins/桌面/ak-wire-detector/include/stdafx.h:19:23: 致命错误： Eigen/Dense：没有那个文件或目录
+    #include <Eigen/Dense>
+   ```
+
+   解决思路：在交叉工具链查看有没有eigen 有的话就看头文件写的格式是不是搜索的到的路径
+
+5. 重复声明
 
    ```shell
    main.cpp: In function ‘int main()’:
@@ -130,6 +134,8 @@ Ctrl x ctrl a 进入调试
    main.cpp:14:9: note: ‘person glider’ previously declared here
      person glider;
    ```
+
+
 
 
 

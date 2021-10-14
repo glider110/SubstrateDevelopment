@@ -15,10 +15,10 @@ BUILD_NO_EXAMPLES=${BUILD_NO_EXAMPLES:-0}
 
 USING_ROS=0
 
-if [ -d "$PROJECTPATH/build/" ];then
-        rm $PROJECTPATH/build/ -rf
-        echo "删除build"
-fi
+# if [ -d "$PROJECTPATH/build/" ];then
+#         rm $PROJECTPATH/build/ -rf
+#         echo "删除build"
+# fi
 
 
 echo ${INSTALL_DIR}
@@ -31,7 +31,7 @@ mkdir -p $BUILD_DIR\
   && cd $BUILD_DIR \
   && cmake  ..
   make
-  cd   ${RUN_DIR}&& ./chapter2
+  cd   ${RUN_DIR}&& ./chapter1
 fi
 
 echo "#######################编译结束！###################"

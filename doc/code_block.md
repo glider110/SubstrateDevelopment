@@ -10,9 +10,21 @@ int main(int argc, char **argv)
     for(int i=0;i<=argc;++i)
     {
         cout<<i<<"  ";
-        cout<<argv[i]<<"   "<<endl;        
+        cout<<argv[i]<<"   "<<endl;      
     }
     return 0;
 }
 ```
 
+
+```c++
+cv::Mat disp8 = cv::Mat(height, width, CV_8UC1);
+for (sint32 i = 0; i < height; i++)
+{
+for (sint32 j = 0; j < width; j++)
+{
+// disp8.data[i * width + j]= disparity[i * width + j];
+disp8.at<uint8_t>(i,j)= disparity[i * width + j];
+}
+}
+```

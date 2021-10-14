@@ -6,7 +6,9 @@
                 "${workspaceFolder}/**",
                 "/usr/include/pcl-1.8",
                 "/usr/include/vtk-6.3",
-                "/usr/include/eigen3/Eigen"
+                "/usr/include/eigen3/Eigen",
+                "/usr/include/pcl-1.8/**",
+                "/usr/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
@@ -14,6 +16,8 @@
             "cppStandard": "gnu++14",
             "intelliSenseMode": "linux-gcc-x64"
             // "intelliSenseMode": "msvc-x64"
+            ,
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4

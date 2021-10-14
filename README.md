@@ -1,11 +1,15 @@
 # SubstrateDevelopment
-Project substrate development and practical verification of basic functions
+**Project substrate development and practical verification of basic functions**
+
+> **解决一个项目的基本构建方式，理清结构；**
+>
+> **搭建编程环境，实际动手验证算法，不惧动手；**
+>
+> **开发出现的编译错误能快速定位分析，而不是烦躁和逃避；**
 
 
 
-
-
-**TODO:**
+**TODO LIST:**
 
 
 - [x] 建立框架模型
@@ -22,6 +26,7 @@ Project substrate development and practical verification of basic functions
   - [x] gdb段错误 segmentation fault(core dump) 查找错误点
   - [x] 打断点方式  跳转(s n c)
   - [x] 查看变量值
+- [ ] 常用数据类型的应用：eigen opencv pcl  map vecter list 
+- [ ] 关于指针：三维矩阵 智能指针 普通指针
+- [ ] 数据流读写：txt、csv、bmp、ply
 
-- [ ] 常用数据类型的应用 eigen opencv 
-- [ ] 关于指针
