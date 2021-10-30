@@ -17,3 +17,6 @@ add_executable(chapter2  assignments_chapter2.cpp)
 
 add_executable(programmingtips demo_programmingtips.cpp)
 
+
+add_executable(registration  demo_registration.cpp)
+target_link_libraries(registration   ${PCL_LIBRARIES} )#有没有后缀是

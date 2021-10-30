@@ -60,6 +60,8 @@
         "string": "cpp",
         "string_view": "cpp",
         "eigen": "cpp",
-        "dense": "cpp"
+        "dense": "cpp",
+        "condition_variable": "cpp",
+        "mutex": "cpp"
     }
 }
