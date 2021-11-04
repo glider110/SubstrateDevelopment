@@ -20,3 +20,12 @@ add_executable(programmingtips demo_programmingtips.cpp)
 
 add_executable(registration  demo_registration.cpp)
 target_link_libraries(registration   ${PCL_LIBRARIES} )#有没有后缀是
+
+#光流
+add_executable(opticlflow  demo_opticlflow.cpp)
+target_link_libraries(opticlflow  	${OpenCV_LIBS} )
+
+#点云配准模块
+aux_source_directory(../tofLocation var_toflocation)
+add_executable(tofregistration  test_main.cpp  ${var_toflocation})
+target_link_libraries(tofregistration  	${OpenCV_LIBS} ${PCL_LIBRARIES})

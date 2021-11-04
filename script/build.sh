@@ -31,7 +31,7 @@ mkdir -p $BUILD_DIR\
   && cd $BUILD_DIR \
   && cmake  ..
   make
-  cd   ${RUN_DIR}&& ./programmingtips
+  cd   ${RUN_DIR}&& ./tofregistration
 fi
 
 echo "#######################编译结束！###################"

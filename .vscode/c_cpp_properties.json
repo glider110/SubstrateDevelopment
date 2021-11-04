@@ -9,7 +9,9 @@
                 "/usr/include/eigen3/Eigen",
                 "/usr/include/pcl-1.8/**",
                 "/usr/include/**",
-                "/usr/include/pcl-1.8"
+                "/usr/include/pcl-1.8",
+                "/usr/include/eigen3",
+                "${workspaceFolder}/tofLocation"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
