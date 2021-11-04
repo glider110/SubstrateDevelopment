@@ -22,7 +22,7 @@ vector<PointCloud::Ptr>  NS_TOFLOCATION::tofLocation::read3DStream(string path)
     vector<PointCloud::Ptr>  vec_path;
     for(size_t i = 0; i < filenames.size(); ++i)
     {
-        std::cout<<filenames[i]<<std::endl;
+        // std::cout<<filenames[i]<<std::endl;
         PointCloud::Ptr cloud_target(new PointCloud);
         pcl::io::loadPLYFile(filenames[i],*cloud_target);
         vec_path.push_back(cloud_target);
@@ -42,6 +42,12 @@ void NS_TOFLOCATION::tofLocation::computeTofPosition()
     pretreat();
     registrationNDTWithICP();
 
+}
+
+void NS_TOFLOCATION::tofLocation::getTofPosition(){}
+
+PointCloud::Ptr  NS_TOFLOCATION::tofLocation::getRegistratCloudPoint(){
+    return mcloud_icp_registration;
 }
 
 void NS_TOFLOCATION::tofLocation::registrationNDTWithICP(){
@@ -80,7 +86,9 @@ void NS_TOFLOCATION::tofLocation::registrationNDTWithICP(){
 	m_icp_trans = icp.getFinalTransformation();
 	cout << m_icp_trans << endl;
     pcl::transformPointCloud(*m_cloud_source, *mcloud_icp_registration, m_icp_trans);
-
+    Eigen::Vector3f ANGLE_result; // 由IMU得出的变换矩阵
+	matrix2angle(m_icp_trans, ANGLE_result);
+    cout << "计算得到的平移距离" << endl << "x轴平移" << m_icp_trans(0, 3) << endl << "y轴平移" << m_icp_trans(1, 3) << endl << "z轴平移" << m_icp_trans(2, 3) << endl;
 }
 
 // 预处理过程
@@ -97,7 +105,7 @@ void NS_TOFLOCATION::tofLocation::pretreat() {
 	voxel_grid_src.setInputCloud(m_cloud_source);
 	
 	voxel_grid_src.filter(*m_down_src);
-	cout << "down size *cloud_src from: " << m_cloud_source->size() << "to" << m_down_src->size() << endl;
+	cout << "down size *cloud_src from: " << m_cloud_source->size() << "to " << m_down_src->size() << endl;
 	voxel_grid_tar.setLeafSize(LeafSize, LeafSize, LeafSize);
     voxel_grid_tar.setInputCloud(m_cloud_target);
 	voxel_grid_tar.filter(*m_down_tar);

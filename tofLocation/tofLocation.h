@@ -69,7 +69,9 @@ namespace NS_TOFLOCATION
 
         void  computeTofPosition();
 
-        void outputTofPosition();
+        void getTofPosition();
+
+        PointCloud::Ptr  getRegistratCloudPoint();
 
         //点云可视化配准
         void visualize();
