@@ -16,7 +16,7 @@ void NS_TOFLOCATION::tofLocation::init() {
 vector<PointCloud::Ptr>  NS_TOFLOCATION::tofLocation::read3DStream(string path)
 {
     std::vector<cv::String> filenames; // notice here that we are using the Opencv's embedded "String" class
-    cv::String folder = "/home/admins/akblib/ICP_DATA/workspace_log11.2/data"; // again we are using the Opencv's embedded "String" class
+    cv::String folder = "/home/admins/akblib/ICP_DATA/workspace_log1/data"; // again we are using the Opencv's embedded "String" class
 
     cv::glob(folder, filenames); // new function that does the job ;-)
     vector<PointCloud::Ptr>  vec_path;
@@ -98,18 +98,47 @@ void NS_TOFLOCATION::tofLocation::pretreat() {
 	pcl::removeNaNFromPointCloud(*m_cloud_source, *m_cloud_source, indices_src);
 	pcl::removeNaNFromPointCloud(*m_cloud_target, *m_cloud_target, indices_tar);
 	std::cout << "remove *cloud_source nan" << endl;
-	//下采样滤波
+    cout << "原始数据src： " << m_cloud_source->size() << endl;
+    cout << "原始数据tar： " << m_cloud_target->size() << endl;
+	//直通滤波
+	// pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_trans(new pcl::PointCloud<pcl::PointXYZ>);
+    // cloud_trans=m_cloud_source;
+	pcl::PassThrough<pcl::PointXYZ> pass_src,pass_tar;     //创建滤波器对象
+	pass_src.setInputCloud(m_cloud_source);                //设置待滤波的点云
+	pass_src.setFilterFieldName("y");             //设置在Z轴方向上进行滤波
+	pass_src.setFilterLimits(0.01, 1);    //设置滤波范围(从最高点向下12米去除)
+    pass_src.setFilterLimitsNegative(false);      //保留
+	pass_src.filter(*m_cloud_source);               //滤波并存储
+    pass_src.setInputCloud(m_cloud_source);                
+    pass_src.setFilterFieldName("z");            
+	pass_src.setFilterLimits(0.1, 1);   
+    pass_src.setFilterLimitsNegative(false);     
+	pass_src.filter(*m_cloud_source);               
+
+    pass_tar.setInputCloud(m_cloud_target);              
+	pass_tar.setFilterFieldName("y");            
+	pass_tar.setFilterLimits(0.01, 1);     
+	pass_tar.setFilterLimitsNegative(false);      
+	pass_tar.filter(*m_cloud_target);  
+    pass_tar.setInputCloud(m_cloud_target);              
+    pass_tar.setFilterFieldName("z");            
+	pass_tar.setFilterLimits(0.1, 1);   
+	pass_tar.setFilterLimitsNegative(false);      
+	pass_tar.filter(*m_cloud_target);                        
+    cout << "cloud_src直通滤波后： " << m_cloud_source->size() << endl;
+    cout <<" cloud_tar直通滤波后： "<< m_cloud_target->size() << endl;  
+    //下采样滤波
 	pcl::VoxelGrid<pcl::PointXYZ> voxel_grid_src,voxel_grid_tar;
-	voxel_grid_src.setLeafSize(LeafSize, LeafSize, LeafSize);
     cout << "LeafSize: " << LeafSize << endl;
-	voxel_grid_src.setInputCloud(m_cloud_source);
-	
+	voxel_grid_src.setLeafSize(LeafSize, LeafSize, LeafSize);
+	voxel_grid_src.setInputCloud(m_cloud_source);	
 	voxel_grid_src.filter(*m_down_src);
-	cout << "down size *cloud_src from: " << m_cloud_source->size() << "to " << m_down_src->size() << endl;
 	voxel_grid_tar.setLeafSize(LeafSize, LeafSize, LeafSize);
     voxel_grid_tar.setInputCloud(m_cloud_target);
 	voxel_grid_tar.filter(*m_down_tar);
-	cout << "down size *cloud_tar from: " << m_cloud_target->size() << "to " << m_down_tar->size() << endl;
+
+    cout << "cloud_src下采样后： " <<m_down_src->size() << endl;
+    cout <<" cloud_tar下采样后： " << m_down_tar->size() << endl;  
 };
 
 NS_TOFLOCATION::tofLocation::~tofLocation()

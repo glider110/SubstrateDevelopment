@@ -6,6 +6,7 @@
 #include <pcl/visualization/pcl_visualizer.h>
 #include <thread>
 #include <Eigen/Core>
+#include <pcl/filters/passthrough.h>  //直通滤波相关
 
 #include <pcl/point_cloud.h>
 #include <pcl/common/time.h>
