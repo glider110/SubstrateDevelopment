@@ -34,18 +34,25 @@ typedef pcl::PointCloud<PointT> PointCloud;
 
 namespace NS_TOFLOCATION
 {
+    typedef struct
+    {
+    float    mLeafSize;
+    }TofLocationConfig;
 
-    class tofLocation
-	
+
+    class tofLocation	
     {
     private:
+        //测试log  
+        TofLocationConfig m_config;  //输入配置参数表
+
+        ofstream mtofLog;               //输出测试中间变量，可设置输出级别
+
         //参考点云的目标点云
         PointCloud::Ptr m_cloud_source,m_cloud_target,mcloud_icp_registration;
         PointCloud::Ptr m_down_tar;
         PointCloud::Ptr m_down_src;
         Eigen::Matrix4f m_icp_trans; 
-        //体素滤波间隔（米）
-        float LeafSize=0.04;
 
 
         //点云预处理
@@ -56,6 +63,9 @@ namespace NS_TOFLOCATION
         void matrix2angle(Eigen::Matrix4f &result_trans, Eigen::Vector3f &result_angle);
         //NDT+ICP
         void registrationNDTWithICP();
+
+        //加载配置文件
+        void load_config(const string config_name);
 
     public:
         //初始化

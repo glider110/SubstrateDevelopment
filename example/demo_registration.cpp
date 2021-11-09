@@ -102,7 +102,6 @@ void matrix2angle(Eigen::Matrix4f &result_trans, Eigen::Vector3f &result_angle)
 
 
 
-
 //标准ICP
 void test1() {
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in(new pcl::PointCloud<pcl::PointXYZ>(5, 1));

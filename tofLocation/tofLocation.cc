@@ -11,6 +11,10 @@ void NS_TOFLOCATION::tofLocation::init() {
     m_down_src=tmp_down_tar;
     //简化初始化
     mcloud_icp_registration=PointCloud::Ptr (new PointCloud);
+    //初始化输出文件流
+    mtofLog.open("../../config/output.txt",ios::app);
+     //加载配置文件
+    load_config("../../config/toflocation.yaml");
 }
 
 vector<PointCloud::Ptr>  NS_TOFLOCATION::tofLocation::read3DStream(string path)
@@ -91,6 +95,21 @@ void NS_TOFLOCATION::tofLocation::registrationNDTWithICP(){
     cout << "计算得到的平移距离" << endl << "x轴平移" << m_icp_trans(0, 3) << endl << "y轴平移" << m_icp_trans(1, 3) << endl << "z轴平移" << m_icp_trans(2, 3) << endl;
 }
 
+void NS_TOFLOCATION::tofLocation::load_config(const string config_name)
+{
+    //  cv::FileStorage config("../../config/toflocation.yaml", cv::FileStorage::READ);
+      cv::FileStorage config(config_name.c_str(), cv::FileStorage::READ);
+      if (!config.isOpened())
+      {
+        cout<<"未读到配置文件..."<<endl;
+        m_config.mLeafSize=0.04;
+      }
+      
+      m_config.mLeafSize=(float)config["toflocation.mLeafSize"];
+      cout<<"配置文件读取完毕..."<<endl;
+      mtofLog<<"配置文件读取完毕..."<<endl;
+}
+
 // 预处理过程
 void NS_TOFLOCATION::tofLocation::pretreat() {
 	//去除NAN点
@@ -129,13 +148,16 @@ void NS_TOFLOCATION::tofLocation::pretreat() {
     cout <<" cloud_tar直通滤波后： "<< m_cloud_target->size() << endl;  
     //下采样滤波
 	pcl::VoxelGrid<pcl::PointXYZ> voxel_grid_src,voxel_grid_tar;
-    cout << "LeafSize: " << LeafSize << endl;
-	voxel_grid_src.setLeafSize(LeafSize, LeafSize, LeafSize);
+    cout << "LeafSize: " << m_config.mLeafSize<< endl;
+    // cv::FileStorage config("../../config/toflocation.yaml", cv::FileStorage::READ);
+    //  m_config.mLeafSize=(float)config["toflocation.setFilterLimits"];
+	voxel_grid_src.setLeafSize( m_config.mLeafSize,  m_config.mLeafSize,  m_config.mLeafSize);
 	voxel_grid_src.setInputCloud(m_cloud_source);	
 	voxel_grid_src.filter(*m_down_src);
-	voxel_grid_tar.setLeafSize(LeafSize, LeafSize, LeafSize);
+	voxel_grid_tar.setLeafSize( m_config.mLeafSize,  m_config.mLeafSize,  m_config.mLeafSize);
     voxel_grid_tar.setInputCloud(m_cloud_target);
 	voxel_grid_tar.filter(*m_down_tar);
+    cout << "LeafSize: " <<  m_config.mLeafSize << endl;
 
     cout << "cloud_src下采样后： " <<m_down_src->size() << endl;
     cout <<" cloud_tar下采样后： " << m_down_tar->size() << endl;  
