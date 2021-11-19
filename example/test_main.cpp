@@ -31,13 +31,13 @@ int main(int argc, char **argv) {
     vector<PointCloud::Ptr> vecCloudPtr;
     locator.init();
     //序列点云匹配结果动态显示
-    // locator.dynamicVisualization();
+    locator.dynamicVisualization();
 
     //两帧对比可视化
-    vecCloudPtr = locator.read3DStream("xxx");
-    locator.inputPointcloud(cloud_source, cloud_target);
-    locator.inputPointcloud(vecCloudPtr[2], vecCloudPtr[3]);
-    locator.computeTofPosition();
-    locator.visualize();
+    // vecCloudPtr = locator.read3DStream("xxx");
+    // locator.inputPointcloud(cloud_source, cloud_target);
+    // locator.inputPointcloud(vecCloudPtr[2], vecCloudPtr[3]);
+    // locator.computeTofPosition();
+    // locator.visualize();
     return (0);
 }

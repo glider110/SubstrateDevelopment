@@ -26,7 +26,7 @@ void NS_TOFLOCATION::tofLocation::init() {
 vector<PointCloud::Ptr>  NS_TOFLOCATION::tofLocation::read3DStream(string path)
 {
     std::vector<cv::String> filenames;
-    cv::String folder = "/home/admins/akblib/ICP_DATA/workspace_log11.11/data"; 
+    cv::String folder = "/home/admins/akblib/ICP_DATA/workspace_log1/data"; 
     cv::glob(folder, filenames); 
     vector<PointCloud::Ptr>  vec_path;
     for(size_t i = 0; i < filenames.size(); ++i)

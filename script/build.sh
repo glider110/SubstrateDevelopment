@@ -31,7 +31,7 @@ mkdir -p $BUILD_DIR\
   && cd $BUILD_DIR \
   && cmake  ..
   make
-  cd   ${RUN_DIR}&& ./tofregistration
+  cd   ${RUN_DIR}&& ./opticlflow
 fi
 
 echo "#######################编译结束！###################"

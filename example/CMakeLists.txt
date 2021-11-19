@@ -12,7 +12,7 @@ find_package( OpenCV REQUIRED )
 # add_executable(chapter1  assignments_chapter1.cpp)
 # target_link_libraries(chapter1   ${PCL_LIBRARIES} )#有没有后缀是
 
-add_executable(chapter2  assignments_chapter2.cpp)
+# add_executable(chapter2  assignments_chapter2.cpp)
 
 
 # add_executable(programmingtips demo_programmingtips.cpp)
@@ -22,8 +22,8 @@ add_executable(chapter2  assignments_chapter2.cpp)
 # target_link_libraries(registration   ${PCL_LIBRARIES} )#有没有后缀是
 
 #光流
-# add_executable(opticlflow  demo_opticlflow.cpp)
-# target_link_libraries(opticlflow  	${OpenCV_LIBS} )
+add_executable(opticlflow  demo_opticlflow.cpp)
+target_link_libraries(opticlflow  	${OpenCV_LIBS} )
 
 #点云配准模块
 aux_source_directory(../tofLocation var_toflocation)
