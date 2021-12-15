@@ -7,7 +7,6 @@ int main(int argc, char **argv)
 {
     //初始化
     
-
     // Eigen/Geometry 模块提供了各种旋转和平移的表示
     // 3D 旋转矩阵直接使用 Matrix3d 或 Matrix3f
     Eigen::Matrix3d rotation_matrix = Eigen::Matrix3d::Identity();

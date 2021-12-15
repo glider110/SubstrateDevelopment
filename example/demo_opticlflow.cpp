@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
     
      std::vector<cv::String> filenames;
      Mat img;
-    cv::String folder = "/home/admins/akblib/OPT_FLOW/data_11.16.2/slam/frame"; 
+    cv::String folder = "/home/admins/akblib/OPT_FLOW/data_11.16.1/slam/frame"; 
     // cv::String folder = "/home/admins/akblib/OPT_FLOW/slam/image/"; 
     cv::glob(folder, filenames); 
     for(size_t i = 0; i < filenames.size(); ++i)

@@ -42,6 +42,8 @@ Ctrl x ctrl a 进入调试
 
 ![webwxgetmsgimg (1)](development_record.assets/webwxgetmsgimg%20(1)-16332321203091.jpeg)
 
+输入命令info break,可以查看当前已经设置的断点
+
 ### 开发疑问：
 
 * ==定义 实现== -==声明 引用==   的深度理解？
@@ -163,3 +165,11 @@ cmake报错：
 ![img](https://img-bbs.csdn.net/upload/202103/01/1614581821_757462.png?x-oss-process=image/auto-orient,1)
 
 ![image-20211009141928114](development_record.assets/image-20211009141928114.png)
+
+### 总结：
+
+1.吧一个程序看做是一个文件编译的
+
+2.报错出在那个阶段   
+
+3.头文件的次序 和写法
