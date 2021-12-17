@@ -1,10 +1,13 @@
-#include "../tofLocation/tofLocation.h"
+#include "../tofLocation/tofLocation.h"     
 // #include "tofLocation.h" #vscode读不到文件
+#include "../SkidDetection/SkidDetection.h"
 using namespace std;
 typedef pcl::PointXYZ PointT;
 typedef pcl::PointCloud<PointT> PointCloud;
 
 int main(int argc, char **argv) {
+
+    #if 0
     PointCloud::Ptr cloud_source(new PointCloud);
     PointCloud::Ptr cloud_target(new PointCloud);
     // 加载点云文件
@@ -39,5 +42,11 @@ int main(int argc, char **argv) {
     // locator.inputPointcloud(vecCloudPtr[2], vecCloudPtr[3]);
     // locator.computeTofPosition();
     // locator.visualize();
-    return (0);
+    #else
+    NS_SKIDDETECTION::SkidDetection detector;
+    detector.init();
+    #endif
+
+
+    return 0;
 }

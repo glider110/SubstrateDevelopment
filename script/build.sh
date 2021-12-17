@@ -1,4 +1,12 @@
 #!/bin/sh
+###
+ # @Author: your name
+ # @Date: 2021-09-30 14:32:05
+ # @LastEditTime: 2021-12-17 13:45:32
+ # @LastEditors: Please set LastEditors
+ # @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ # @FilePath: /SubstrateDevelopment/script/build.sh
+### 
 
 # set -x
 echo "#######################进入编译脚本###################"
@@ -31,7 +39,7 @@ mkdir -p $BUILD_DIR\
   && cd $BUILD_DIR \
   && cmake  ..
   make
-  cd   ${RUN_DIR}&& ./opticlflow
+  cd   ${RUN_DIR}&& ./test_main
 fi
 
 echo "#######################编译结束！###################"
