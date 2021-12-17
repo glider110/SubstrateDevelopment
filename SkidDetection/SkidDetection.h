@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-17 10:45:19
- * @LastEditTime: 2021-12-17 11:22:35
+ * @LastEditTime: 2021-12-17 17:59:31
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /SubstrateDevelopment/SkidDetection/SkidDetection.h
@@ -11,6 +11,10 @@
 #include "opencv2/video/tracking.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include  <vector>
+#include <fstream>
+#include <sstream>
+
+// #include  "./tool.cpp"
 
 #pragma comment(lib,"opencv_core2410.lib")
 #pragma comment(lib,"opencv_highgui2410.lib")
@@ -25,33 +29,36 @@ using namespace cv;
 
 namespace NS_SKIDDETECTION
 {
-    struct STR_IMG
-    {
-        cv::Mat imag;
-        float timestamp;
-    };
 
-    struct STR_POSE
-    {
-        int status;
-        vector<int>  pose;
-        float timestamp;    
-    };
-    
+struct STR_IMG 
+{
+    Mat imag;
+    float timestamp;
+};
 
-    class SkidDetection
-    {
-    private:
-        STR_IMG m_origin_img;
-        STR_POSE m_fusion_position;
-        bool m_flag;
+struct STR_POSE 
+{
+    int status;
+    vector<int>  pose;
+    float timestamp;    
+};
 
-    public:
-        void init();
-        void detect_skid();
-    };
-    
 
-    
+class SkidDetection 
+{
+private:
+    vector<STR_IMG> m_origin_img;
+    vector<STR_POSE> m_fusion_position;
+    bool m_flag;
+    cv::String m_folder = "/home/admins/slam/slam_data/aa"; 
+    cv::String m_pathPose = "/home/admins/slam/pose_fusion/fusionpose_file.csv";
+    std::vector<cv::String> filenames;
+    void load_img();
+    void load_pose();
+
+public:
+    void init();
+    void detect_skid();
+};    
     
 } 

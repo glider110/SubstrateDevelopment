@@ -45,6 +45,7 @@ int main(int argc, char **argv) {
     #else
     NS_SKIDDETECTION::SkidDetection detector;
     detector.init();
+    detector.detect_skid();
     #endif
 
 
