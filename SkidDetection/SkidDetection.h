@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-17 10:45:19
- * @LastEditTime: 2021-12-17 17:59:31
+ * @LastEditTime: 2021-12-22 13:35:08
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /SubstrateDevelopment/SkidDetection/SkidDetection.h
@@ -13,8 +13,7 @@
 #include  <vector>
 #include <fstream>
 #include <sstream>
-
-// #include  "./tool.cpp"
+#include  "./tool.h"
 
 #pragma comment(lib,"opencv_core2410.lib")
 #pragma comment(lib,"opencv_highgui2410.lib")
@@ -29,6 +28,12 @@ using namespace cv;
 
 namespace NS_SKIDDETECTION
 {
+struct STR_POSE_ 
+{
+    float x;
+    float y;
+    float yaw;
+};
 
 struct STR_IMG 
 {
@@ -38,8 +43,8 @@ struct STR_IMG
 
 struct STR_POSE 
 {
+    STR_POSE_  pose;
     int status;
-    vector<int>  pose;
     float timestamp;    
 };
 
@@ -51,7 +56,7 @@ private:
     vector<STR_POSE> m_fusion_position;
     bool m_flag;
     cv::String m_folder = "/home/admins/slam/slam_data/aa"; 
-    cv::String m_pathPose = "/home/admins/slam/pose_fusion/fusionpose_file.csv";
+    cv::String m_pathPose = "/home/admins/slam/pose_fusion/fusionpose_file1.csv";
     std::vector<cv::String> filenames;
     void load_img();
     void load_pose();

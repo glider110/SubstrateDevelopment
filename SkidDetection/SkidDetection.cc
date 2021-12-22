@@ -1,20 +1,4 @@
 #include "SkidDetection.h"
-void SplitString(const string& s, vector<string>& v, const string& c)
-{
-    string::size_type pos1, pos2;
-    pos2 = s.find(c);
-    pos1 = 0;
-    while(string::npos != pos2)
-    {
-        v.push_back(s.substr(pos1, pos2-pos1));
-         
-        pos1 = pos2 + c.size();
-        pos2 = s.find(c, pos1);
-    }
-    if(pos1 != s.length())
-        v.push_back(s.substr(pos1));
-}
-
 
 void NS_SKIDDETECTION::SkidDetection::init(/* args */)
 {
@@ -26,6 +10,10 @@ void NS_SKIDDETECTION::SkidDetection::init(/* args */)
 
 void NS_SKIDDETECTION::SkidDetection::detect_skid()
 {
+    cout <<"xxxx:"<< m_fusion_position[1].timestamp<< endl;
+    cout <<"xxxx:"<< m_fusion_position[1].pose.x << endl;
+    cout <<"xxxx:"<< m_fusion_position[1].pose.y << endl;
+    cout <<"xxxx:"<< m_fusion_position[1].pose.yaw << endl;
     //稠密光流
     while (1)
     { 
@@ -87,18 +75,31 @@ void NS_SKIDDETECTION::SkidDetection::load_pose()
 	ifstream inFile(m_pathPose, ios::in);
 	string lineStr;
 	vector<vector<string>> strArray;
-	while (getline(inFile, lineStr))
-	{
-		// 打印整行字符串
-		cout << lineStr << endl;
-		// 存成二维表结构
-		stringstream ss(lineStr);
-		string str;
-		vector<string> lineArray;
-		// 按照逗号分隔
-		while (getline(ss, str, ','))
-            cout <<"xxxx:"<<str << endl;
-			lineArray.push_back(str);   
-		strArray.push_back(lineArray);
-	}
+    ifstream fp(m_pathPose); //定义声明一个ifstream对象，指定文件路径
+    string line;
+    getline(fp,line); //跳过列名，第一行不做处理
+    while (getline(fp,line)){ //循环读取每行数据
+        STR_POSE_  temp_pose_;
+        STR_POSE     temp_pose;
+        vector<float> data_line;
+        string number;
+        istringstream readstr(line); //string数据流化
+        //将一行数据按'，'分割
+        for(int j = 0;j < 11;j++){ //可根据数据的实际情况取循环获取
+            getline(readstr,number,','); //循环读取数据
+            data_line.push_back(atof(number.c_str())); 
+        }
+        // cout <<"xxxx0:"<<data_line[0]<< endl;
+        // cout <<"xxxx1:"<<data_line[1]<< endl;
+        // cout <<"xxxx2:"<<data_line[2]<< endl;
+        temp_pose_.x = data_line[1];
+        temp_pose_.y = data_line[2];
+        temp_pose_.yaw = data_line[3];
+        temp_pose.pose = temp_pose_;
+        temp_pose.timestamp = data_line[0]; 
+        m_fusion_position.push_back(temp_pose);
+
+    }
+        cout <<"size:"<<m_fusion_position.size()<< endl;
+
 }
