@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-17 10:45:19
- * @LastEditTime: 2021-12-22 14:46:27
+ * @LastEditTime: 2021-12-24 10:53:36
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /SubstrateDevelopment/SkidDetection/SkidDetection.h
@@ -55,13 +55,18 @@ private:
     vector<STR_IMG> m_origin_img;
     vector<STR_POSE> m_fusion_position;
     bool m_flag;
-    cv::String m_folder = "/home/admins/slam/slam_data/frame"; 
-    cv::String m_pathPose = "/home/admins/slam/pose_fusion/fusionpose_file0.csv";
+    // cv::String m_folder = "/home/admins/slam/slam_data/frame"; 
+    // cv::String m_pathPose = "/home/admins/slam/pose_fusion/fusionpose_file0.csv";
+
+    cv::String m_folder = "/home/admins/opticl/12.24.4/frame"; 
+    cv::String m_pathPose = "/home/admins/opticl/12.24.4/pose_fusion/fusionpose_file.csv";
+
+
     std::vector<cv::String> filenames;
     void load_img();
     void load_pose();
 
-public:
+public: 
     void init();
     void detect_skid();
 };    

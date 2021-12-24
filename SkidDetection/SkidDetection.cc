@@ -44,16 +44,36 @@ void NS_SKIDDETECTION::SkidDetection::detect_skid()
                         }
                     }
                 }
-                cout <<"imag :"<<i<<"    时间戳:"<<m_origin_img[i].timestamp<< endl;
-                cout <<"pose :"<<j<<"    时间戳:"<<m_fusion_position[j].timestamp<< endl;
+                cout <<"imag :"<< i <<"    时间戳:" << m_origin_img[i].timestamp << endl;
+                cout <<"pose :"<< j <<"    时间戳:" << m_fusion_position[j].timestamp << endl;
                 float poseX = abs(m_fusion_position[j].pose.x-m_fusion_position[pre_pose_index].pose.x);
                 float poseY = abs(m_fusion_position[j].pose.y-m_fusion_position[pre_pose_index].pose.y);
                 float poseYAW = abs(m_fusion_position[j].pose.yaw-m_fusion_position[pre_pose_index].pose.yaw);
                 pre_pose_index=j;
+                float space_distance=sqrt(poseX*poseX+poseY*poseY);
+                float light_distance=sum_distance/num_count;
                 cout <<"pose diff X:" << poseX << endl;
-                cout <<"pose diff Y:"<<poseY << endl;
+                cout <<"pose diff Y:"<< poseY << endl;
                 cout <<"pose diff YAW:" << poseYAW << endl;
-                cout <<"distance:"<<sum_distance/num_count << endl;
+                cout <<"optical distance: "<< light_distance << endl;
+                cout <<" pose  distance: "<< space_distance << endl;
+                //逻辑判定（光流+融合姿态）
+                if (light_distance < 0.5 && space_distance > 10)
+                {
+                    cout <<"============>>>>打滑...."   << endl;
+                }
+                else if (light_distance < 0.5 && space_distance < 5)
+                {
+                    cout << "============>>>>静止...."   << endl; 
+                }
+                else if ((light_distance > 2 && space_distance < 2) ||poseYAW > 1)
+                {
+                    cout << "============>>>>旋转...."   << endl; 
+                }
+                else
+                {
+                    cout << "============>>>>正常...."   << endl; 
+                }
                 //复制原来的图片
                 imshow("稠密光流：", m_origin_img[i].imag);
                 waitKey(0);
@@ -92,7 +112,6 @@ void NS_SKIDDETECTION::SkidDetection::load_img()
 
 void NS_SKIDDETECTION::SkidDetection::load_pose()
 {
-    // 读文件
 	ifstream inFile(m_pathPose, ios::in);
 	string lineStr;
 	vector<vector<string>> strArray;
@@ -105,21 +124,16 @@ void NS_SKIDDETECTION::SkidDetection::load_pose()
         vector<float> data_line;
         string number;
         istringstream readstr(line); //string数据流化
-        //将一行数据按'，'分割
-        for(int j = 0;j < 11;j++){ //可根据数据的实际情况取循环获取
+        for(int j = 0;j < 11;j++){ 
             getline(readstr,number,','); //循环读取数据
             data_line.push_back(atof(number.c_str())); 
         }
-        // cout <<"xxxx0:"<<data_line[0]<< endl;
-        // cout <<"xxxx1:"<<data_line[1]<< endl;
-        // cout <<"xxxx2:"<<data_line[2]<< endl;
         temp_pose_.x = data_line[1];
         temp_pose_.y = data_line[2];
         temp_pose_.yaw = data_line[3];
         temp_pose.pose = temp_pose_;
         temp_pose.timestamp = data_line[0]; 
         m_fusion_position.push_back(temp_pose);
-
     }
 
 }
