@@ -68,25 +68,51 @@ void test2() {
 
 //智能指针 vs 普通指针 指针数组
 void test3() {
-    int a[] = {1, 2, 3};
-    int* b1 = new int(3);
-    int* b2 = new int[4];        //delete[] b2
-    int** bb=new int*[3];    //delete[][] bb        由于c++ 版本没有升级到11标准，不支持语法：int[][] states = new int[n][w];
-    std::shared_ptr<int> ptr1;
-    ptr1=std::shared_ptr<int>(new(int));   
-    std::shared_ptr<int> ptra = std::make_shared<int>(a);   //类的指针初始化一定要注意
-    *ptr1=1;
+    // int a[] = {1, 2, 3};
+    // int* b1 = new int(3);
+    // int* b2 = new int[4];        //delete[] b2
+    // int** bb=new int*[3];    //delete[][] bb        由于c++ 版本没有升级到11标准，不支持语法：int[][] states = new int[n][w];
+    // std::shared_ptr<int> ptr1;
+    // ptr1=std::shared_ptr<int>(new(int));   
+    // std::shared_ptr<int> ptra = std::make_shared<int>(a);   //类的指针初始化一定要注意
+    // *ptr1=1;
+    int a = 10;
+    std::shared_ptr<int> ptra = std::make_shared<int>(a);
+    std::shared_ptr<int> ptra2(ptra); //copy
+    std::shared_ptr<int> ptra3(new int(a));
+    std::shared_ptr<int> ptra4;
+    ptra4 = ptra3;
+    std::shared_ptr<int> ptra5 = std::make_shared<int>(1);
+    std::shared_ptr<int> ptra6 = nullptr;
+    // std::shared_ptr<int> ptra3 = new int(a);    //这种写法不对   对象和指针的区别
+    std::cout << ptra.use_count() << " "<< ptra<<std::endl;
+    std::cout << ptra2.use_count() << " "<< ptra2<<std::endl;
+    std::cout << ptra3.use_count() << " "<< ptra3<<std::endl;
+    std::cout << ptra4.use_count() << " "<< ptra4<<std::endl;
+    std::cout << ptra5.use_count() << " "<< ptra5<<std::endl;
+    std::cout << ptra6.use_count() << " "<< ptra6<<std::endl;
+    int b = 20;
+    int *pb = &a;
+    // std::shared_ptr<int> ptrb = pb;  //error
+    std::shared_ptr<int> ptrb = std::make_shared<int>(b);
+    std::cout << ptrb.use_count() << " "<< ptrb<<std::endl;
+    ptra2 = ptrb; //assign
+    pb = ptrb.get(); //提供直接访问其原始指针的方法，用于向下兼容。
+    std::cout << ptrb.use_count() << " "<< ptrb<<std::endl;
+    std::cout << pb<<std::endl;
 
+    // std::cout << ptra.use_count() << std::endl;
+    // std::cout << ptrb.use_count() << std::endl;
 }
 
 int main(int argc, char **argv) {
 
     // test1(argc, argv);
 
-    test2();
+    test3();
 
-    NS_CLASS_STYLE::demo_programmingtips aa(3);
-    aa.set();
+    // NS_CLASS_STYLE::demo_programmingtips aa(3);
+    // aa.set();
 
     return 0;
 }

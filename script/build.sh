@@ -39,7 +39,7 @@ mkdir -p $BUILD_DIR\
   && cd $BUILD_DIR \
   && cmake  ..
   make
-  cd   ${RUN_DIR}&& ./test_main
+  cd   ${RUN_DIR}&& ./programmingtips
 fi
 
 echo "#######################编译结束！###################"

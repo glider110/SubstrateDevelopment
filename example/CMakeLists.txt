@@ -15,7 +15,7 @@ find_package( OpenCV REQUIRED )
 # add_executable(chapter2  assignments_chapter2.cpp)
 
 
-# add_executable(programmingtips demo_programmingtips.cpp)
+add_executable(programmingtips demo_programmingtips.cpp)
 
 
 # add_executable(registration  demo_registration.cpp)
@@ -26,7 +26,7 @@ find_package( OpenCV REQUIRED )
 # target_link_libraries(opticlflow  	${OpenCV_LIBS} )
 
 #点云配准模块
-aux_source_directory(../tofLocation var_toflocation)
-aux_source_directory(../SkidDetection var_SkidDetection)
-add_executable(test_main  test_main.cpp  ${var_SkidDetection})
-target_link_libraries(test_main  	${OpenCV_LIBS} ${PCL_LIBRARIES})
+# aux_source_directory(../tofLocation var_toflocation)
+# aux_source_directory(../SkidDetection var_SkidDetection)
+# add_executable(test_main  test_main.cpp  ${var_SkidDetection})
+# target_link_libraries(test_main  	${OpenCV_LIBS} ${PCL_LIBRARIES})

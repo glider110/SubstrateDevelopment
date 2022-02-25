@@ -44,16 +44,16 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/cat/)
 
 #############################生成编译文件#################################
 ####动静态库
-add_library( person SHARED  src/person.cpp)
+# add_library( person SHARED  src/person.cpp)
 # # add_library(cat cat/cat.cpp)
-add_subdirectory(cat )  
+# add_subdirectory(cat )  
 add_subdirectory(example)  
 
 ####可执行文件
 ##1.纯源码
 # add_executable(main  ${CXX_SRCS}  )
 ##1.链接动态库
-add_executable(main main.cpp  )
+# add_executable(main main.cpp  )
 # target_link_libraries(main cat person 	${OpenCV_LIBS} ${PCL_LIBRARIES} )#有没有后缀是
-target_link_libraries(main cat person  )#有没有后缀是
+# target_link_libraries(main cat person  )#有没有后缀是
 #############################安装位置#################################
