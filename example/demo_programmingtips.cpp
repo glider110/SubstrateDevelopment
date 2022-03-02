@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <memory>
+#include <string.h>
 
 using namespace std;
 namespace NS_CLASS_STYLE {
@@ -84,6 +85,8 @@ void test3() {
     ptra4 = ptra3;
     std::shared_ptr<int> ptra5 = std::make_shared<int>(1);
     std::shared_ptr<int> ptra6 = nullptr;
+    std::shared_ptr<int> ptra7 = std::make_shared<int>();
+
     // std::shared_ptr<int> ptra3 = new int(a);    //这种写法不对   对象和指针的区别
     std::cout << ptra.use_count() << " "<< ptra<<std::endl;
     std::cout << ptra2.use_count() << " "<< ptra2<<std::endl;
@@ -91,6 +94,10 @@ void test3() {
     std::cout << ptra4.use_count() << " "<< ptra4<<std::endl;
     std::cout << ptra5.use_count() << " "<< ptra5<<std::endl;
     std::cout << ptra6.use_count() << " "<< ptra6<<std::endl;
+    std::cout << ptra7.use_count() << " "<< ptra7<<std::endl;
+    int aa = *ptra7;
+      std::cout  << " xxxxx "<< *ptra5<<std::endl;
+      std::cout  << " xxxxx "<< *ptra7<<std::endl;
     int b = 20;
     int *pb = &a;
     // std::shared_ptr<int> ptrb = pb;  //error
@@ -100,16 +107,34 @@ void test3() {
     pb = ptrb.get(); //提供直接访问其原始指针的方法，用于向下兼容。
     std::cout << ptrb.use_count() << " "<< ptrb<<std::endl;
     std::cout << pb<<std::endl;
-
     // std::cout << ptra.use_count() << std::endl;
     // std::cout << ptrb.use_count() << std::endl;
+}
+
+//数组练习 数组赋值另外数组
+void test4()
+{
+    std::cout  << "oooooooooooooooooooooooooooooooooooooo"<<std::endl;
+    int aa[3] = {1, 3,4};
+    // int bb[3];
+    int* bb = new int[3];
+    // bb = aa;
+    memcpy(bb ,aa, 12);
+    std::cout  << " xxxxx "<< aa <<std::endl;
+    std::cout  << " xxxxx "<< bb <<std::endl;
+    std::cout  << " xxxxx "<< &aa <<std::endl;
+    std::cout  << " xxxxx "<< &aa[0] <<std::endl;
+    std::cout  << " xxxxx "<< bb[0] <<std::endl;
+    std::cout  << " xxxxx "<< bb[1] <<std::endl;
+    std::cout  << " xxxxx "<< bb[2] <<std::endl;
+    std::cout  << " xxxxx "<<sizeof(aa)/sizeof(int) <<std::endl;
 }
 
 int main(int argc, char **argv) {
 
     // test1(argc, argv);
 
-    test3();
+    test4();
 
     // NS_CLASS_STYLE::demo_programmingtips aa(3);
     // aa.set();
