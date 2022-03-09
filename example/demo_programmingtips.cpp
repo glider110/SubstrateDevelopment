@@ -2,6 +2,8 @@
 #include <map>
 #include <memory>
 #include <string.h>
+#include <vector>
+#include <map>
 
 using namespace std;
 namespace NS_CLASS_STYLE {
@@ -130,11 +132,68 @@ void test4()
     std::cout  << " xxxxx "<<sizeof(aa)/sizeof(int) <<std::endl;
 }
 
+//c++11 特性
+void test5()
+{
+//关键字:typedef typename decltype 
+//               break continue return
+//               override   final
+//容器: tuple tie map
+
+    typedef  vector<int ,string>  glider;
+    struct 
+    {
+        int id;
+        string name;
+    }demo_programmingtips;
+    
+    enum week
+    {
+        AA,
+        BB,
+        CC,
+        // DD;     不是冒号
+    };
+    typedef struct student1
+    {
+        int AA;
+        string name;
+    };
+
+}
+
+/*预编译:
+**1.头文件嵌入
+**2.编译宏定义
+**3.代码块控制
+*/
+ void  test6()
+ {
+//预处理关键字
+    #ifndef    guo
+    #define  guo
+    #endif
+
+    #ifdef  guo   //参考map头文件
+    #endif
+
+    #if  1
+    #elif
+    #else 
+    #endif
+// CMake option选项开关
+    #ifdef TEST_DEBUG
+    #endif
+
+    #pragma once
+
+ }
+
 int main(int argc, char **argv) {
 
     // test1(argc, argv);
 
-    test4();
+    test5();
 
     // NS_CLASS_STYLE::demo_programmingtips aa(3);
     // aa.set();
