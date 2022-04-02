@@ -11,6 +11,7 @@
                 "/usr/include/**",
                 "/usr/include/eigen3",
                 "${workspaceFolder}/tofLocation",
+                "${workspaceFolder}/design_patterns",
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

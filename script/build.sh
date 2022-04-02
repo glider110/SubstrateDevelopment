@@ -19,8 +19,6 @@ BUILD_TYPE=${BUILD_TYPE:-release}
 INSTALL_DIR=${INSTALL_DIR:-../${BUILD_TYPE}-install}
 BUILD_NO_EXAMPLES=${BUILD_NO_EXAMPLES:-0}
 
-
-
 USING_ROS=0
 
 if [ -d "$PROJECTPATH/build/" ];then
@@ -32,15 +30,16 @@ fi
 echo ${INSTALL_DIR}
 echo ${SOURCE_DIR}
 
-
+echo "#######################开始编译......###################"
 if [ "$USING_ROS" = 0 ]
 then
 mkdir -p $BUILD_DIR\
   && cd $BUILD_DIR \
   && cmake  ..
   make
+  echo "#######################编译结束！###################"
 #   cd   ${RUN_DIR}&& ./demo_thread  
-  cd   ${RUN_DIR}&& ./programmingtips  
+  cd   ${RUN_DIR}&& ./main_designPatterns  
 fi
 
-echo "#######################编译结束！###################"
+echo "#######################运行结束！###################"

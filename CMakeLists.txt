@@ -47,7 +47,8 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/cat/)
 # add_library( person SHARED  src/person.cpp)
 # # add_library(cat cat/cat.cpp)
 # add_subdirectory(cat )  
-add_subdirectory(example)  
+# add_subdirectory(example)  
+add_subdirectory(design_patterns)
 
 ####可执行文件
 ##1.纯源码
