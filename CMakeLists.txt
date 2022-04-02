@@ -54,6 +54,6 @@ add_subdirectory(example)
 # add_executable(main  ${CXX_SRCS}  )
 ##1.链接动态库
 # add_executable(main main.cpp  )
-# target_link_libraries(main cat person 	${OpenCV_LIBS} ${PCL_LIBRARIES} )#有没有后缀是
-# target_link_libraries(main cat person  )#有没有后缀是
+# target_link_libraries(main cat person 	${OpenCV_LIBS} ${PCL_LIBRARIES} )
+# target_link_libraries(main cat person  )
 #############################安装位置#################################

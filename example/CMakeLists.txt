@@ -16,7 +16,7 @@ find_package( OpenCV REQUIRED )
 
 
 add_executable(programmingtips demo_programmingtips.cpp)
-
+# add_executable(demo_thread demo_thread.cpp)
 
 # add_executable(registration  demo_registration.cpp)
 # target_link_libraries(registration   ${PCL_LIBRARIES} )#有没有后缀是
