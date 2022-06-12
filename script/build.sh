@@ -38,8 +38,9 @@ mkdir -p $BUILD_DIR\
   && cmake  ..
   make
   echo "#######################编译结束！###################"
-#   cd   ${RUN_DIR}&& ./demo_thread  
-  cd   ${RUN_DIR}&& ./main_designPatterns  
+  cd   ${RUN_DIR}&& ./demo_data_structure  
+#   cd   ${RUN_DIR}&& ./carto_test  
+#   cd   ${RUN_DIR}&& ./lider_trans  
 fi
 
 echo "#######################运行结束！###################"

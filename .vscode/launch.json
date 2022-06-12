@@ -7,7 +7,7 @@
                     "name": "(gdb) 启动",
                     "type": "cppdbg",
                     "request": "launch",
-                    "program": "${workspaceFolder}/Release/bin/tofregistration",   //修改
+                    "program": "${workspaceFolder}/Release/bin/structured.binding",   //修改
                     // "program": "${workspaceFolder}/main",   //修改
                     "args": [],
                     "stopAtEntry": true,
@@ -22,7 +22,7 @@
                                     "ignoreFailures": true
                             } 
                     ],
-                    // "preLaunchTask": "build" //可以新增一条           调试前重新编译 建议开启 
+                    "preLaunchTask": "build" //可以新增一条           调试前重新编译 建议开启 
             }
     ]
 }

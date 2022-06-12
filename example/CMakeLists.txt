@@ -6,16 +6,16 @@ add_definitions(${PCL_DEFINITIONS})
 # OpenCV
 find_package( OpenCV REQUIRED )  
 
-# add_executable(demo_data_structure  demo_data_structure.cpp)
-# target_link_libraries(demo_data_structure  	${OpenCV_LIBS} ${PCL_LIBRARIES})#有没有后缀是
+add_executable(demo_data_structure  demo_data_structure.cpp)
+target_link_libraries(demo_data_structure  	${OpenCV_LIBS} ${PCL_LIBRARIES})#有没有后缀是
 
 # add_executable(chapter1  assignments_chapter1.cpp)
 # target_link_libraries(chapter1   ${PCL_LIBRARIES} )#有没有后缀是
 
 # add_executable(chapter2  assignments_chapter2.cpp)
 
-
-add_executable(programmingtips demo_programmingtips.cpp)
+#新特性测试
+# add_executable(programmingtips demo_programmingtips.cpp)
 # add_executable(demo_thread demo_thread.cpp)
 
 # add_executable(registration  demo_registration.cpp)
@@ -30,3 +30,13 @@ add_executable(programmingtips demo_programmingtips.cpp)
 # aux_source_directory(../SkidDetection var_SkidDetection)
 # add_executable(test_main  test_main.cpp  ${var_SkidDetection})
 # target_link_libraries(test_main  	${OpenCV_LIBS} ${PCL_LIBRARIES})
+
+
+
+#激光雷达坐标变换
+# add_executable(lider_trans  lider_trans.cpp)
+# target_link_libraries(lider_trans  	)#有没有后缀是
+
+# carto代码编程技巧
+# add_executable(carto_test  carto_test.cpp)
+# target_link_libraries(carto_test  	)#有没有后缀是

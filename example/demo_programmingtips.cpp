@@ -6,6 +6,8 @@
 #include <map>
 #include <tuple>
 #include  <functional>
+#include  <thread>
+ #include <unistd.h>
 
 using namespace std;
 
@@ -16,7 +18,7 @@ namespace NS_CLASS_STYLE {
      public:
         int m_a;
 
-        void init();                 //初始化输入
+        void init();                 //初始化输入     一些动词:add set get input updata 
         void set();                  //设置参数
         void output();               //类输出
         demo_programmingtips(int a); //构造输入
@@ -325,31 +327,48 @@ void test12(void)
 }
 
 /*const
-**修饰常量 修饰函数参数 修饰返回值 修饰函数
-**
+**修饰常量 
+**修饰函数参数 修饰函数返回值 修饰函数
+**修饰成员函数    成员变量不能被修改 即修饰this指针
 */
 int& func(); //函数声明
 const int& func1(); //函数声明
 const int func2(); //函数声明
 // void test13(void)  const  自能修饰成员函数
-void test13(void)  
-{
-    int b = func();                                    
-    int b1 = func1();                                    
-    int b2 = func2();                                    
+// void test13(void)  
+// {
+//     int b = func();                                    
+//     int b1 = func1();                                    
+//     int b2 = func2();                                    
 
-    int& c = func();                          
-    // int& c1 = func1();                          
-    int& c2 = const_cast<int&>(func1());         
-    const int& c3 = func();                        //正确
-    // int& c4 = func2();                          
+//     int& c = func();                          
+//     // int& c1 = func1();                          
+//     int& c2 = const_cast<int&>(func1());         
+//     const int& c3 = func();                        //正确
+//     // int& c4 = func2();                          
+// }
+
+
+//指针 线程 绑定器 lamda表达式 嵌套使用
+void test14(void)
+{
+    auto print = [](){printf("hello world!");};
+    // print();
+    function<void(void)> print1_fuction(print);
+    print1_fuction();
+    auto print_bind = bind(print);
+    bind(print)();
+    std::shared_ptr<thread> a_ptr(make_shared<thread>(print));
+    a_ptr->detach();
+    // this_thread::sleep_for(chrono::seconds(2));
+    sleep(0.001);
 }
 
 
 int main(int argc, char **argv) {
 
+    test14();
     // test1(argc, argv);
-    test13();
     // NS_CLASS_STYLE::demo_programmingtips aa(3);
     // aa.set();
     return 0;

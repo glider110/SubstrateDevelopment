@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(baseproject)
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W  -std=c++14 -pthread ")    #gdb调试时候是需要这句 -g
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W  -g -std=c++14 -pthread ")    #gdb调试时候是需要这句 -g
 set(CMAKE_BUILD_TYPE "Release")
 #############################预先设置################################
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/Release/lib) 
@@ -47,8 +47,9 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/cat/)
 # add_library( person SHARED  src/person.cpp)
 # # add_library(cat cat/cat.cpp)
 # add_subdirectory(cat )  
-# add_subdirectory(example)  
-add_subdirectory(design_patterns)
+add_subdirectory(example)  
+# add_subdirectory(modern-cpp)  
+# add_subdirectory(design_patterns)
 
 ####可执行文件
 ##1.纯源码
