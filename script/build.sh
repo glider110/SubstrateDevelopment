@@ -2,8 +2,8 @@
 ###
  # @Author: your name
  # @Date: 2021-09-30 14:32:05
- # @LastEditTime: 2021-12-17 13:45:32
- # @LastEditors: Please set LastEditors
+ # @LastEditTime: 2022-06-13 10:32:13
+ # @LastEditors: 郭小凡 glider.guo@ankobot.com
  # @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  # @FilePath: /SubstrateDevelopment/script/build.sh
 ### 
@@ -38,8 +38,8 @@ mkdir -p $BUILD_DIR\
   && cmake  ..
   make
   echo "#######################编译结束！###################"
-  cd   ${RUN_DIR}&& ./demo_data_structure  
-#   cd   ${RUN_DIR}&& ./carto_test  
+#   cd   ${RUN_DIR}&& ./demo_data_structure  
+  cd   ${RUN_DIR}&& ./carto_test  
 #   cd   ${RUN_DIR}&& ./lider_trans  
 fi
 

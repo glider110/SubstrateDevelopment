@@ -6,8 +6,8 @@ add_definitions(${PCL_DEFINITIONS})
 # OpenCV
 find_package( OpenCV REQUIRED )  
 
-add_executable(demo_data_structure  demo_data_structure.cpp)
-target_link_libraries(demo_data_structure  	${OpenCV_LIBS} ${PCL_LIBRARIES})#有没有后缀是
+# add_executable(demo_data_structure  demo_data_structure.cpp)
+# target_link_libraries(demo_data_structure  	${OpenCV_LIBS} ${PCL_LIBRARIES})#有没有后缀是
 
 # add_executable(chapter1  assignments_chapter1.cpp)
 # target_link_libraries(chapter1   ${PCL_LIBRARIES} )#有没有后缀是
@@ -38,5 +38,5 @@ target_link_libraries(demo_data_structure  	${OpenCV_LIBS} ${PCL_LIBRARIES})#有
 # target_link_libraries(lider_trans  	)#有没有后缀是
 
 # carto代码编程技巧
-# add_executable(carto_test  carto_test.cpp)
-# target_link_libraries(carto_test  	)#有没有后缀是
+add_executable(carto_test  carto_test.cpp)
+target_link_libraries(carto_test  	)#有没有后缀是

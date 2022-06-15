@@ -18,9 +18,9 @@ namespace NS_CLASS_STYLE {
      public:
         int m_a;
 
-        void init();                 //初始化输入     一些动词:add set get input updata 
-        void set();                  //设置参数
-        void output();               //类输出
+        void init();                          //初始化输入     一些动词:add set get input updata 
+        void set();                          //设置参数
+        void output();                  //类输出
         demo_programmingtips(int a); //构造输入
         ~demo_programmingtips();
 
