@@ -1,13 +1,10 @@
 /*
- * @Description: 
- */
-/*
  * @Author: 郭小凡 glider.guo@ankobot.com
  * @Date: 2022-06-10 11:03:44
  * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-06-15 18:35:12
+ * @LastEditTime: 2022-06-16 09:56:42
  * @FilePath: /SubstrateDevelopment/example/carto_test.cpp
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 
  */
 
 #include <iostream>
@@ -26,21 +23,7 @@
 #include<algorithm>
 
 using namespace std;
-/**
- * @Funticon name: Please write your function name here
- * @Berif: Briefly describe the function of your function
- * @Author: Krone
- * @Data: Do not edit
- * @Note: Need note condition
- * @result: 
- * @Test_result: Function self test result ok or fault
- */
 
-/**
- * @Berif: Briefly describe the function of your function
- * @Note: Need note condition
- * @result: 
- */
 class carto_test
 {
 private:
@@ -59,10 +42,6 @@ carto_test::carto_test(/* args */)
 carto_test::~carto_test()
 {
 }
-
-
-
-
 
 /**
  * @brief: Briefly describe the function of your function
@@ -85,6 +64,9 @@ void test510()
 
     ::map<int ,string> b = {{1,"guo"}};  //under_map?
     // ::map<int ,string> b ({{1,"guo"}});  //under_map?
+    std::map<int,string>  m_map;
+    m_map.emplace(22,"guo");
+    m_map.find(22);
     b={a};
     int c = b.begin()->first;
 
@@ -99,10 +81,7 @@ void test510()
     std::shared_ptr<int> a_ptr;
     a_ptr = make_shared<int>(10);
 
-    /**
-     * @description: 
-     * @return {*}
-     */
+
     std::thread handle;
     handle =std::thread([](){printf("hello world!");});
     // handle = std::thread(guo);
@@ -167,6 +146,12 @@ void test615(){
     }
 }
 
+void test706(){
+    int a;
+    auto *b;
+    
+
+}
 
 
 int main(int argc, char **argv) {
