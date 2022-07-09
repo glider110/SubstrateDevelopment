@@ -2,7 +2,7 @@
  * @Author: 郭小凡 glider.guo@ankobot.com
  * @Date: 2022-07-06 16:36:17
  * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-07-06 18:46:34
+ * @LastEditTime: 2022-07-08 16:23:24
  * @FilePath: /SubstrateDevelopment/carto_demo/glog_test.cpp
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -47,19 +47,16 @@ int main(int argc, char** argv){
 
     FLAGS_alsologtostderr = true; //除了日志文件之外是否需要标准输出
 
-    // google::InitGoogleLogging("test_2022");//初始化
 
 
-
-    LOG(INFO) << "info test";  //输出一个Info日志
 
 
     //有条件地中止程序
-    //    int a1 = 5;
-    //    CHECK(a1 == 4) << "a1 != 4,fail!"; //a1 != 4的时候输出后面的打印，然后中止程序退出
+    int a1 = 5;
+    // CHECK(a1 == 4) << "a1 != 4,fail!"; //a1 != 4的时候输出后面的打印，然后中止程序退出
 
     int a2 = 3;
-    int a3 = 3;
+    int a3 = 4;
     CHECK_EQ(a2,a3)<<"---==";//a2==a3的时候才继续运行  当a2！=a3的时候输出后面的打印退出中止运行
 
 

@@ -59,4 +59,23 @@ add_subdirectory(carto)
 # add_executable(main main.cpp  )
 # target_link_libraries(main cat person 	${OpenCV_LIBS} ${PCL_LIBRARIES} )
 # target_link_libraries(main cat person  )
+#############################gtest单元测试#################################
+
+##--------------------- Include directories --------------------------------##
+include_directories(gtest)
+##--------------------- Build target ---------------------------------------##      
+# add_subdirectory(gtest)    #先依赖单元测试模块的库(先编译库)
+# option(CMAKE_TEMPLATE_ENABLE_TEST "Whether to enable unit tests" ON)
+# if (CMAKE_TEMPLATE_ENABLE_TEST)
+#     message(STATUS "Unit tests enabled")
+#     enable_testing()
+#     add_subdirectory(third_party/googletest-release-1.10.0 EXCLUDE_FROM_ALL)
+#     include_directories(third_party/googletest-release-1.10.0/googletest/include)
+
+#     add_executable(test_fixed_ratio gtest/fixed_ratio_sampler_test.cc)
+#     target_link_libraries(test_fixed_ratio fixed_ratio gtest gtest_main)     #依赖动态库
+#     add_test(NAME test_fixed_ratio COMMAND test_fixed_ratio)
+
+# endif()
+
 #############################安装位置#################################

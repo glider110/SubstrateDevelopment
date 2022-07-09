@@ -2,7 +2,7 @@
  * @Author: 郭小凡 glider.guo@ankobot.com
  * @Date: 2022-06-10 11:03:44
  * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-06-16 09:56:42
+ * @LastEditTime: 2022-07-06 18:59:00
  * @FilePath: /SubstrateDevelopment/example/carto_test.cpp
  * @Description: 
  */
@@ -145,7 +145,10 @@ void test615(){
         else a.erase(it);
     }
 }
-
+/**
+ * @brief: Briefly describe the function of your function
+ * @result: 
+ */
 void test706(){
     int a;
     auto *b;
