@@ -49,6 +49,7 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/cat/)
 # add_subdirectory(cat )  
 # add_subdirectory(example)  
 add_subdirectory(carto)  
+add_subdirectory(utils)  
 # add_subdirectory(modern-cpp)  
 # add_subdirectory(design_patterns)
 

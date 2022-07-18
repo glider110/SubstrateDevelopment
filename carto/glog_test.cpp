@@ -2,14 +2,16 @@
  * @Author: 郭小凡 glider.guo@ankobot.com
  * @Date: 2022-07-06 16:36:17
  * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-07-08 16:23:24
- * @FilePath: /SubstrateDevelopment/carto_demo/glog_test.cpp
+ * @LastEditTime: 2022-07-13 16:45:42
+ * @FilePath: /SubstrateDevelopment/carto/glog_test.cpp
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
+
 #include <string>
 #include <iostream>
-#include "glog/logging.h"   // glog 头文件
+#include "glog/logging.h"   // glog 头文件 
 #include "glog/raw_logging.h"
+#include  "../utils/time.h"
 
 int main(int argc, char** argv){
     // FLAGS_log_dir = "/home/admins/桌面/github/SubstrateDevelopment/data/log";
@@ -44,19 +46,14 @@ int main(int argc, char** argv){
     // DLOG_EVERY_N(INFO, 10) << "log i = " << i;
     RAW_LOG(INFO, "it is pthread log");
     //    FLAGS_logtostderr = 1; // 将使日志信息记录到stderr而不保存到本地日志文件中，即使你设置了FLAGS_log_dir;
-
     FLAGS_alsologtostderr = true; //除了日志文件之外是否需要标准输出
-
-
-
-
 
     //有条件地中止程序
     int a1 = 5;
     // CHECK(a1 == 4) << "a1 != 4,fail!"; //a1 != 4的时候输出后面的打印，然后中止程序退出
 
     int a2 = 3;
-    int a3 = 4;
+    int a3 = 3;
     CHECK_EQ(a2,a3)<<"---==";//a2==a3的时候才继续运行  当a2！=a3的时候输出后面的打印退出中止运行
 
 
@@ -65,8 +62,19 @@ int main(int argc, char** argv){
     LOG(ERROR) << "error test";  //输出一个Error日志
     //    LOG(FATAL) << "fatal test";  //输出一个Fatal日志，这是最严重的日志并且输出之后会中止程序
 
-    std::cout<<"-------end-----"<<std::endl;
+
+    
+    
+    LOG(WARNING)<< slam::common::GetCurrentTime();
+    LOG(WARNING)<< slam::common::ToUniversal(slam::common::GetCurrentTime());
+    sleep(0.1);
+    LOG(WARNING)<< slam::common::GetCurrentTime();
+    LOG(WARNING)<< slam::common::ToUniversal(slam::common::GetCurrentTime());
+    LOG(WARNING)<<slam::common::GetCurrentDate();
 
     google::ShutdownGoogleLogging();
+
+
+    std::cout<<"-------end-----"<<std::endl;
     return 0;
 }

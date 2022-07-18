@@ -8,5 +8,5 @@ SET(CMAKE_BUILD_TYPE Debug)
 # link_directories(/data_2/lib/glog/lib)
 
 add_executable(glog_test glog_test.cpp)
-target_link_libraries(glog_test glog)
+target_link_libraries(glog_test glog utils)
 # set_property(TARGET main PROPERTY CXX_STANDARD 11)
