@@ -16,7 +16,7 @@ find_package( OpenCV REQUIRED )
 
 #新特性测试
 # add_executable(programmingtips demo_programmingtips.cpp)
-# add_executable(demo_thread demo_thread.cpp)
+add_executable(demo_thread demo_thread.cpp)
 
 # add_executable(registration  demo_registration.cpp)
 # target_link_libraries(registration   ${PCL_LIBRARIES} )#有没有后缀是
@@ -38,5 +38,5 @@ find_package( OpenCV REQUIRED )
 # target_link_libraries(lider_trans  	)#有没有后缀是
 
 # carto代码编程技巧
-add_executable(carto_test  carto_test.cpp)
-target_link_libraries(carto_test  	)#有没有后缀是
+# add_executable(carto_test  carto_test.cpp)
+# target_link_libraries(carto_test  	)#有没有后缀是

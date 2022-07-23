@@ -2,7 +2,7 @@
  * @Author: 郭小凡 glider.guo@ankobot.com
  * @Date: 2022-07-06 16:36:17
  * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-07-13 16:45:42
+ * @LastEditTime: 2022-07-21 10:13:19
  * @FilePath: /SubstrateDevelopment/carto/glog_test.cpp
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -17,7 +17,7 @@ int main(int argc, char** argv){
     // FLAGS_log_dir = "/home/admins/桌面/github/SubstrateDevelopment/data/log";
     google::InitGoogleLogging(argv[0]);
     google::SetLogDestination(google::GLOG_INFO, "/home/admins/桌面/github/SubstrateDevelopment/data/log/");
-    google::SetStderrLogging(google::GLOG_INFO);
+    // google::SetStderrLogging(google::GLOG_INFO);
     google::SetLogFilenameExtension("glider_log_");
     // FLAGS_logtostderr = true;  //设置日志消息是否转到标准输出而不是日志文件
     // FLAGS_alsologtostderr = true;  //设置日志消息除了日志文件之外是否去标准输出

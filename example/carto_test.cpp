@@ -2,7 +2,7 @@
  * @Author: 郭小凡 glider.guo@ankobot.com
  * @Date: 2022-06-10 11:03:44
  * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-07-06 18:59:00
+ * @LastEditTime: 2022-07-18 14:46:04
  * @FilePath: /SubstrateDevelopment/example/carto_test.cpp
  * @Description: 
  */
@@ -120,7 +120,7 @@ void test_cast(){
 }
 
 //模板类
-// template<typename type>
+// template<static_casttypename type>
 
 namespace NS_CALLBACK
 {
