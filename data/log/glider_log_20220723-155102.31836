@@ -1,0 +1,19 @@
+Log file created at: 2022/07/23 15:51:02
+Running on machine: glider
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0723 15:51:02.543958 31836 glog_test.cpp:34] it is info
+I0723 15:51:02.544095 31836 glog_test.cpp:36] number <  10
+I0723 15:51:02.544100 31836 glog_test.cpp:38] log i = 0
+I0723 15:51:02.544104 31836 glog_test.cpp:38] log i = 5
+I0723 15:51:02.544107 31836 glog_test.cpp:38] log i = 10
+I0723 15:51:02.544111 31836 glog_test.cpp:38] log i = 15
+W0723 15:51:02.544113 31836 glog_test.cpp:41] It is error info
+E0723 15:51:02.544191 31836 glog_test.cpp:42] It is error info
+I0723 15:51:02.544267 31836 glog_test.cpp:44] it is debug mode
+W0723 15:51:02.544272 31836 glog_test.cpp:61] warning test
+E0723 15:51:02.544282 31836 glog_test.cpp:62] error test
+W0723 15:51:02.544294 31836 glog_test.cpp:68] 19665787582538
+W0723 15:51:02.544310 31836 glog_test.cpp:69] 19665787582674
+W0723 15:51:02.544373 31836 glog_test.cpp:71] 19665787583304
+W0723 15:51:02.544384 31836 glog_test.cpp:72] 19665787583403
+W0723 15:51:02.544391 31836 glog_test.cpp:73] 202272315512

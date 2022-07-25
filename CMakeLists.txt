@@ -1,9 +1,11 @@
-
+#############################通用设置################################
 cmake_minimum_required(VERSION 2.8)
 project(baseproject)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W  -g -std=c++14 -pthread ")    #gdb调试时候是需要这句 -g
 set(CMAKE_BUILD_TYPE "Debug")
+
+
 #############################预先设置################################
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/Release/lib) 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/Release/bin) 
@@ -38,17 +40,14 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/cat/)
 # find_package( OpenCV REQUIRED )  
 
 
-
-
-
-
 #############################生成编译文件#################################
 ####动静态库
 # add_library( person SHARED  src/person.cpp)
 # # add_library(cat cat/cat.cpp)
 # add_subdirectory(cat )  
-# add_subdirectory(example)  
-add_subdirectory(carto)  
+add_subdirectory(example)  
+# add_subdirectory(carto)  
+# add_subdirectory(icp)  
 # add_subdirectory(utils)  
 # add_subdirectory(modern-cpp)  
 # add_subdirectory(design_patterns)
@@ -60,11 +59,12 @@ add_subdirectory(carto)
 # add_executable(main main.cpp  )
 # target_link_libraries(main cat person 	${OpenCV_LIBS} ${PCL_LIBRARIES} )
 # target_link_libraries(main cat person  )
-#############################gtest单元测试#################################
 
-##--------------------- Include directories --------------------------------##
+
+#############################gtest单元测试#################################
+##-------- Include directories----------##
 include_directories(gtest)
-##--------------------- Build target ---------------------------------------##      
+##---------Build target-------------------##      
 # add_subdirectory(gtest)    #先依赖单元测试模块的库(先编译库)
 # option(CMAKE_TEMPLATE_ENABLE_TEST "Whether to enable unit tests" ON)
 # if (CMAKE_TEMPLATE_ENABLE_TEST)
@@ -79,4 +79,6 @@ include_directories(gtest)
 
 # endif()
 
+
 #############################安装位置#################################
+# install(TARGETS ${PROJECT_NAME}        RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/Release)   #执行 make  install(在发布版本时候用)

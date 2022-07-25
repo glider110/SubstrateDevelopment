@@ -2,7 +2,7 @@
  * @Author: 郭小凡 glider.guo@ankobot.com
  * @Date: 2022-07-06 16:36:17
  * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-07-21 10:13:19
+ * @LastEditTime: 2022-07-25 10:20:35
  * @FilePath: /SubstrateDevelopment/carto/glog_test.cpp
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,6 +12,40 @@
 #include "glog/logging.h"   // glog 头文件 
 #include "glog/raw_logging.h"
 #include  "../utils/time.h"
+using namespace std;
+
+inline static uint64_t getSystemTimestampUS()
+{
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (uint64_t)(ts.tv_sec * 1e6 + ts.tv_nsec * 0.001);
+}
+
+void test_chrono()
+{
+    // 获取当前系统时间点
+    //方法(一)
+    std::chrono::system_clock::time_point t = std::chrono::system_clock::now();
+    std::time_t c = std::chrono::system_clock::to_time_t(t);
+    sleep(1);
+    std::chrono::system_clock::time_point t1 = std::chrono::system_clock::now();
+    std::time_t c1 = std::chrono::system_clock::to_time_t(t1);
+    cout << std::put_time(std::localtime(&c), "%F %T\n");    //  2022-02-22 20:50:30
+    cout << std::put_time(std::localtime(&c1), "%F %T\n");    //  2022-02-22 20:50:30
+    //方法(二)
+    uint64_t timestamp1 = getSystemTimestampUS() / 1000;
+    sleep(1);
+    uint64_t timestamp2 = getSystemTimestampUS() / 1000;
+    cout << timestamp1 <<endl;
+    cout << timestamp2<<endl;
+    //获取程序的耗时（相当于秒表）
+    auto t11 = std::chrono::steady_clock::now();
+    sleep(1);
+    auto t22 = std::chrono::steady_clock::now();
+    cout << "<======= opticalflow3 time "<< std::chrono::duration_cast<std::chrono::microseconds>(t22 - t11).count()/1000<< " ms" << endl;
+}
+
+
 
 int main(int argc, char** argv){
     // FLAGS_log_dir = "/home/admins/桌面/github/SubstrateDevelopment/data/log";

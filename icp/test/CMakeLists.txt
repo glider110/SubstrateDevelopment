@@ -121,21 +121,15 @@ add_definitions(${PCL_DEFINITIONS})
 
 
 ####################################################
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})    
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../../Release/bin/)    
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}) 
+MESSAGE(${EXECUTABLE_OUTPUT_PATH} "==EXECUTABLE_OUTPUT_PATH==")
+MESSAGE(${LIBRARY_OUTPUT_PATH} "==LIBRARY_OUTPUT_PATH==")
+
+add_executable(${PROJECT_NAME}  ${source_cpp} ${header})
+target_link_libraries(${PROJECT_NAME}   ${PCL_LIBRARIES})#有没有后缀是
 
 
-add_executable(demo_icp  ${source_cpp} ${header})
-target_link_libraries(demo_icp   ${PCL_LIBRARIES})#有没有后缀是
-# install(TARGETS ${PROJECT_NAME}
-# 		CONFIGURATIONS Release 
-#         RUNTIME DESTINATION ${PROJECT_BINARY_DIR}/install/release
-#         LIBRARY DESTINATION ${PROJECT_BINARY_DIR}/install/release
-#         ARCHIVE DESTINATION ${PROJECT_BINARY_DIR}/install/release)		
-# install(TARGETS ${PROJECT_NAME}
-# 		CONFIGURATIONS Debug
-#         RUNTIME DESTINATION ${PROJECT_BINARY_DIR}/install/debug
-#         LIBRARY DESTINATION ${PROJECT_BINARY_DIR}/install/debug
-#         ARCHIVE DESTINATION ${PROJECT_BINARY_DIR}/install/debug)
 
-
+MESSAGE(${CMAKE_CURRENT_SOURCE_DIR} "==CMAKE_CURRENT_SOURCE_DIR==")
+MESSAGE(${CMAKE_C_COMPILER} "==CMAKE_C_COMPILER==")
