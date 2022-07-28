@@ -17,13 +17,14 @@
 */
 
 /*开发中可能遇到的场景:
-**1.无数据写入 障碍物识别案例
+**1. 障碍物识别案无数据写入例
 **2.有数据读写 下面这个加锁案例
 **3.一线程抛 一线程收   光流案例
+**4.lidar项目 处理偶发队列bug
 */
 
 using namespace std;
-#define MAX 100
+#define MAX 1000
 
 
 int number = 0;
@@ -45,10 +46,10 @@ void thread1()
     for (size_t ii= 0; ii < MAX/2; ii++)
     {       
         // number_mutex.lock();
-        lock_guard<mutex>  lock(number_mutex);
+        // lock_guard<mutex>  lock(number_mutex);
         int cur = number;
         cur++;
-        usleep(10);
+        usleep(10000);
         number = cur;
         cout << "thread1111:" << number << endl;
         // number_mutex.unlock();

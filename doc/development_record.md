@@ -63,13 +63,11 @@ Ctrl x ctrl a 进入调试
 - 多文件编译时候 不会先编译so 再编译bin？
 - 多文件编译不需要包含头文件，cpp包含的的话会自动获取？
 
-
-
 ### 报错汇总：
 
 > (特别熟练的看明白报错信息) 很重要！！！特别是控制台的报错提醒
 
-1. 未声明 
+1. 未声明
 
    ```
    ../../src/aktof.cc:940:9: 错误： ‘queue’在此作用域中尚未声明
@@ -85,7 +83,6 @@ Ctrl x ctrl a 进入调试
    reason：头文件没有导入
 
    clear && sh build_aarch64_rk3326.sh  ：如果报错很多 看第一个错误和清空屏幕 不然影响判断
-
 2. 定义了没实现
 
    ```shell
@@ -96,7 +93,6 @@ Ctrl x ctrl a 进入调试
    main.cpp:(.text+0x85)：对‘person::~person()’未定义的引用
    collect2: error: ld returned 1 exit status
    ```
-
 3. 重复定义/重复实现
 
    ```shell
@@ -109,8 +105,8 @@ Ctrl x ctrl a 进入调试
     class person
           ^~~~~~  
    ```
-   **[\#pragma once](https://www.cnblogs.com/qiang-upc/p/11407364.html)**  能解决部分问题（只能处理同一个文件的定义被多次include的问题）
 
+   **[\#pragma once](https://www.cnblogs.com/qiang-upc/p/11407364.html)**  能解决部分问题（只能处理同一个文件的定义被多次include的问题）
 4. 源文件没找到
 
    ![image-20211014164023475](development_record.assets/image-20211014164023475.png)
@@ -125,7 +121,6 @@ Ctrl x ctrl a 进入调试
    ```
 
    解决思路：在交叉工具链查看有没有eigen 有的话就看头文件写的格式是不是搜索的到的路径
-
 5. 重复声明
 
    ```shell
@@ -137,17 +132,11 @@ Ctrl x ctrl a 进入调试
      person glider;
    ```
 
-
-
-
-
 cmake报错：
 
 没有编译完成，动态库没找到
 
 ![image-20210929135853612](development_record.assets/image-20210929135853612.png)
-
-
 
 ![image-20210930140404913](development_record.assets/image-20210930140404913.png)
 
@@ -170,7 +159,6 @@ cmake报错：
 
 1.吧一个程序看做是一个文件编译的
 
-2.报错出在那个阶段   
+2.报错出在那个阶段
 
 3.头文件的次序 和写法
-

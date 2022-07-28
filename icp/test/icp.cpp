@@ -116,30 +116,31 @@ bool icp_pipline_test()
 		pcl::PointCloud<pcl::PointXYZ> target_cloud;
 		Eigen::Matrix4f transformation;
 		transformation << 0.9980, 0.0523, 0.0349, 1.000,
-						-0.0552,0.9947,0.0871,2.000,
-						-0.0302,0.0889,0.9956,3.000,
-						0.0000,0.0000,0.0000,0.0000;
+						                    -0.0552,  0.9947, 0.0871, 2.000,
+					                    	-0.0302, 0.0889,  0.9956, 3.000,
+					                    	0.0000,  0.0000,  0.0000,  1.0000;
 		pcl::transformPointCloud(source_cloud, target_cloud, transformation);
-		
+		pcl::PCDWriter w3;
+		w3.write("002.pcd", target_cloud);	
 		transformation = Eigen::Matrix4f::Zero();
 		
-		///> normal
-		pcl::PointCloud<pcl::Normal>::Ptr source_normals(new pcl::PointCloud<pcl::Normal>), target_normals(new pcl::PointCloud<pcl::Normal>);
-		ret = compute_normal(source_cloud.makeShared(), source_normals);
-		if (!ret) return ret;
-		ret = compute_normal(target_cloud.makeShared(), target_normals);
-		if (!ret) return ret;
+		// ///> normal
+		// pcl::PointCloud<pcl::Normal>::Ptr source_normals(new pcl::PointCloud<pcl::Normal>), target_normals(new pcl::PointCloud<pcl::Normal>);
+		// ret = compute_normal(source_cloud.makeShared(), source_normals);
+		// if (!ret) return ret;
+		// ret = compute_normal(target_cloud.makeShared(), target_normals);
+		// if (!ret) return ret;
 		
-		///> initial transformation
-		Eigen::Matrix4f initial_transformation;
-		initial_transformation<<0.992731,  0.0703799, -0.0976327,    0.81838,
-				-0.0804302,   0.991409,  -0.103145,    1.75992,
-				0.0895346,   0.110248,   0.989863,     3.0017,
-				0,          0,          0,          1;
+		// ///> initial transformation
+		// Eigen::Matrix4f initial_transformation;
+		// initial_transformation<<0.992731,  0.0703799, -0.0976327,    0.81838,
+		// 		-0.0804302,   0.991409,  -0.103145,    1.75992,
+		// 		0.0895346,   0.110248,   0.989863,     3.0017,
+		// 		0,          0,          0,          1;
 				
-		///> icp
-		ret=iterative_closest_points(source_cloud.makeShared(),target_cloud.makeShared(),source_normals,target_normals,initial_transformation,transformation);
-		std::cout<<"final transformation:\t"<<transformation<<std::endl;
+		// ///> icp
+		// ret=iterative_closest_points(source_cloud.makeShared(),target_cloud.makeShared(),source_normals,target_normals,initial_transformation,transformation);
+		// std::cout<<"final transformation:\t"<<transformation<<std::endl;
 
 		return ret;
 }

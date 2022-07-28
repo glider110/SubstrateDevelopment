@@ -44,7 +44,6 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/cat/)
 ####动静态库
 # add_library( person SHARED  src/person.cpp)
 # # add_library(cat cat/cat.cpp)
-# add_subdirectory(cat )  
 add_subdirectory(example)  
 # add_subdirectory(carto)  
 # add_subdirectory(icp)  
