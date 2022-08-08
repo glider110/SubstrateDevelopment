@@ -1,22 +1,17 @@
 /*
- * @Author: 郭小凡 glider.guo@ankobot.com
- * @Date: 2022-07-28 16:08:23
- * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-07-28 16:22:33
+ * @Author: glider
+ * @Date: 2022-07-29 10:25:48
+ * @LastEditTime: 2022-07-29 10:46:46
  * @FilePath: /SubstrateDevelopment/design_patterns/OpticalSlipDetector.h
+ * @Version:  v0.01
  * @Description: 
- * 
- * Copyright (c) 2022 by 郭小凡 glider.guo@ankobot.com, All Rights Reserved. 
+ * ************************************************************************
+ * Copyright (c) 2022 by  glider.guo@ankobot.com, All Rights Reserved. 
+ * ************************************************************************
  */
-/*******************************************************************************
-* Copyright (C) AnKobot Smart Tech Co., Ltd.  All Rights Reserved.
-********************************************************************************
-* File Name   : OpticalSlipDetector.h
-* Author      : evan.zhang
-* Version     : v0.01
-* Date        : 2022-03-01
-* Description : 光流打滑检测接口
-*******************************************************************************/
+
+
+
 
 #ifndef _OPTICAL_SLIP_DETECTOR_H_
 #define _OPTICAL_SLIP_DETECTOR_H_
@@ -49,6 +44,7 @@ public:
       * @param  None
       * @retval 单例对象shared_ptr对象
       */
+
     static OpticalSlipDetectorPtr getInstance(
         AKShareQueue<FrameBufQueue> *cam_data_queue_ptr,
         ThreadPool *pool_ptr);

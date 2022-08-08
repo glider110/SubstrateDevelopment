@@ -1,3 +1,14 @@
+/*
+ * @Author: glider
+ * @Date: 2022-07-25 10:24:33
+ * @LastEditTime: 2022-08-01 14:07:21
+ * @FilePath: /SubstrateDevelopment/design_patterns/Singleton.h
+ * @Version:  v0.01
+ * @Description: 
+ * ************************************************************************
+ * Copyright (c) 2022 by  glider.guo@ankobot.com, All Rights Reserved. 
+ * ************************************************************************
+ */
 /**实现单例step
  * 1.构造函数私有化
  * 2.添加静态私有化指针

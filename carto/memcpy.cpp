@@ -1,11 +1,15 @@
 /*
- * @Author: 郭小凡 glider.guo@ankobot.com
- * @Date: 2022-07-06 16:36:17
- * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-07-26 13:53:36
- * @FilePath: /SubstrateDevelopment/carto/glog_test.cpp
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Author: glider
+ * @Date: 2022-07-29 10:25:48
+ * @LastEditTime: 2022-08-01 14:08:47
+ * @FilePath: /SubstrateDevelopment/carto/memcpy.cpp
+ * @Version:  v0.01
+ * @Description:  测试memcopy函数
+ * ************************************************************************
+ * Copyright (c) 2022 by  glider.guo@ankobot.com, All Rights Reserved. 
+ * ************************************************************************
  */
+
 
 #include <string>
 #include <iostream>

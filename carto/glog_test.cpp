@@ -1,10 +1,13 @@
 /*
- * @Author: 郭小凡 glider.guo@ankobot.com
- * @Date: 2022-07-06 16:36:17
- * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-07-25 10:20:35
+ * @Author: glider
+ * @Date: 2022-07-25 10:24:33
+ * @LastEditTime: 2022-08-01 14:10:40
  * @FilePath: /SubstrateDevelopment/carto/glog_test.cpp
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Version:  v0.01
+ * @Description: 
+ * ************************************************************************
+ * Copyright (c) 2022 by  glider.guo@ankobot.com, All Rights Reserved. 
+ * ************************************************************************
  */
 
 #include <string>

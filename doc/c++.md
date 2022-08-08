@@ -45,7 +45,6 @@ void hello()
 	}
  int main()
 {
-
 	hello();
 	return 0;
 }
@@ -401,10 +400,6 @@ vector_gridsize = vector<vector<double>>(column, vector<double>(row));
                 }
 ```
 
-##### 4.6 偶发coredump(高阶)
-
-    配置coredump文件,详细见右侧coredump文件夹文档;
-
 #### 4.代码调试技巧与思想
 
 **思想：对与一些数据出问题的情况，往前排查，一步一步的打logo，定位出差点。**
@@ -419,58 +414,68 @@ vector_gridsize = vector<vector<double>>(column, vector<double>(row));
 
 调试技巧：
 
-- 循环内部打印特定次序的代码
+##### 4.1 循环内部打印特定次序的代码
 
-  ```c++
-  控制循环：1.循环自身长度。2 .下面这种特定数据。3.i、j赋值自定义不连续次序？  4.continue跳过余下部分，条件可用a/10==7  a%7==0 a%10==7
-    for (size_t i = 0; i < column; i++)
-   {
-            for (size_t j = 0; j < row; j++)
-                  {
-                          if (    (i == 5 && j == 12)
-                          ||      (i == 6 && j == 13)
-                        执行语句
-                          }
-                  }
-          }
+```c++
+控制循环：1.循环自身长度。2 .下面这种特定数据。3.i、j赋值自定义不连续次序？  4.continue跳过余下部分，条件可用a/10==7  a%7==0 a%10==7
+  for (size_t i = 0; i < column; i++)
+ {
+          for (size_t j = 0; j < row; j++)
+                {
+                        if (    (i == 5 && j == 12)
+                        ||      (i == 6 && j == 13)
+                      执行语句
+                        }
+                }
+        }
 
-  // if (k == 19)break;    补充
-  ```
-- 循环内部只读一次块代码，其他继续执行
+// if (k == 19)break;    补充
+```
 
-  ```c++
-  static bool is_first = true;  
-  if(is_first)
-   {
-         pcl::io::loadPLYFile<pcl::PointXYZ>(pathfile, *cloud_guo);
-        is_first = false;
-   }
-  ```
-- 开启一个分支便于装换调试(开关)
+##### 4.2 循环内部只读一次块代码，其他继续执行
 
-  ```c++
-  #if 10
-  detector.set_intput_points(cloud_guo);
-   #else
-  detector.set_intput_points(pre_points);
-   #endif
-  ```
-- 小综合——对流程的自定义控制
+```c++
+static bool is_first = true;  
+if(is_first)
+ {
+       pcl::io::loadPLYFile<pcl::PointXYZ>(pathfile, *cloud_guo);
+      is_first = false;
+ }
+```
 
-  ```c++
-  限制条件：1.一次就好 2.到此就好  ！！！！
-  while(1)
-  {
-  if(!is_corection)
-              {
-                  printf("original_points size = %d\n",(int)original_points->points.size());//先点云校准
-                  pre_treatment.preprocess(original_points);
-                  is_corection = true;
-                  continue;//很精髓，校准只需一次，一次校准可以够后续多次处理，没必要每次计算校准，跳出本次循环(不是跳出循环)
-              }  
-    }
-  ```
-- 打logo方式while (1)sleep(1);) 一直停在某处。  dbg
+##### 4.3 开启一个分支便于装换调试(开关)
+
+```c++
+#if 10
+detector.set_intput_points(cloud_guo);
+ #else
+detector.set_intput_points(pre_points);
+ #endif
+```
+
+##### 4.4 小综合——对流程的自定义控制
+
+```c++
+限制条件：1.一次就好 2.到此就好  ！！！！
+while(1)
+{
+if(!is_corection)
+            {
+                printf("original_points size = %d\n",(int)original_points->points.size());//先点云校准
+                pre_treatment.preprocess(original_points);
+                is_corection = true;
+                continue;//很精髓，校准只需一次，一次校准可以够后续多次处理，没必要每次计算校准，跳出本次循环(不是跳出循环)
+            }  
+  }
+```
+
+##### 4.5 sleep
+
+  打logo方式while (1)sleep(1);) 一直停在某处。  dbg
+
+##### 4.6 偶发coredump(高阶)
+
+    配置coredump文件,详细见右侧coredump文件夹文档;
 
 #### 5.vscode高效配置及使用
 
@@ -542,7 +547,7 @@ make -j8
 
     文件说明:ctrl+win+i
 
-    函数说明:ctrl+win+i
+    函数说明:ctrl+win+t
 
     头文件和源文件切换:alt+o?0
 
