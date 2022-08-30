@@ -1,3 +1,14 @@
+/*
+ * @Author: glider
+ * @Date: 2021-10-12 11:30:48
+ * @LastEditTime: 2022-08-30 10:37:14
+ * @FilePath: /SubstrateDevelopment/example/eigen_test.cpp
+ * @Version:  v0.01
+ * @Description: 
+ * ************************************************************************
+ * Copyright (c) 2022 by  glider.guo@ankobot.com, All Rights Reserved. 
+ * ************************************************************************
+ */
 #include  "iostream"
 #include <Eigen/Eigen>
 
@@ -51,6 +62,14 @@ int main(int argc, char **argv)
     v_rotated = q*v; // 注意数学上是qvq^{-1}
     cout<<"(1,0,0) after rotation = "<<v_rotated.transpose()<<endl;
 
+
+//   调试主方向,测试Vector3d 索引
+    Eigen::Vector3d a ;
+    a<<1,3,5;
+    cout<<"==============="<<a<<endl;
+    cout<<"==============="<<a.transpose()<<endl;
+    cout<<"==============="<<a[1]<<endl;
+    cout<<"==============="<<a.z()<<endl;
     return 0;
 
 }

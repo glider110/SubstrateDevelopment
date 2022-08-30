@@ -75,9 +75,7 @@ include_directories(gtest)
 #     add_executable(test_fixed_ratio gtest/fixed_ratio_sampler_test.cc)
 #     target_link_libraries(test_fixed_ratio fixed_ratio gtest gtest_main)     #依赖动态库
 #     add_test(NAME test_fixed_ratio COMMAND test_fixed_ratio)
-
 # endif()
-
 
 #############################安装位置#################################
 # install(TARGETS ${PROJECT_NAME}        RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/Release)   #执行 make  install(在发布版本时候用)
