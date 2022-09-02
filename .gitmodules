@@ -1,0 +1,3 @@
+[submodule "modules-3rd/lidar_undistortion_2d"]
+	path = modules-3rd/lidar_undistortion_2d
+	url = git@github.com:glider110/lidar_undistortion_2d.git
