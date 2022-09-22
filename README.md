@@ -31,3 +31,8 @@
 - [X] 多线程加锁;
 - [ ] cmake专题:find_package理解,制作标准化库模块;
 - [ ] eigen_test.cpp测试(旋转的四种格式转换 /变换矩阵);
+- [ ] protobuffer运行demo;
+- [X] **ros系统练习**
+  - [X] 基本概念(packg,node,topic,message.lauch);
+  - [X] 构建一个基本的catkin包流程;
+  - [ ] 把李想的0到1搭建slam系统全部基于ros实际操作一遍就够了;
