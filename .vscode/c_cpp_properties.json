@@ -12,6 +12,7 @@
                 "/usr/include/eigen3",
                 "${workspaceFolder}/tofLocation",
                 "${workspaceFolder}/design_patterns",
+                "/opt/ros/melodic/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

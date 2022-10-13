@@ -21,9 +21,11 @@
 - [X] 调试：gdb调试和可视化调试，配置好制动化编译 调试 运行脚本
 - [ ] 常用数据类型的应用：eigen opencv pcl  map vecter list
 - [X] 关于指针：三维矩阵 智能指针 普通指针
+
 - ** 个人工具库收集**
   - [ ] 数据流读写：txt、csv、bmp、ply  log写法标准;
   - [X] 时间接口
+
 - [X] lamda表达式的练习;
 - [X] 智能指针理解和练习;
 - [X] 宏定义预编译选项按钮;
@@ -34,7 +36,7 @@
 - [X] 多线程加锁;
 - [ ] cmake专题:find_package理解,制作标准化库模块;
 - [ ] eigen_test.cpp测试(旋转的四种格式转换 /变换矩阵);
-- [ ] protobuffer运行demo;
+- [X] protobuffer运行demo;
 - [X] **ros系统练习**
   - [X] 基本概念(packg,node,topic,message.lauch);
   - [X] 构建一个基本的catkin包流程;
