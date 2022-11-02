@@ -2,7 +2,7 @@
 ###
  # @Author: your name
  # @Date: 2021-09-30 14:32:05
- # @LastEditTime: 2022-08-26 17:16:23
+ # @LastEditTime: 2022-11-02 10:28:07
  # @LastEditors: Please set LastEditors
  # @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  # @FilePath: /SubstrateDevelopment/script/build.sh
@@ -39,7 +39,7 @@ mkdir -p $BUILD_DIR\
   make
   echo "#######################编译结束！###################"
 #   cd   ${RUN_DIR}&& ./demo_data_structure  
-  cd   ${RUN_DIR}&& ./eigen_test
+#   cd   ${RUN_DIR}&& ./eigen_test
 #   cd   ${RUN_DIR}&& ./lider_trans  
 fi
 

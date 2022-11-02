@@ -7,3 +7,9 @@
 [submodule "modules-3rd/Cpp_Primer_Practice"]
 	path = modules-3rd/Cpp_Primer_Practice
 	url = git@github.com:glider110/Cpp_Primer_Practice.git
+[submodule "doc/doc"]
+	path = doc/doc
+	url = git@github.com:glider110/gliderRecord.git
+[submodule "doc/gliderRecord"]
+	path = doc/gliderRecord
+	url = git@github.com:glider110/gliderRecord.git

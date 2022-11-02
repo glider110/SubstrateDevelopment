@@ -273,6 +273,22 @@ int test10()
  ** 时空：生命周期　作用域　读写
  ** 这就是ｃ语言比其他语言难很多的原因
  **/
+int test_static(){
+    static int b = 1;
+    // static int a = 1;
+    static int c =2;
+    // {static int c = 1;
+    // std::cout << c <<  std::endl;}
+    // std::cout << c <<  std::endl;
+
+    for(int i = 0; i <10 ;i ++){
+        // static int b = 2;
+        b++;
+        std::cout << b <<  std::endl;
+    }
+}
+
+
 
 //结构化绑定
 // std::tuple<std::string, int> CreatePerson()
@@ -349,7 +365,10 @@ const int func2(); //函数声明
 // }
 
 
-//指针 线程 绑定器 lamda表达式 嵌套使用
+//指针 线程 绑定器 lamda表达式 嵌套使用   这个的核心.这个弄明白了很多都理解了!!!!
+//小技巧:再ak_sdk里面搜bind会有很多案例学习,这种学习方式比较好
+// std::thread(std::bind(&ImuCtrl::RunRecvThread, this)).detach();
+//
 void test14(void)
 {
     auto print = [](){printf("hello world!");};
@@ -362,12 +381,16 @@ void test14(void)
     a_ptr->detach();
     // this_thread::sleep_for(chrono::seconds(2));
     sleep(0.001);
+    
+    // std::unique_ptr(make_unique<std::thread>(print))->detach();
+
 }
 
 
 int main(int argc, char **argv) {
 
-    test14();
+    // test14();
+    test_static();
     // test1(argc, argv);
     // NS_CLASS_STYLE::demo_programmingtips aa(3);
     // aa.set();

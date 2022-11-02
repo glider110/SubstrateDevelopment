@@ -1,5 +1,5 @@
 * [ ] catkin_create 和catkin_make 的区别;
-* [ ] ros不容许有中文路径,只能换到主目录下
+* [ ] ros不容许有中文路径,只能换到主目录下    /home/glider/project/L12/code....
 
 #### 常用命令:
 
