@@ -273,6 +273,9 @@ int test10()
  ** 时空：生命周期　作用域　读写
  ** 这就是ｃ语言比其他语言难很多的原因
  **/
+// void fun3(){
+//     b++;
+// }  //关于作用域 针对函数嵌套函数 并不是上一层数据能被下一层读写 之前一直模糊不清 基础太差了
 int test_static(){
     static int b = 1;
     // static int a = 1;
@@ -282,8 +285,9 @@ int test_static(){
     // std::cout << c <<  std::endl;
 
     for(int i = 0; i <10 ;i ++){
-        // static int b = 2;
-        b++;
+        static int b = 2;
+        // {b++;}
+        // fun3;
         std::cout << b <<  std::endl;
     }
 }
@@ -383,6 +387,8 @@ void test14(void)
     sleep(0.001);
     
     // std::unique_ptr(make_unique<std::thread>(print))->detach();
+    std::shared_ptr<std::thread>(make_shared<std::thread>(print))->detach();
+    vector<int>({1});
 
 }
 
