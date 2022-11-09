@@ -8,7 +8,7 @@
 #include  <functional>
 #include  <thread>
  #include <unistd.h>
-
+#include <string>
 using namespace std;
 
 //标准类格式 类的成员变量的写法   函数赋值   this
@@ -392,11 +392,28 @@ void test14(void)
 
 }
 
+//测试string的方法
+void test15(){
+    string name ="/akb/map/123456.pbstream";
+    string suffix = ".pbstream";
+    string  name_no_suffix;
+    int index = name.rfind("/");
+    std::cout << "最后的/的索引位置: " <<index << endl;
+    name_no_suffix = name.substr(0 ,name.size()- suffix.size());
+    std::cout << "name_no_suffix: " <<name_no_suffix<< endl;
+    std::cout << "name_id : " <<stoull(name_no_suffix.substr(index+1, name_no_suffix.size()))<< endl;
+    std::string k = name_no_suffix.substr(index+1, name_no_suffix.size());
+    uint64_t test = (uint64_t)reinterpret_cast<std::string*>(&k);
+    std::cout << "name_id : " <<test<< endl;
+    char name1[50];
+    std::cin.getline(name1,50);
+    std::cout << "name_id : " <<atoll(name1)<< endl;
+}
 
 int main(int argc, char **argv) {
 
-    // test14();
-    test_static();
+    test15();
+    // test_static();
     // test1(argc, argv);
     // NS_CLASS_STYLE::demo_programmingtips aa(3);
     // aa.set();
