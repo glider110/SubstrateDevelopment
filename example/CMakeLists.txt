@@ -1,10 +1,10 @@
 # SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../Release/lib) 
-find_package(PCL REQUIRED)
-include_directories(${PCL_INCLUDE_DIRS})   #第三方库需要头文件 自定义的库的话没有要
-link_directories(${PCL_LIBRARY_DIRS})
-add_definitions(${PCL_DEFINITIONS})
+# find_package(PCL REQUIRED)
+# include_directories(${PCL_INCLUDE_DIRS})   #第三方库需要头文件 自定义的库的话没有要
+# link_directories(${PCL_LIBRARY_DIRS})
+# add_definitions(${PCL_DEFINITIONS})
 # OpenCV
-find_package( OpenCV REQUIRED )  
+# find_package( OpenCV REQUIRED )  
 
 # add_executable(demo_data_structure  demo_data_structure.cpp)
 # target_link_libraries(demo_data_structure  	${OpenCV_LIBS} ${PCL_LIBRARIES})#有没有后缀是
@@ -14,9 +14,9 @@ find_package( OpenCV REQUIRED )
 
 # add_executable(eigen_test  eigen_test.cpp)
 
-#新特性测试
-add_executable(programmingtips demo_programmingtips.cpp)
-add_executable(demo_thread demo_thread.cpp)
+# #新特性测试
+# add_executable(programmingtips demo_programmingtips.cpp)
+# add_executable(demo_thread demo_thread.cpp)
 
 # add_executable(registration  demo_registration.cpp)
 # target_link_libraries(registration   ${PCL_LIBRARIES} )#有没有后缀是
@@ -40,3 +40,9 @@ add_executable(demo_thread demo_thread.cpp)
 # carto代码编程技巧
 # add_executable(carto_test  carto_test.cpp)
 # target_link_libraries(carto_test  	)#有没有后缀是
+
+
+# cherno实战练习
+add_library( cherno_lib SHARED  cherno.cpp)
+add_executable(cherno  cherno_main.cpp )
+target_link_libraries(cherno cherno_lib  )

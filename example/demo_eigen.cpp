@@ -1,8 +1,8 @@
 /*
  * @Author: glider
  * @Date: 2021-10-12 11:30:48
- * @LastEditTime: 2022-09-16 10:45:01
- * @FilePath: /SubstrateDevelopment/example/eigen_test.cpp
+ * @LastEditTime: 2022-12-10 14:09:21
+ * @FilePath: /SubstrateDevelopment/example/demo_eigen.cpp
  * @Version:  v0.01
  * @Description: 
  * ************************************************************************
@@ -29,6 +29,8 @@
 
  using namespace std;
  using namespace Eigen;
+
+ #if 0
 int main(int argc, char **argv)
 {
 //     // Eigen/Geometry 模块提供了各种旋转和平移的表示
@@ -144,7 +146,63 @@ int main(int argc, char **argv)
     return 0;
 }
 
+#endif
 
 
-
+#include <iostream>
+#include <math.h>
+ 
+void slerp(float starting[4], float ending[4], float result[4], float t )
+{
+    float cosa = starting[0]*ending[0] + starting[1]*ending[1] + starting[2]*ending[2] + starting[3]*ending[3];
+    
+    // If the dot product is negative, the quaternions have opposite handed-ness and slerp won't take
+    // the shorter path. Fix by reversing one quaternion.
+    if ( cosa < 0.0f ) 
+    {
+        ending[0] = -ending[0];
+        ending[1] = -ending[1];
+        ending[2] = -ending[2];
+        ending[3] = -ending[3];
+        cosa = -cosa;
+    }
+    
+    float k0, k1;
+    
+    // If the inputs are too close for comfort, linearly interpolate
+    if ( cosa > 0.9995f ) 
+    {
+        k0 = 1.0f - t;
+        k1 = t;
+    }
+    else 
+    {
+        float sina = sqrt( 1.0f - cosa*cosa );
+        float a = atan2( sina, cosa );
+        k0 = sin((1.0f - t)*a)  / sina;
+        k1 = sin(t*a) / sina;
+    }
+    result[0] = starting[0]*k0 + ending[0]*k1;
+    result[1] = starting[1]*k0 + ending[1]*k1;
+    result[2] = starting[2]*k0 + ending[2]*k1;
+    result[3] = starting[3]*k0 + ending[3]*k1;
+}
+ 
+ 
+ 
+int main()
+{
+     
+    float p[4] = {1,0,0,0};
+    float q[4] = {0.707,0,0,0.707};
+    float r[4] = {0};
+ 
+    slerp(p,q,r,0.333);
+    std::cout<<r[0]<<","<<r[1]<<","<<r[2]<<","<<r[3]<<std::endl;
+ 
+    slerp(p,q,r,0.667);
+    std::cout<<r[0]<<","<<r[1]<<","<<r[2]<<","<<r[3]<<std::endl;
+ 
+    return 0;
+}
 

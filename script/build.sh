@@ -2,7 +2,7 @@
 ###
  # @Author: your name
  # @Date: 2021-09-30 14:32:05
- # @LastEditTime: 2022-11-02 10:28:07
+ # @LastEditTime: 2023-06-02 15:27:24
  # @LastEditors: Please set LastEditors
  # @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  # @FilePath: /SubstrateDevelopment/script/build.sh
@@ -41,6 +41,7 @@ mkdir -p $BUILD_DIR\
 #   cd   ${RUN_DIR}&& ./demo_data_structure  
 #   cd   ${RUN_DIR}&& ./eigen_test
 #   cd   ${RUN_DIR}&& ./lider_trans  
+  cd   ${RUN_DIR}&& ./cherno
 fi
 
-echo "#######################运行结束！###################"
+echo -e "\n#######################运行结束！###################"
