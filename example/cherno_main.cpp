@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-13 23:34:15
+ * @LastEditTime: 2023-06-15 10:00:49
  * @FilePath: /SubstrateDevelopment/example/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
@@ -10,27 +10,26 @@
  * ************************************************************************
  */
 #include <iostream>
-// #include "cherno.cpp"
+#include <string>
+#include "cherno.cpp"
 #define LOG(x)   std::cout << x <<std::endl
 
 
 // int s_v = 1;
 extern int s_v;   //解释下 在函数内部的变量都是局部变量,包括main 只在本地scope可见
 
-class AA
-{
+
+//模板是在编译时候预留,在调用定义<int>时才转换为代码
+template<typename T>   
+void printf_guo(T a){
+    LOG(a);
+}
+//两个模板参数：类型和大小
+template<typename T, int size>   //函数不行
+class Array {    
 private:
-    int b;
-    static int a ;
-    // static int a = 0;  //编译不过   必须类外初始化
-public:
-    AA(/* args */){a++;};
-    // static void BB(/* args */){b++;};   //编译不过   静态成员函数必须静态成员变量,初始化再全局区,局部this栈区都没有开辟 不会有局部变量
-   
+    T m_Array[size];
 };
-
-
-
 
 
 //测试if 和else if的小细节(互斥性)
@@ -76,7 +75,6 @@ void test3()
 
 }
 
-
 //作用域与生命周期 时空
 void test4()
 {
@@ -91,10 +89,29 @@ void test4()
     
 }
 
+//类 三特性
+void test5()
+{
+    // AkAPI interface1;  //如果有纯虚函数就要报错,纯虚函数必须实例化子类
+    // AkAPI* interface = new AkAPI();     //会报错，在这里我们必须给它一个实际上实现了这个函数的子类
+    NS_CHERNO::AkAPI* interface = new NS_CHERNO::Entity();
+}
+
+//模板:解决重复编程问题
+void test6()
+{
+printf_guo<int>(2);
+printf_guo<std::string>("guoxiaofan");
+Array<int, 5> array;
+}
+
+
+
+
 int main()
 {
     LOG( "this is cherno test...");
-    test3();
+    test6();
     // std::cin.get();
 }
 int a = 111;   //全局区优先再编译时候处理,然后再找main 因此放在mian后面也能获取a的值
