@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-15 10:00:49
+ * @LastEditTime: 2023-06-16 23:19:00
  * @FilePath: /SubstrateDevelopment/example/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
@@ -11,9 +11,19 @@
  */
 #include <iostream>
 #include <string>
+#include <thread>
+#include <functional>
+#include <unistd.h>
 #include "cherno.cpp"
-#define LOG(x)   std::cout << x <<std::endl
 
+#define PR_DEBUG 1 //可以在这里切换成0，作为一个开关
+#if PR_DEBUG == 1   //如果PR_DEBUG为1
+#define LOG(x)   std::cout << x <<std::endl     //简单的文本替换,不是具体函数,不需要入栈
+#else
+#define LOG(x)       //无文本替代,相当于没有log信息 用在调试时候
+#endif
+
+using namespace std;
 
 // int s_v = 1;
 extern int s_v;   //解释下 在函数内部的变量都是局部变量,包括main 只在本地scope可见
@@ -105,13 +115,54 @@ printf_guo<std::string>("guoxiaofan");
 Array<int, 5> array;
 }
 
+//短小精悍的综合运用(线程/指针/匿名函数/绑定)
+void test7()
+{
+    auto lamda=[](int a){
+        LOG("快速开辟线程...");
+        LOG(a);
+    };
+    std::thread thread_test(lamda,10);
+    thread_test.detach();
+    std::make_shared<std::thread>(std::bind(lamda, 11))->detach();
+    std::make_shared<std::thread>(std::bind(lamda, placeholders::_1),12)->detach();
+    usleep(10);
+}
+
+//时间库chrono
+void test8(){
+    
+}
 
 
+//类型转换 对应69集
+void test9(){
+//to_string cstring
+std::string a = "111";
+const char* b = "222";
+int c = 333;
+//1.字母转数字
+int d = atoi(a.c_str());
+// int d = int(a);
+int f =std::stoi(a);
+//2.数字转字母
+string e = to_string(c);
+string g = string(b);   //string构造
+
+//glider:强制装换
+// int  h = static_cast<int>(a);
+// int  h = static_cast<int>(b);
+string  h = static_cast<string>(b);
+// const char*  i = reinterpret_cast<const char*>(a);
+
+
+}
 
 int main()
 {
     LOG( "this is cherno test...");
-    test6();
+    test7();
     // std::cin.get();
+
 }
 int a = 111;   //全局区优先再编译时候处理,然后再找main 因此放在mian后面也能获取a的值

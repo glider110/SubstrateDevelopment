@@ -42,3 +42,4 @@
   - [X] 基本概念(packg,node,topic,message.lauch);
   - [X] 构建一个基本的catkin包流程;
   - [ ] 把李想的0到1搭建slam系统全部基于ros实际操作一遍就够了;
+- [X] template;
