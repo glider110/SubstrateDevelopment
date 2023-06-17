@@ -43,6 +43,15 @@
 
 
 # cherno实战练习
-add_library( cherno_lib SHARED  cherno.cpp)
-add_executable(cherno  cherno_main.cpp )
-target_link_libraries(cherno cherno_lib  )
+message(STATUS "===================================添加编译cherno=============================================")  
+message(STATUS " 项目路径:"   ${PROJECT_SOURCE_DIR})                                     #今后小工具库都按照这种形式添加,不需要先编译为库,方便理解阅读
+message(STATUS "当前路径:"   ${CMAKE_CURRENT_SOURCE_DIR})   
+file(GLOB_RECURSE  H_SRCS  "${PROJECT_SOURCE_DIR}/utils/*.h")  
+file(GLOB_RECURSE CXX_SRCS  "${PROJECT_SOURCE_DIR}/utils/*.cc")  #
+message(STATUS "utils头文件:"   ${H_SRCS})   
+message(STATUS "utils源文件:"   ${CXX_SRCS})  
+set(utils_src ${H_SRCS}  ${CXX_SRCS})
+set(chero_src cherno_main.cpp cherno.h)
+include_directories(${PROJECT_SOURCE_DIR}/utils/)
+add_executable(cherno  ${chero_src}  ${utils_src})
+message(STATUS "===================================配置cherno完成=============================================")  
