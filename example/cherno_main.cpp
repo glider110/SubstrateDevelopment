@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-16 23:19:00
+ * @LastEditTime: 2023-06-17 12:14:45
  * @FilePath: /SubstrateDevelopment/example/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
@@ -14,7 +14,10 @@
 #include <thread>
 #include <functional>
 #include <unistd.h>
-#include "cherno.cpp"
+#include "cherno.h"
+// #include "../utils/ElapsedTimer.h"
+#include "ElapsedTimer.h"     //没有这句include_directories() 编译器找不到路径
+
 
 #define PR_DEBUG 1 //可以在这里切换成0，作为一个开关
 #if PR_DEBUG == 1   //如果PR_DEBUG为1
@@ -131,7 +134,10 @@ void test7()
 
 //时间库chrono
 void test8(){
-    
+    ElapsedTimer<int> a;
+    sleep(1);
+   LOG(a.elapsed());
+   LOG(a.elapsedSeconds());
 }
 
 
@@ -161,7 +167,7 @@ string  h = static_cast<string>(b);
 int main()
 {
     LOG( "this is cherno test...");
-    test7();
+    test8();
     // std::cin.get();
 
 }
