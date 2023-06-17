@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-27 11:07:59
- * @LastEditTime: 2023-06-14 12:17:24
+ * @LastEditTime: 2023-06-17 10:17:26
  * @FilePath: /SubstrateDevelopment/example/cherno.cpp
  * @Version:  v0.01
  * @Description: 
@@ -45,7 +45,7 @@ private:
     std::string   m_id;
 public:
     static int sm_v;
-    // static int s_v = 0;  //编译不过   必须类外初始化
+    // static int s_v = 0;  //编译不过   必须类外初始化  加constexpr inline可以编译
 
 public:
     Entity(/* args */){

@@ -1,10 +1,10 @@
 /*
  * @Author: wen.ligang
  * @Date: 2020-12-02 13:53:26
- * @LastEditTime: 2022-07-13 17:35:35
- * @LastEditors: 郭小凡 glider.guo@ankobot.com
+ * @LastEditTime: 2023-06-17 12:35:22
+ * @LastEditors: Please set LastEditors
  * @Description: 
- * @FilePath: /gros_ws/gros/slam/Slam/common/time.cc
+ * @FilePath: /SubstrateDevelopment/utils/timer.cc
  * @ 
  */
 
@@ -16,8 +16,7 @@
 #include <string>
 #include <iostream>
 
-#include "glog/logging.h"
-#include "time.h"
+#include "timer.h"
 namespace slam {
 namespace common {
 
@@ -51,14 +50,14 @@ common::Duration FromMilliseconds(const int64_t milliseconds) {
 }
 
 double GetThreadCpuTimeSeconds() {
-#ifndef WIN32
-  struct timespec thread_cpu_time;
-  CHECK(clock_gettime(CLOCK_THREAD_CPUTIME_ID, &thread_cpu_time) == 0)
-      << std::strerror(errno);
-  return thread_cpu_time.tv_sec + 1e-9 * thread_cpu_time.tv_nsec;
-#else
-  return 0.;
-#endif
+// #ifndef WIN32
+//   struct timespec thread_cpu_time;
+//   CHECK(clock_gettime(CLOCK_THREAD_CPUTIME_ID, &thread_cpu_time) == 0)
+//       << std::strerror(errno);
+//   return thread_cpu_time.tv_sec + 1e-9 * thread_cpu_time.tv_nsec;
+// #else
+//   return 0.;
+// #endif
 }
 
 // 系统启动到现在的时间
