@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-17 12:52:55
+ * @LastEditTime: 2023-06-17 13:43:00
  * @FilePath: /SubstrateDevelopment/example/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
@@ -149,7 +149,7 @@ const char* b = "222";
 int c = 333;
 //1.字母转数字
 int d = atoi(a.c_str());
-// int d = int(a);
+// int d = (int)a;
 int f =std::stoi(a);
 //2.数字转字母
 string e = to_string(c);

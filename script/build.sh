@@ -1,47 +1,110 @@
 #!/bin/sh
 ###
- # @Author: your name
- # @Date: 2021-09-30 14:32:05
- # @LastEditTime: 2023-06-02 15:27:24
- # @LastEditors: Please set LastEditors
- # @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ # @Author: glider
+ # @Date: 2023-06-18 15:56:52
+ # @LastEditTime: 2023-06-18 23:28:36
  # @FilePath: /SubstrateDevelopment/script/build.sh
+ # @Version:  v0.01
+ # @Description: 
+ # ************************************************************************
+ # Copyright (c) 2023 by  ${git_email}, All Rights Reserved. 
+ # ************************************************************************
 ### 
 
 # set -x
-echo "#######################进入编译脚本###################"
+echo "#######################进入编译脚本......###################"
+
+
 SCRIPTPATH=$(readlink -f "$0")
 PROJECTPATH=$(dirname $(dirname ${SCRIPTPATH}))
-SOURCE_DIR=${PROJECTPATH}
-BUILD_DIR=${PROJECTPATH}/build
-RUN_DIR=${PROJECTPATH}/Release/bin
-BUILD_TYPE=${BUILD_TYPE:-release}
-INSTALL_DIR=${INSTALL_DIR:-../${BUILD_TYPE}-install}
-BUILD_NO_EXAMPLES=${BUILD_NO_EXAMPLES:-0}
 
-USING_ROS=0
+if [ $PROJECTPATH = '/' ];then
+   echo "usage: chmod a+x &&  ./build.sh or sh build.sh"
+   exit
+fi
 
-if [ -d "$PROJECTPATH/build/" ];then
-        rm $PROJECTPATH/build/ -rf
-        echo "删除build"
+usage() {
+    echo "Usage:"
+    echo "  ./build.sh [-p MACHINE MODEL] [-v debug or release]"
+    echo "Description:"
+    echo "    -p, 机型，当前可支持：x86、arm"
+    echo "    -v, debug or release"
+}
+
+if [ ! $# -eq 4 ];then
+    usage
+    exit
+fi
+while getopts :p:v: option
+do
+   case "${option}"  in  
+                p)
+                    PLATFORM=${OPTARG}
+                    ;;
+                v) 
+                    BUILD_TYPE=${OPTARG}
+                    ;;
+                ?) 
+                    usage
+                    exit
+                    ;;
+   esac
+done
+
+# 参数校验
+if [ ! ${PLATFORM} = "x86" ] && 
+   [ ! ${PLATFORM} = "arm" ]
+then
+    usage
+    exit
+fi
+
+if [ ! ${BUILD_TYPE} = "release" ] && 
+   [ ! ${BUILD_TYPE} = "debug" ]
+then
+    usage
+    exit
 fi
 
 
-echo ${INSTALL_DIR}
-echo ${SOURCE_DIR}
+SOURCE_DIR=${PROJECTPATH}
+BUILD_DIR=${PROJECTPATH}/build
+BUILD_TYPE=${BUILD_TYPE:-release}
+# INSTALL_DIR=${INSTALL_DIR:-../${BUILD_TYPE}-install}
 
+if [ -d "$BUILD_DIR" ];then
+   rm $BUILD_DIR -rf
+   echo "删除build"
+fi
 echo "#######################开始编译......###################"
-if [ "$USING_ROS" = 0 ]
-then
-mkdir -p $BUILD_DIR\
-  && cd $BUILD_DIR \
-  && cmake  ..
-  make
-  echo "#######################编译结束！###################"
+mkdir -p $BUILD_DIR/$BUILD_TYPE \
+  && cd $BUILD_DIR/$BUILD_TYPE
+
+ echo $BUILD_TYPE 
+ echo $PLATFORM 
+#使用场景 : 编译脚本传递参数 -> CMake脚本接收option -> 源代码宏
+# cmake $SOURCE_DIR\
+#     # -DCMAKE_BUILD_TYPE=$BUILD_TYPE \  
+#     -DCMAKE_BUILD_TYPE=$BUILD_TYPE \     
+#     #  -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR \
+#     #  -DPLATFORM=${PLATFORM} \
+
+# make  -j8
+# make install  
+
+
+
+cmake $SOURCE_DIR\
+   -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+   -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR \
+   -DPLATFORM=${PLATFORM} \
+
+make
+# make install  
+echo "#######################编译结束！###################"
 #   cd   ${RUN_DIR}&& ./demo_data_structure  
 #   cd   ${RUN_DIR}&& ./eigen_test
 #   cd   ${RUN_DIR}&& ./lider_trans  
-  cd   ${RUN_DIR}&& ./cherno
-fi
+cd   ${PROJECTPATH}/release/x86/bin && ./cherno
 
-echo -e "\n#######################运行结束！###################"
+echo  "#######################运行结束！###################"
