@@ -6,7 +6,7 @@
             {
                     "label": "build",                                               //修改 和后面  "preLaunchTask": "build" 一致名称
                     "type": "shell",
-                    "command": "bash script/build.sh",                 //修改    
+                    "command": "bash script/build.sh -p x86 -v release",                 //修改    
                     "group": {
                             "kind": "build",
                             "isDefault": true

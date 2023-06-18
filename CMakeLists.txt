@@ -1,64 +1,61 @@
 #############################通用设置################################
+message(STATUS "===================================进入顶层CmakeLists=============================================")  
 cmake_minimum_required(VERSION 2.8)
 project(baseproject)
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W  -g -std=c++14 -pthread ")    #gdb调试时候是需要这句 -g
-set(CMAKE_BUILD_TYPE "Debug")
+
+IF (PLATFORM  MATCHES "x86")
+    SET(CROSSCOMPILE 0)
+	SET(CMAKE_SYSTEM_PROCESSOR x86)
+    message(STATUS " 编译平台: "   ${PLATFORM})            
+ELSE()
+	SET(CROSSCOMPILE 1)
+	SET(CMAKE_SYSTEM_PROCESSOR aarch64)
+    message(STATUS " 编译平台: "   ${PLATFORM})       
+    #添加后续的工具链     
+ENDIF()
+
+#删除之前生成文件,避免未更新
+FILE(REMOVE_RECURSE ${PROJECT_SOURCE_DIR}/sysroot/${CMAKE_SYSTEM_PROCESSOR})
 
 
-#############################预先设置################################
-SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/Release/lib) 
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/Release/bin) 
-# 自定义库(cmake机制 自定义的库不需要link_directories)   
-INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/utils/)       #编译时指定头文件目录  不能有除了头文件的其他文件
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE "release")
+endif()
 
-link_directories(${PROJECT_SOURCE_DIR}/Release/lib)        #运行时指定库目录
-#几种简化写法 对于多文件
-# message(STATUS "（一）搜索文件所有需要编译的源文件打包编译")  
-# file(GLOB_RECURSE H_SRCS *.h)  
-# file(GLOB_RECURSE CXX_SRCS *.cpp)  #在项目中搜索所有cpp文件，build同时也会搜索
-# file(GLOB_RECURSE NODE_SRCS "build/*.cpp")   
-# file(GLOB_RECURSE EXAMPLE_SRCS "example/*.cpp")   
-# list(REMOVE_ITEM CXX_SRCS ${NODE_SRCS})   #去掉build目录的 避免重定义
-# list(REMOVE_ITEM CXX_SRCS ${EXAMPLE_SRCS})   #去掉example目录的 避免main重定义
-# message(STATUS "头文件"   ${H_SRCS})  
-# message(STATUS "源文件"   ${CXX_SRCS})  
+if( CMAKE_BUILD_TYPE MATCHES "debug" )
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W  -std=c++14 -pthread -g") #-g 调试模式
+    message(STATUS " 编译模式: "   ${CMAKE_BUILD_TYPE})            
+else( CMAKE_BUILD_TYPE MATCHES "release" )
+	IF(CROSSCOMPILE)
+		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fexceptions -fpic -Wno-psabi -funwind-tables -finline-limit=64 -fsigned-char -no-canonical-prefixes -O3 -DNDEBUG")
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -W  -std=c++14 -O3")
+	ELSE(CROSSCOMPILE)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -W  -std=c++14 -O3")
+        message(STATUS " 编译模式: "   ${CMAKE_BUILD_TYPE})            
+	ENDIF(CROSSCOMPILE)
+endif( CMAKE_BUILD_TYPE MATCHES "debug" )
 
-#第三方库(查询是否安装：locate)
-# PCL
-#安装命令：sudo apt-get install libpcl-dev       
-# find_package(PCL REQUIRED)
-# include_directories(${PCL_INCLUDE_DIRS})   #第三方库需要头文件 自定义的库的话没有要
-# link_directories(${PCL_LIBRARY_DIRS})
-# add_definitions(${PCL_DEFINITIONS})
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/release/${CMAKE_SYSTEM_PROCESSOR}/bin)
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/release/${CMAKE_SYSTEM_PROCESSOR}/lib)
 
-#OpenCV
-# find_package( OpenCV REQUIRED )  
+
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W   -std=c++14 -pthread ")    #gdb调试时候是需要这句 -g
+
 
 
 #############################生成编译文件#################################
 ####动静态库
-add_subdirectory(utils)     ##优先编译工具库
-# add_library( person SHARED  src/person.cpp)
-# # add_library(cat cat/cat.cpp)
-add_subdirectory(example)  
-# add_subdirectory(carto)  
-# add_subdirectory(icp)  
-# add_subdirectory(modern-cpp)  
-# add_subdirectory(design_ptterns)
+# add_subdirectory(utils)     ##优先编译工具库
+# add_subdirectory(example)  
+add_subdirectory(src/cherno)  
 
-####可执行文件
-##1.纯源码
-# add_executable(main  ${CXX_SRCS}  )
-##1.链接动态库
-# add_executable(main main.cpp  )
-# target_link_libraries(main cat person 	${OpenCV_LIBS} ${PCL_LIBRARIES} )
-# target_link_libraries(main cat person  )
 
 
 #############################gtest单元测试#################################
 ##-------- Include directories----------##
-include_directories(gtest)
+# include_directories(gtest)
 ##---------Build target-------------------##      
 # add_subdirectory(gtest)    #先依赖单元测试模块的库(先编译库)
 # option(CMAKE_TEMPLATE_ENABLE_TEST "Whether to enable unit tests" ON)
@@ -73,5 +70,12 @@ include_directories(gtest)
 #     add_test(NAME test_fixed_ratio COMMAND test_fixed_ratio)
 # endif()
 
-#############################安装位置#################################
+#############################安装位置#################################(可以用install发布,也可以用release.sh脚本发布)
 # install(TARGETS ${PROJECT_NAME}        RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/Release)   #执行 make  install(在发布版本时候用)
+# set(CMAKE_INSTALL_BINDIR ${PROJECT_SOURCE_DIR}/debug/bin)
+# set(CMAKE_INSTALL_LIBDIR ${PROJECT_SOURCE_DIR}/debug/lib)
+# INSTALL(TARGETS cherno  utils
+#        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+#        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+# )
