@@ -2,7 +2,7 @@
 ###
  # @Author: glider
  # @Date: 2023-06-18 15:56:52
- # @LastEditTime: 2023-06-18 23:28:36
+ # @LastEditTime: 2023-06-22 22:36:26
  # @FilePath: /SubstrateDevelopment/script/build.sh
  # @Version:  v0.01
  # @Description: 
@@ -66,11 +66,10 @@ then
     exit
 fi
 
-
+GLIDER_DEBUG=sss
 SOURCE_DIR=${PROJECTPATH}
 BUILD_DIR=${PROJECTPATH}/build
-BUILD_TYPE=${BUILD_TYPE:-release}
-# INSTALL_DIR=${INSTALL_DIR:-../${BUILD_TYPE}-install}
+
 
 if [ -d "$BUILD_DIR" ];then
    rm $BUILD_DIR -rf
@@ -80,26 +79,16 @@ echo "#######################开始编译......###################"
 mkdir -p $BUILD_DIR/$BUILD_TYPE \
   && cd $BUILD_DIR/$BUILD_TYPE
 
+ echo $GLIDER_DEBUG 
  echo $BUILD_TYPE 
  echo $PLATFORM 
 #使用场景 : 编译脚本传递参数 -> CMake脚本接收option -> 源代码宏
-# cmake $SOURCE_DIR\
-#     # -DCMAKE_BUILD_TYPE=$BUILD_TYPE \  
-#     -DCMAKE_BUILD_TYPE=$BUILD_TYPE \     
-#     #  -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR \
-#     #  -DPLATFORM=${PLATFORM} \
-
-# make  -j8
-# make install  
-
-
-
-cmake $SOURCE_DIR\
+cmake $SOURCE_DIR \
    -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
    -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR \
    -DPLATFORM=${PLATFORM} \
 
-make
+# make
 # make install  
 echo "#######################编译结束！###################"
 #   cd   ${RUN_DIR}&& ./demo_data_structure  

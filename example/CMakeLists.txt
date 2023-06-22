@@ -6,6 +6,20 @@
 # OpenCV
 # find_package( OpenCV REQUIRED )  
 
+# 查找OpenCV
+FIND_PACKAGE(OpenCV REQUIRED)
+IF(OpenCV_FOUND)
+	MESSAGE("===== support OpenCV =====")
+	MESSAGE(STATUS "OpenCV library status:")
+	MESSAGE(STATUS "	version: ${OpenCV_VERSION}")
+	MESSAGE(STATUS "	include path: ${OpenCV_INCLUDE_DIRS}")
+	MESSAGE(STATUS "	install path: ${OpenCV_INSTALL_PATH}")
+	MESSAGE(STATUS "	libraries: ${OpenCV_LIBS}")
+	INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
+ELSE()
+	MESSAGE("##### not support OpenCV #####")
+ENDIF()
+
 # add_executable(demo_data_structure  demo_data_structure.cpp)
 # target_link_libraries(demo_data_structure  	${OpenCV_LIBS} ${PCL_LIBRARIES})#有没有后缀是
 

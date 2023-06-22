@@ -10,5 +10,10 @@ set(utils_src ${H_SRCS}  ${CXX_SRCS})
 set(chero_src cherno_main.cpp cherno.h)
 include_directories(${PROJECT_SOURCE_DIR}/utils/)
 add_executable(cherno  ${chero_src}  ${utils_src})
+add_compile_options(-DGLIDERDEBUG)
+# target_compile_options(cherno PUBLIC -DGLIDERDEBUG)   #和上一局一样
+
+
+
 # install(TARGETS ${PROJECT_NAME}        RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/Release)   #执行 make  install(在发布版本时候用)
 message(STATUS "===================================配置cherno完成=============================================")  

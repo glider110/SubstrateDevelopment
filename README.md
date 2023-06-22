@@ -46,3 +46,4 @@
 
   - [ ] 添加单例模式
 - [ ] 标准化一个cmakelist项目(嵌套/平台/模式/编译脚本/cmake控制/安装/cmake_module)
+- [ ] 利用chatgpt来写cmake脚本

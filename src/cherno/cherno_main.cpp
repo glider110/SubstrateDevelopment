@@ -1,8 +1,8 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-17 13:43:00
- * @FilePath: /SubstrateDevelopment/example/cherno_main.cpp
+ * @LastEditTime: 2023-06-21 17:37:07
+ * @FilePath: /SubstrateDevelopment/src/cherno/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
  * ************************************************************************
@@ -166,9 +166,12 @@ string  h = static_cast<string>(b);
 
 int main()
 {
+    #ifdef GLIDERDEBUG
+    {
     LOG( "this is cherno test...");
+    }
     test8();
     // std::cin.get();
-
+    #endif
 }
 int a = 111;   //全局区优先再编译时候处理,然后再找main 因此放在mian后面也能获取a的值
