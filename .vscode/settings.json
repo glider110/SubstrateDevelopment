@@ -12,48 +12,47 @@
     },
     "todo-tree.general.tags": [
       "glider ?",     //未理解
-      "glider !",      //未重点
+      "glider !",      //
       "glider note",  //注释                                
       "glider todo",  //待完成
-      "glider",             //通用
-      "param",
-      "Step",
-      "c++11",
-      "glider tag",      //未定义
+    //   "param",
+    //   "Step",
+    //   "c++11",
+    //   "glider tag",      //未定义
     ],
 
-       //glider ?:   //未理解
-      //glider !:   //未重点
-      //glider note://注释
+      //glider ?:   //未理解
+       //glider !:   //重点
+      //glider note: //注释
       //glider todo: //待完成
-      //glider:  
+
     "todo-tree.highlights.customHighlight": {
       "glider ?": {
         "icon": "question",
-        "foreground": "yellow",
-        "iconColour": "yellow",
-        "type": "text-and-comment"
-      },
-      "glider !": {
         "foreground": "red",
-        "icon": "issue-opened",
         "iconColour": "red",
         "type": "text-and-comment"
       },
-      "Step": {
-        "foreground": "#7CFC00",
-        "icon": "question",
-        "iconColour": "green",
-        "type": "text-and-comment",
-        "hideFromTree": true
+      "glider !": {
+        "foreground": "yellow",
+        "icon": "issue-opened",
+        "iconColour": "yellow",
+        "type": "text-and-comment"
       },
-      "c++11": {
-        "icon": "tag",
-        "foreground": "violet",
-        "rulerColour": "violet",
-        "iconColour": "violet",
-        "type": "text-and-comment",
-      },
+    //   "Step": {
+    //     "foreground": "#7CFC00",
+    //     "icon": "question",
+    //     "iconColour": "green",
+    //     "type": "text-and-comment",
+    //     "hideFromTree": true
+    //   },
+    //   "c++11": {
+    //     "icon": "alert",
+    //     "foreground": "violet",
+    //     "rulerColour": "violet",
+    //     "iconColour": "violet",
+    //     "type": "text-and-comment",
+    //   },
       "glider note": {
         "icon": "note",
         "foreground": "orange",
@@ -78,18 +77,18 @@
       },
       "glider todo": {
         "icon": "tag",
-        "foreground": "#f90",
-        "rulerColour": "#f90",
-        "iconColour": "#f90",
+        "foreground": "#33db24",
+        "rulerColour": "#33db24",
+        "iconColour": "#33db24",
         "type": "text-and-comment",
       },
-      "glider": {
-          "icon": "tag",
-          "foreground": "#4400ff",
-          "rulerColour": "#4400ff",
-          "iconColour": "#4400ff",
-          "type": "text-and-comment",
-        },
+    //   "glider": {
+    //       "icon": "tag",
+    //       "foreground": "#4400ff",
+    //       "rulerColour": "#4400ff",
+    //       "iconColour": "#4400ff",
+    //       "type": "text-and-comment",
+    //     },
   
     },
     "python.autoComplete.extraPaths": [

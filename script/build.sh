@@ -2,7 +2,7 @@
 ###
  # @Author: glider
  # @Date: 2023-06-18 15:56:52
- # @LastEditTime: 2023-06-22 22:36:26
+ # @LastEditTime: 2023-06-25 23:52:59
  # @FilePath: /SubstrateDevelopment/script/build.sh
  # @Version:  v0.01
  # @Description: 
@@ -82,13 +82,13 @@ mkdir -p $BUILD_DIR/$BUILD_TYPE \
  echo $GLIDER_DEBUG 
  echo $BUILD_TYPE 
  echo $PLATFORM 
-#使用场景 : 编译脚本传递参数 -> CMake脚本接收option -> 源代码宏
+#使用场景 : 编译脚本传递参数 -> CMake脚本接收option -> 源代码宏(由外到里面传递)
 cmake $SOURCE_DIR \
    -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
    -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR \
    -DPLATFORM=${PLATFORM} \
 
-# make
+make
 # make install  
 echo "#######################编译结束！###################"
 #   cd   ${RUN_DIR}&& ./demo_data_structure  

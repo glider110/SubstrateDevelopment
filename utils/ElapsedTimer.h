@@ -29,6 +29,8 @@
  
 #include <chrono>
  
+ namespace NS_COMMON
+ {
 /** \class ElapsedTimer
     \brief Defines an elapsed timer.
 */
@@ -101,5 +103,5 @@ private:
  
     time_point m_tp;
 };
- 
+} // namespace NS_COMMON
 #endif // ELAPSED_TIMER_H_

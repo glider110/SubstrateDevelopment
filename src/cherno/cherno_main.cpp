@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-21 17:37:07
+ * @LastEditTime: 2023-06-26 01:25:22
  * @FilePath: /SubstrateDevelopment/src/cherno/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
@@ -17,6 +17,7 @@
 #include "cherno.h"
 // #include "../utils/ElapsedTimer.h"
 #include "ElapsedTimer.h"     //没有这句include_directories() 编译器找不到路径
+#include "timer.h"     //没有这句include_directories() 编译器找不到路径
 
 
 #define PR_DEBUG 1 //可以在这里切换成0，作为一个开关
@@ -88,7 +89,7 @@ void test3()
 
 }
 
-//作用域与生命周期 时空
+//glider !:作用域与生命周期 时空
 void test4()
 {
     int a = 0;
@@ -134,10 +135,21 @@ void test7()
 
 //时间库chrono
 void test8(){
-    ElapsedTimer<int> a;
+    NS_COMMON::ElapsedTimer<int> a;
     sleep(1);
    LOG(a.elapsed());
+   a.reset();
+    sleep(2);
    LOG(a.elapsedSeconds());
+   using namespace NS_COMMON;
+   LOG(ToUniversal(GetCurrentTime()));
+   a.reset();
+   usleep(1000);
+   LOG(a.elapsedMilliseconds());
+   LOG(ToUniversal(GetCurrentTime()));
+   LOG(GetCurrentDate());
+//    LOG(::a);     glider ?:这个全局变量为啥不行
+   LOG(::s_v);
 }
 
 
@@ -155,18 +167,21 @@ int f =std::stoi(a);
 string e = to_string(c);
 string g = string(b);   //string构造
 
-//glider:强制装换
+//glider: 强制装换
 // int  h = static_cast<int>(a);
 // int  h = static_cast<int>(b);
 string  h = static_cast<string>(b);
 // const char*  i = reinterpret_cast<const char*>(a);
+}
 
-
+//glider note: glog
+void test10(){
+    //glider todo: 测试常见glog
 }
 
 int main()
 {
-    #ifdef GLIDERDEBUG
+    #ifdef GLIDERDEBUG1
     {
     LOG( "this is cherno test...");
     }

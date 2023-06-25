@@ -1,10 +1,10 @@
 /*
  * @Author: wen.ligang
  * @Date: 2020-12-02 13:53:26
- * @LastEditTime: 2023-06-17 12:29:31
+ * @LastEditTime: 2023-06-25 23:20:47
  * @LastEditors: Please set LastEditors
  * @Description: 
- * @FilePath: /SubstrateDevelopment/utils/time.h
+ * @FilePath: /SubstrateDevelopment/utils/timer.h
  * @ 
  */
 #ifndef SLAM_COMMON_TIME_H_
@@ -16,8 +16,7 @@
 #include <ratio>
 #include "port.h"
 
-namespace slam {
-namespace common {
+namespace NS_COMMON {
 
 constexpr int64_t kUtsEpochOffsetFromUnixEpochInSeconds =
     (719162ll * 24ll * 60ll * 60ll);
@@ -59,6 +58,6 @@ double GetThreadCpuTimeSeconds();
 Time GetCurrentTime(void);
 std::string GetCurrentDate(void);
 } // namespace data_type
-} // namespace slam
+
 
 #endif

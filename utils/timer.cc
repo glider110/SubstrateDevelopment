@@ -1,7 +1,7 @@
 /*
  * @Author: wen.ligang
  * @Date: 2020-12-02 13:53:26
- * @LastEditTime: 2023-06-17 12:35:22
+ * @LastEditTime: 2023-06-26 00:22:42
  * @LastEditors: Please set LastEditors
  * @Description: 
  * @FilePath: /SubstrateDevelopment/utils/timer.cc
@@ -17,8 +17,7 @@
 #include <iostream>
 
 #include "timer.h"
-namespace slam {
-namespace common {
+namespace NS_COMMON {
 
 Duration FromSeconds(const double seconds) {
   return std::chrono::duration_cast<Duration>(
@@ -44,7 +43,7 @@ std::ostream& operator<<(std::ostream& os, const Time time) {
   return os;
 }
 
-common::Duration FromMilliseconds(const int64_t milliseconds) {
+NS_COMMON::Duration FromMilliseconds(const int64_t milliseconds) {
   return std::chrono::duration_cast<Duration>(
       std::chrono::milliseconds(milliseconds));
 }
@@ -86,6 +85,6 @@ std::string GetCurrentDate(void) {
     return date;
 
 }
-}  // namespace common
-}  // namespace slam
+}  // namespace NS_COMMON
+
 

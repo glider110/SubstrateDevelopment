@@ -27,3 +27,17 @@
 #OpenCV
 # find_package( OpenCV REQUIRED )  
 ```
+
+
+总结:
+
+* [ ] *.cmake文件可以理解是部分cmakelists,可以通过include包含;写在单独文件里面被调用
+
+  ```cmake
+  cmake_minimum_required(VERSION 3.16)
+  project(cmake_feature_usage)
+  message("#### current cmake version: ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${CMAKE_PATCH_VERSION}")
+  include(test_${TEST_CMAKE_FEATURE}.cmake)
+  message("==== test finish ====")
+  ```
+* [ ] 一些参数可以写作为配置文件,由cmaklists获取;
