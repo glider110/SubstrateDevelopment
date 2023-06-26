@@ -25,6 +25,7 @@ endif()
 
 if( CMAKE_BUILD_TYPE MATCHES "debug" )
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W  -std=c++14 -pthread -g") #-g 调试模式
+    set(CMAKE_BUILD_TYPE debug)
     message(STATUS " 编译模式: "   ${CMAKE_BUILD_TYPE})            
 else( CMAKE_BUILD_TYPE MATCHES "release" )
 	IF(CROSSCOMPILE)
@@ -47,9 +48,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W   -std=c++14 -pthread ")    #gdb调�
 
 #############################生成编译文件#################################
 ####动静态库
-# add_subdirectory(utils)     ##优先编译工具库
+add_subdirectory(src/carto)   
 # add_subdirectory(example)  
-add_subdirectory(src/cherno)  
+# add_subdirectory(src/cherno)  
 
 
 

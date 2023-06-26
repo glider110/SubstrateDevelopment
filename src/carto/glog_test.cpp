@@ -1,8 +1,8 @@
 /*
  * @Author: glider
  * @Date: 2022-07-25 10:24:33
- * @LastEditTime: 2022-08-01 14:10:40
- * @FilePath: /SubstrateDevelopment/carto/glog_test.cpp
+ * @LastEditTime: 2023-06-26 18:07:53
+ * @FilePath: /SubstrateDevelopment/src/carto/glog_test.cpp
  * @Version:  v0.01
  * @Description: 
  * ************************************************************************
@@ -12,9 +12,10 @@
 
 #include <string>
 #include <iostream>
+#include <chrono>
 #include "glog/logging.h"   // glog 头文件 
-#include "glog/raw_logging.h"
-#include  "../utils/time.h"
+// #include "glog/raw_logging.h"
+#include "timer.h"
 using namespace std;
 
 inline static uint64_t getSystemTimestampUS()
@@ -33,8 +34,7 @@ void test_chrono()
     sleep(1);
     std::chrono::system_clock::time_point t1 = std::chrono::system_clock::now();
     std::time_t c1 = std::chrono::system_clock::to_time_t(t1);
-    cout << std::put_time(std::localtime(&c), "%F %T\n");    //  2022-02-22 20:50:30
-    cout << std::put_time(std::localtime(&c1), "%F %T\n");    //  2022-02-22 20:50:30
+
     //方法(二)
     uint64_t timestamp1 = getSystemTimestampUS() / 1000;
     sleep(1);
@@ -53,10 +53,13 @@ void test_chrono()
 int main(int argc, char** argv){
     // FLAGS_log_dir = "/home/admins/桌面/github/SubstrateDevelopment/data/log";
     google::InitGoogleLogging(argv[0]);
-    google::SetLogDestination(google::GLOG_INFO, "/home/admins/桌面/github/SubstrateDevelopment/data/log/");
+    google::SetLogDestination(google::GLOG_INFO, "/home/admins/project/SubstrateDevelopment/data/log/");
     // google::SetStderrLogging(google::GLOG_INFO);
     google::SetLogFilenameExtension("glider_log_");
-    // FLAGS_logtostderr = true;  //设置日志消息是否转到标准输出而不是日志文件
+    FLAGS_logtostderr = 0;  // glider note:将使日志信息记录到stderr(终端)而不保存到本地日志文件中，即使你设置了FLAGS_log_dir;()
+    FLAGS_v = 1;
+    FLAGS_minloglevel = -3;
+    FLAGS_stderrthreshold = 0;
     // FLAGS_alsologtostderr = true;  //设置日志消息除了日志文件之外是否去标准输出
     FLAGS_colorlogtostderr = true;  //设置记录到标准输出的颜色消息（如果终端支持）
     FLAGS_log_prefix = true;  //设置日志前缀是否应该添加到每行输出
@@ -64,7 +67,8 @@ int main(int argc, char** argv){
     FLAGS_max_log_size = 10;  //设置最大日志文件大小（以MB为单位）
     FLAGS_stop_logging_if_full_disk = true;  //设置是否在磁盘已满时避免日志记录到磁盘
 
-
+    VLOG(1) << "I'm printed when you run the program with --v=1 or higher";
+    VLOG(2) << "I'm printed when you run the program with --v=2 or higher";
     std::string test = "this is test";
     int i = 2, number = 8;
 
@@ -81,9 +85,6 @@ int main(int argc, char** argv){
     DLOG(INFO) << "it is debug mode";
     DLOG_IF(INFO, number > 10) << "debug number > 10";  
     // DLOG_EVERY_N(INFO, 10) << "log i = " << i;
-    RAW_LOG(INFO, "it is pthread log");
-    //    FLAGS_logtostderr = 1; // 将使日志信息记录到stderr而不保存到本地日志文件中，即使你设置了FLAGS_log_dir;
-    FLAGS_alsologtostderr = true; //除了日志文件之外是否需要标准输出
 
     //有条件地中止程序
     int a1 = 5;
@@ -98,20 +99,15 @@ int main(int argc, char** argv){
     LOG(WARNING) << "warning test";  //输出一个Warning日志
     LOG(ERROR) << "error test";  //输出一个Error日志
     //    LOG(FATAL) << "fatal test";  //输出一个Fatal日志，这是最严重的日志并且输出之后会中止程序
-
-
     
-    
-    LOG(WARNING)<< slam::common::GetCurrentTime();
-    LOG(WARNING)<< slam::common::ToUniversal(slam::common::GetCurrentTime());
+    LOG(WARNING)<< NS_COMMON::GetCurrentTime();
+    LOG(WARNING)<< NS_COMMON::ToUniversal(NS_COMMON::GetCurrentTime());
     sleep(0.1);
-    LOG(WARNING)<< slam::common::GetCurrentTime();
-    LOG(WARNING)<< slam::common::ToUniversal(slam::common::GetCurrentTime());
-    LOG(WARNING)<<slam::common::GetCurrentDate();
+    LOG(WARNING)<< NS_COMMON::GetCurrentTime();
+    LOG(WARNING)<< NS_COMMON::ToUniversal(NS_COMMON::GetCurrentTime());
+    LOG(WARNING)<<NS_COMMON::GetCurrentDate();
 
     google::ShutdownGoogleLogging();
-
-
     std::cout<<"-------end-----"<<std::endl;
     return 0;
 }

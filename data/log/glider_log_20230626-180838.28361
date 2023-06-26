@@ -1,0 +1,19 @@
+Log file created at: 2023/06/26 18:08:38
+Running on machine: glider
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0626 18:08:38.220355 28361 glog_test.cpp:70] I'm printed when you run the program with --v=1 or higher
+I0626 18:08:38.220629 28361 glog_test.cpp:75] it is info
+I0626 18:08:38.220650 28361 glog_test.cpp:77] number <  10
+I0626 18:08:38.220662 28361 glog_test.cpp:79] log i = 0
+I0626 18:08:38.220677 28361 glog_test.cpp:79] log i = 5
+I0626 18:08:38.220696 28361 glog_test.cpp:79] log i = 10
+I0626 18:08:38.220717 28361 glog_test.cpp:79] log i = 15
+W0626 18:08:38.220739 28361 glog_test.cpp:82] It is error info
+E0626 18:08:38.221048 28361 glog_test.cpp:83] It is error info
+W0626 18:08:38.221238 28361 glog_test.cpp:99] warning test
+E0626 18:08:38.221268 28361 glog_test.cpp:100] error test
+W0626 18:08:38.221310 28361 glog_test.cpp:103] 550371934980
+W0626 18:08:38.221351 28361 glog_test.cpp:104] 550371935389
+W0626 18:08:38.221455 28361 glog_test.cpp:106] 550371936475
+W0626 18:08:38.221508 28361 glog_test.cpp:107] 550371936964
+W0626 18:08:38.221544 28361 glog_test.cpp:108] 202362618838

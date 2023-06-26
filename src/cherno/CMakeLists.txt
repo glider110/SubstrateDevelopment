@@ -9,9 +9,10 @@ message(STATUS "utils源文件:"   ${CXX_SRCS})
 set(utils_src ${H_SRCS}  ${CXX_SRCS})
 set(chero_src cherno_main.cpp cherno.h)
 include_directories(${PROJECT_SOURCE_DIR}/utils/)
-add_executable(cherno  ${chero_src}  ${utils_src})
+add_executable(cherno  ${chero_src}  ${utils_src})   
 # add_definitions(-DGLIDERDEBUG=1)
 target_compile_definitions(cherno PUBLIC -DGLIDERDEBUG1)   #和上面一样,尽量用define 而不是用option
+target_link_libraries(cherno glog)
 
 
 # install(TARGETS ${PROJECT_NAME}        RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/Release)   #执行 make  install(在发布版本时候用)

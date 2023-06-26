@@ -18,17 +18,19 @@
     //   "param",
     //   "Step",
     //   "c++11",
-    //   "glider tag",      //未定义
+      "glider url",      //未定义
     ],
 
       //glider ?:   //未理解
        //glider !:   //重点
       //glider note: //注释
       //glider todo: //待完成
+      //glider url:
 
     "todo-tree.highlights.customHighlight": {
       "glider ?": {
         "icon": "question",
+        "gutterIcon": true,
         "foreground": "red",
         "iconColour": "red",
         "type": "text-and-comment"
@@ -36,6 +38,7 @@
       "glider !": {
         "foreground": "yellow",
         "icon": "issue-opened",
+        "gutterIcon": true,
         "iconColour": "yellow",
         "type": "text-and-comment"
       },
@@ -55,6 +58,7 @@
     //   },
       "glider note": {
         "icon": "note",
+        "gutterIcon": true,
         "foreground": "orange",
         "rulerColour": "orange",
         "iconColour": "orange",
@@ -62,21 +66,25 @@
       },
       "param": {
         "icon": "issue-closed",
+        "gutterIcon": true,
         "foreground": "orange",
         "rulerColour": "orange",
         "iconColour": "orange",
         "type": "text-and-comment",
       },
-      "glider tag": {
-        "icon": "tag",
-        "foreground": "#7CFC00",
-        "rulerColour": "#7CFC00",
-        "iconColour": "#7CFC00",
+      "glider url": {
+        "icon": "tools",
+        "gutterIcon": true,
+        "foreground": "#2e00fc",
+        "rulerColour": "#2e00fc",
+        "iconColour": "#2e00fc",
         "rulerLane": "full",
-        "type": "text-and-comment",
+        "type": "line",
       },
       "glider todo": {
         "icon": "tag",
+        "gutterIcon": true,
+
         "foreground": "#33db24",
         "rulerColour": "#33db24",
         "iconColour": "#33db24",
