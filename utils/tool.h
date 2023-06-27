@@ -1,19 +1,17 @@
 /*
  * @Author: glider
- * @Date: 2022-07-29 10:25:48
- * @LastEditTime: 2022-08-15 14:44:01
+ * @Date: 2022-09-21 19:31:47
+ * @LastEditTime: 2023-06-28 00:17:52
  * @FilePath: /SubstrateDevelopment/utils/tool.h
  * @Version:  v0.01
  * @Description: 
  * ************************************************************************
- * Copyright (c) 2022 by  glider.guo@ankobot.com, All Rights Reserved. 
+ * Copyright (c) 2023 by  ${git_email}, All Rights Reserved. 
  * ************************************************************************
  */
-
-
 #ifndef _TOOL_H
 #define _TOOL_H
-// #pragma once 
+// #pragma once
 
 #include <string>
 #include <iostream>
@@ -24,8 +22,6 @@
 
 using namespace std;
 
-namespace NA_TOOL
-{
 inline void SplitString(const string& s, vector<string>& v, const string& c)
 {
     string::size_type pos1, pos2;
@@ -49,11 +45,6 @@ inline static uint64_t getSystemTimestampUS()
     return (uint64_t)(ts.tv_sec * 1e6 + ts.tv_nsec * 0.001);
 }
 
-/**
- * @description: 
- * @param {string&} filePath
- * @return {*}
- */
 inline bool IsExistFolder(const std::string& filePath)
 {
     struct stat info;
@@ -70,11 +61,6 @@ inline bool IsExistFolder(const std::string& filePath)
     return ret;
 }
 
-/**
- * @brief: 执行shell命令
- * @param {string} &str
- * @result: 
- */
 inline std::string getCmdRes(const std::string &str)
 {
     char result[1024] = {0};
@@ -97,39 +83,6 @@ inline std::string getCmdRes(const std::string &str)
 }
 
 
-inline void mkDir(const string& save_data_path)
-{
-    // string save_data_path ="/tmp/glider/image/";
-    if (!IsExistFolder(save_data_path))
-    {
-        int ret = mkdir(save_data_path.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
-    }
-    else
-    {
-        string cmdStr = "rm -rf " + save_data_path + "/* ";
-        string result = getCmdRes(cmdStr);
-    }
-}
-
-
-/**
- * @description: 
- * @param {string}  &pathname
- * @param {string} &data
- * @return {*}
- */
-bool WriteFile(const std::string &pathname, const std::string &data) {
-    std::fstream fs;
-    fs.open(pathname, std::ios_base::out);
-    if (false == fs.is_open()) {
-        return false;
-    }
-
-    fs.write(data.data(), data.size());
-    fs.close();
-}
-
-} // namespace name
 #endif
 
 
