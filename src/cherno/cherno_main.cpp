@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-26 01:25:22
+ * @LastEditTime: 2023-06-27 11:53:12
  * @FilePath: /SubstrateDevelopment/src/cherno/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
@@ -174,7 +174,7 @@ string  h = static_cast<string>(b);
 // const char*  i = reinterpret_cast<const char*>(a);
 }
 
-//glider note: glog
+//glider note: config
 void test10(){
     //glider todo: 测试常见glog
 }
