@@ -22,9 +22,9 @@
 - [X] 调试：gdb调试和可视化调试，配置好制动化编译 调试 运行脚本
 - [ ] 常用数据类型的应用：eigen opencv pcl  map vecter list
 - [X] 关于指针：三维矩阵 智能指针 普通指针
-- [ ] *个人工具库收*
+- [X] *个人工具库收*
 
-  - [ ] 数据流读写：txt、csv、bmp、ply  log写法标准;
+  - [X] 数据流读写：txt、csv、bmp、ply  log写法标准;
   - [X] 时间接口
 - [X] lamda表达式的练习;
 - [X] 智能指针理解和练习;
@@ -44,14 +44,14 @@
 - [X] template;
 
 * [ ] github获取文件管理系统, 日志管理系统,程序检测系统;
-* [ ] 添加glog作为日常调试;
-* [ ] 完整项目文件管理
+* [X] 添加glog作为日常调试;
+* [X] 完整项目文件管理
   * [X] [ 配置文件(lua yaml json)  选择轻量化的json](utils/json11.hpp)
-  * [ ] 日志文件(glog dblog)
-  * [ ] 调试文件(csv bmp )
-  * [ ] 保存控制台数据再以脚本分析 >>log.txt
+  * [X] 日志文件(glog dblog)
+  * [X] 调试文件(csv bmp )
+  * [X] 保存控制台数据再以脚本分析 >>log.txt
 
 - [X] 集成一个超级类,覆盖工作中的基本知识点;
-  - [ ] 添加单例模式
-- [ ] 标准化一个cmakelist项目(嵌套/平台/模式/编译脚本/cmake控制/安装/cmake_module)
+  - [X] 添加单例模式
+- [X] 标准化一个cmakelist项目(嵌套/平台/模式/编译脚本/cmake控制/安装/cmake_module)
 - [ ] 利用chatgpt来写cmake脚本

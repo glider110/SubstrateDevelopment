@@ -2,7 +2,7 @@
 ###
  # @Author: glider
  # @Date: 2023-06-18 15:56:52
- # @LastEditTime: 2023-06-28 14:12:25
+ # @LastEditTime: 2023-06-28 19:02:32
  # @FilePath: /SubstrateDevelopment/script/build.sh
  # @Version:  v0.01
  # @Description: 
@@ -91,8 +91,8 @@ cmake $SOURCE_DIR \
 make
 # make install  
 echo "#######################编译结束！###################"
-# cd   ${PROJECTPATH}/release/x86/bin && ./cherno
+cd   ${PROJECTPATH}/release/x86/bin && ./cherno
 # cd   ${PROJECTPATH}/release/x86/bin && ./glog_test
-cd   ${PROJECTPATH}/release/x86/bin && ./fbc
+# cd   ${PROJECTPATH}/release/x86/bin && ./fbc
 
 echo  "#######################运行结束！###################"

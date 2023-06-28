@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-06-28 14:01:16
- * @LastEditTime: 2023-06-28 14:58:51
+ * @LastEditTime: 2023-06-28 19:00:15
  * @FilePath: /SubstrateDevelopment/src/fengbingchun/test_threadpool.cpp
  * @Version:  v0.01
  * @Description: 极简的线程池实现,用起来甚至比线程还方便
@@ -16,6 +16,8 @@
 #include "iostream"
 #include <vector>
 #include <chrono>
+#include <unistd.h>
+
 
 #define LOG(x)   std::cout << x <<std::endl
 void test_thredpool()
@@ -28,7 +30,7 @@ void test_thredpool()
     std::thread thread_test(lamda,10);
     thread_test.detach();
     std::make_shared<std::thread>(std::bind(lamda, 11))->detach();
-    std::make_shared<std::thread>(std::bind(lamda, placeholders::_1),12)->detach();
+    std::make_shared<std::thread>(std::bind(lamda,std::placeholders::_1),12)->detach();
     usleep(10);
 
     //method:线程池(一)

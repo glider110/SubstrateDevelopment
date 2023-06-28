@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-27 11:53:12
+ * @LastEditTime: 2023-06-28 19:42:50
  * @FilePath: /SubstrateDevelopment/src/cherno/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
@@ -17,7 +17,8 @@
 #include "cherno.h"
 // #include "../utils/ElapsedTimer.h"
 #include "ElapsedTimer.h"     //没有这句include_directories() 编译器找不到路径
-#include "timer.h"     //没有这句include_directories() 编译器找不到路径
+#include "timer.h"     //没有这句include_directories() 编译器找不到路径 
+#include "singleton.hpp"
 
 
 #define PR_DEBUG 1 //可以在这里切换成0，作为一个开关
@@ -174,9 +175,9 @@ string  h = static_cast<string>(b);
 // const char*  i = reinterpret_cast<const char*>(a);
 }
 
-//glider note: config
+//glider note: 测试单例
 void test10(){
-    //glider todo: 测试常见glog
+    singleton::GetInstance()->print_ff();
 }
 
 int main()
@@ -185,7 +186,7 @@ int main()
     {
     LOG( "this is cherno test...");
     }
-    test8();
+    test10();
     // std::cin.get();
     #endif
 }
