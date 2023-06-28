@@ -42,8 +42,16 @@
   - [X] 构建一个基本的catkin包流程;
   - [ ] 把李想的0到1搭建slam系统全部基于ros实际操作一遍就够了;
 - [X] template;
-- [X] 集成一个超级类,覆盖工作中的基本知识点;
 
+* [ ] github获取文件管理系统, 日志管理系统,程序检测系统;
+* [ ] 添加glog作为日常调试;
+* [ ] 完整项目文件管理
+  * [X] [ 配置文件(lua yaml json)  选择轻量化的json](utils/json11.hpp)
+  * [ ] 日志文件(glog dblog)
+  * [ ] 调试文件(csv bmp )
+  * [ ] 保存控制台数据再以脚本分析 >>log.txt
+
+- [X] 集成一个超级类,覆盖工作中的基本知识点;
   - [ ] 添加单例模式
 - [ ] 标准化一个cmakelist项目(嵌套/平台/模式/编译脚本/cmake控制/安装/cmake_module)
 - [ ] 利用chatgpt来写cmake脚本

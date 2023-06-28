@@ -16,7 +16,7 @@
       "glider note",  //注释                                
       "glider todo",  //待完成
     //   "param",
-    //   "Step",
+      "method",
     //   "c++11",
       "glider url",      //未定义
     ],
@@ -26,6 +26,7 @@
       //glider note: //注释
       //glider todo: //待完成
       //glider url:
+      //method:
 
     "todo-tree.highlights.customHighlight": {
       "glider ?": {
@@ -42,13 +43,14 @@
         "iconColour": "yellow",
         "type": "text-and-comment"
       },
-    //   "Step": {
-    //     "foreground": "#7CFC00",
-    //     "icon": "question",
-    //     "iconColour": "green",
-    //     "type": "text-and-comment",
-    //     "hideFromTree": true
-    //   },
+      "method": {
+        "foreground": "#d3a0f0",
+        "icon": "question",
+        "gutterIcon": true,
+        "iconColour": "green",
+        "type": "text-and-comment",
+        "hideFromTree": true
+      },
     //   "c++11": {
     //     "icon": "alert",
     //     "foreground": "violet",
