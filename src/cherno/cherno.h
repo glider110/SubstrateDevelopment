@@ -1,8 +1,8 @@
 /*
  * @Author: glider
  * @Date: 2023-05-27 11:07:59
- * @LastEditTime: 2023-06-17 10:17:26
- * @FilePath: /SubstrateDevelopment/example/cherno.cpp
+ * @LastEditTime: 2023-06-29 12:38:25
+ * @FilePath: /SubstrateDevelopment/src/cherno/cherno.h
  * @Version:  v0.01
  * @Description: 
  * ************************************************************************
@@ -31,6 +31,8 @@ class AkAPI
         // AkAPI(){};
         virtual void func1() const=0;    //纯虚函数 ,必须再子类实现(抽象类)
         virtual void func2(){LOG("这是AkAPI::func2函数");}  ;  //虚函数
+        // ~AkAPI(){LOG("析构基类");};
+        virtual ~AkAPI(){LOG("析构基类");};
  };
 
 
@@ -41,7 +43,8 @@ private:
     int m_x;
     int m_y;
     mutable int m_z;
-    const char* m_name;  
+    const char* m_name ="ssss";  
+    int* ptr_a = new int(10);  //glider !:类里面开辟数组/堆区一定要注意
     std::string   m_id;
 public:
     static int sm_v;
@@ -68,7 +71,10 @@ public:
 
     void func2() final {LOG("这是Entity::func2函数");}
 
-    ~Entity();
+    ~Entity()
+    {
+        LOG("析构派生类");
+    };
 };
 
 int Entity::sm_v = 1;

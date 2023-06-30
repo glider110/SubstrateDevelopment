@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-28 19:42:50
+ * @LastEditTime: 2023-06-29 12:15:47
  * @FilePath: /SubstrateDevelopment/src/cherno/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
@@ -104,12 +104,17 @@ void test4()
     
 }
 
-//类 三特性
+//glider note:超级类测试用例
+//基类析构函数如果没有virtual可能导致内存泄露,原因是子类虚构没有继承;
 void test5()
 {
     // AkAPI interface1;  //如果有纯虚函数就要报错,纯虚函数必须实例化子类
     // AkAPI* interface = new AkAPI();     //会报错，在这里我们必须给它一个实际上实现了这个函数的子类
     NS_CHERNO::AkAPI* interface = new NS_CHERNO::Entity();
+    NS_CHERNO::Entity a;
+    NS_CHERNO::AkAPI& interface_ref = a;
+    delete interface;
+    LOG("dddd");
 }
 
 //模板:解决重复编程问题
@@ -176,8 +181,26 @@ string  h = static_cast<string>(b);
 }
 
 //glider note: 测试单例
-void test10(){
+void test10()
+{
     singleton::GetInstance()->print_ff();
+}
+
+/* //glider note: 左值右值/完美转发forward
+// 【85】【Cherno C++】【中字】C++中的左值与右值
+// 左值可以被称为地址值(在内存中有位置的实际变量)
+// 右值可以被称为临时值(没有/访问不到存储空间、位置)
+// 可以通过 常引用或者右值引用演唱右值的生命周期 
+//和生命周期有关:static→一般变量→右值引到函数:拷贝/赋值/初始化列表
+*/
+void test11()
+{
+    // int& a = 10; 
+    int&& b = 11;
+    const int& c =12;
+    // static int& d =12;
+    //forward:生命周期的由于转换
+    //move:降级生命周期
 }
 
 int main()
@@ -186,7 +209,7 @@ int main()
     {
     LOG( "this is cherno test...");
     }
-    test10();
+    test5();
     // std::cin.get();
     #endif
 }
