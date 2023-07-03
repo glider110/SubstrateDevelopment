@@ -47,7 +47,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W   -std=c++14 -pthread ")    #gdb调�
 #############################生成编译文件#################################
 ####动静态库
 # add_subdirectory(example)         
-# add_subdirectory(src/carto)                             #计算机视觉life:李想slam项目拆分
+# add_subdirectory(src/carto)                        #计算机视觉life:李想slam项目拆分
 # add_subdirectory(src/fengbingchun)           #csdn:fengbingchun项目拆分
 add_subdirectory(src/cherno)                             #B站:c#csdn:herno C++课程
 # add_subdirectory(src/dianyunxia)                 #csdn:点云侠pcl课程
