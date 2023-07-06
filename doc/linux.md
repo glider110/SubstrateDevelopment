@@ -83,7 +83,7 @@ slam | grep " xxx" |tee -a 2.txt
 
 ` sudo ./dufs -p 80 . --allow-upload`
 
-docker操作
+**docker操作**
 
 ```
 groups 
@@ -96,6 +96,21 @@ groups
  1975  docker container ls -a
  1976  docker exec -it ak_sdk /bin/bash
 ```
+
+**dpkg**
+
+一般步骤
+
+- dpkg -l |grep *    查看软件list
+
+- dpkg -s pakge-name 查看软件具体信息
+- dpkg -i pakge-name 安装
+- dpkg -r pakge-name    或者 dpkg -P pakge-name  后者彻底清除 包括configure
+- dpkg -L sunloginclient   查看安装路径
+
+
+
+
 
 ### vscode技巧:
 
