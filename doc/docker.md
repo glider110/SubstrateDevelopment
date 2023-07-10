@@ -50,7 +50,19 @@ docker exec -it testbusybox /bin/sh
 
 
 
+**docker操作**
 
+```
+groups 
+ 1969  docker exec -it ak_sdk /bin/bash
+ 1970  exit
+ 1971  docker compose up -d 
+ 1972  docker container ls -a
+ 1973  docker rm epic_bhabha quirky_burnell 
+ 1974  docker compose up -d 
+ 1975  docker container ls -a
+ 1976  docker exec -it ak_sdk /bin/bash
+```
 
 #### 参考:
 

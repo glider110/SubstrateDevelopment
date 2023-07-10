@@ -3,12 +3,17 @@
 ### **linux相关命令：**
 
 - 查看编译库是否存在某个函数 objdump  -tT libakWireDetector.so | grep detectCarpetFromPairLine
+
 - 查看动态库是否更新：md5sum libakWireDetector.so   查看库的唯一编号
+
 - 查看代码行数： wc -l
 
   vi的基本操作：命令模式 Esc 编辑模式 i 保存退出：wq 不保存退出 ：q！
+  
 - 查看行数：find * | wc -l
+
 - [查看文件包含那些库](https://blog.csdn.net/mayue_web/article/details/104019036) ldd
+
 - 关于配置文件：
 
   - `gedit ~/.bashrc`    export LD_LIBRARY_PATH=/home/guo/桌面/3D_tof/glider_project/akTofInterface/lib/x86_64:/home/guo/
@@ -21,14 +26,29 @@
     export PATH=/home/guoxiaofan/node-v14.16.1-linux-x64/bin:$PATH
     sudo ln -s ./node /usr/local/bin/     软连接
     ```
+  
 - 查看生效 echo $PATH      $ LD_LIBRARY_PATH
+
 - export LD_LIBRARY_PATH=$PWD/../lib
+
+- where name  查看应用程序在哪里  只有在系统env环境中才能看见
+
+- ln -s     ******       /usr/loacl/bin
+
+<img src="linux.assets/image-20230707141229737.png" alt="image-20230707141229737" style="zoom: 80%;" />
+
 - printenv |grep ros
+
 - chmod 777 *
+
 - 查看依赖：readelf -d libakWireDetector.so
+
 - ls -rt 安装时间排序
+
 - 条件查找：egrep “啊|呕”
+
 - Linux三剑客： grep sed awk
+
 - 文件处理：
 
   当前目录下特定子目录下特定名字的文件追加到新建文件下：
@@ -51,6 +71,7 @@
   ```
 
   怎样把找出来的一些列文件移动或复制到指定文件夹？
+  
 - 文字处理：
 
   文件第几行 提取字段
@@ -60,6 +81,7 @@
   ```shell
   ls -lh |awk -F ' ' '{print $7}'|xargs echo -n >>bbs.txt
   ```
+  
 - [批量处理：](https://www.cnblogs.com/xusx/p/6041089.html)
 
   xargs
@@ -83,19 +105,6 @@ slam | grep " xxx" |tee -a 2.txt
 
 ` sudo ./dufs -p 80 . --allow-upload`
 
-**docker操作**
-
-```
-groups 
- 1969  docker exec -it ak_sdk /bin/bash
- 1970  exit
- 1971  docker compose up -d 
- 1972  docker container ls -a
- 1973  docker rm epic_bhabha quirky_burnell 
- 1974  docker compose up -d 
- 1975  docker container ls -a
- 1976  docker exec -it ak_sdk /bin/bash
-```
 
 **dpkg**
 
