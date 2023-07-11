@@ -2,7 +2,7 @@
 ###
  # @Author: glider
  # @Date: 2023-06-18 15:56:52
- # @LastEditTime: 2023-07-06 20:49:39
+ # @LastEditTime: 2023-07-11 13:20:25
  # @FilePath: /SubstrateDevelopment/script/build.sh
  # @Version:  v0.01
  # @Description: 
@@ -95,6 +95,6 @@ echo "#######################编译结束！###################"
 # cd   ${PROJECTPATH}/release/x86/bin && ./glog_test
 
 # cd   ${PROJECTPATH}/release/x86/bin && ./3d_reconstruction_tri 
-cd   ${PROJECTPATH}/release/x86/bin && ./hull_extraction 
+# cd   ${PROJECTPATH}/release/x86/bin && ./hull_extraction 
 
 echo  "#######################运行结束！###################"

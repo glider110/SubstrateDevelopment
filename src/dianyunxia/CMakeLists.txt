@@ -40,5 +40,9 @@ add_definitions(${PCL_DEFINITIONS})
 
 
 #kd&&octree
-add_executable(kd_oc_tree  kd_oc_tree.cpp)
-target_link_libraries(kd_oc_tree   ${PCL_LIBRARIES} )#有没有后缀是
+# add_executable(kd_oc_tree  kd_oc_tree.cpp)
+# target_link_libraries(kd_oc_tree   ${PCL_LIBRARIES} )#有没有后缀是
+
+#kd&&octree
+add_executable(region_growing_segmentation  region_growing_segmentation.cpp)
+target_link_libraries(region_growing_segmentation   ${PCL_LIBRARIES} )#有没有后缀是
