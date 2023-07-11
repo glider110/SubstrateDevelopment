@@ -1,3 +1,6 @@
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(PCL REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})   #第三方库需要头文件 自定义的库的话没有要
@@ -27,5 +30,15 @@ add_definitions(${PCL_DEFINITIONS})
 
 
 #平面凹凸包(点云投影)检测
-add_executable(hull_extraction  hull_extraction.cpp)
-target_link_libraries(hull_extraction   ${PCL_LIBRARIES} )#有没有后缀是
+# add_executable(hull_extraction  hull_extraction.cpp)
+# target_link_libraries(hull_extraction   ${PCL_LIBRARIES} )#有没有后缀是
+
+
+#随机采样一致性
+# add_executable(random_sample_consensus  random_sample_consensus.cpp)
+# target_link_libraries(random_sample_consensus   ${PCL_LIBRARIES} )#有没有后缀是
+
+
+#kd&&octree
+add_executable(kd_oc_tree  kd_oc_tree.cpp)
+target_link_libraries(kd_oc_tree   ${PCL_LIBRARIES} )#有没有后缀是

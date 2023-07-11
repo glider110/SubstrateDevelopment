@@ -198,7 +198,8 @@
         "*.gen": "cpp",
         "*.txx": "cpp",
         "threadpool": "cpp",
-        "eigen": "cpp"
+        "eigen": "cpp",
+        "alignedvector3": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "todo-tree.tree.scanMode": "workspace",

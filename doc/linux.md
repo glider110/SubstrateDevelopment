@@ -101,9 +101,19 @@ slam | grep " xxx" |tee -a 2.txt
 
 ```
 
-小工具 传输局域网
+**小工具 传输局域网**
 
 ` sudo ./dufs -p 80 . --allow-upload`
+
+**下载指定文件**
+
+1、先点击进入需要下载的子文件夹或是文件
+
+2、在浏览器把地址复制下来，然后做下修改，比如：原地址：https://github.com/mrdoob/three.js/tree/dev/src  把tree/dev部分改成trunk
+
+修改后的地址：https://github.com/mrdoob/three.js/trunk/src
+
+统一来说就是把tree/***改成trunk  然后使用 svn checkout 修改后的地址
 
 
 **dpkg**
