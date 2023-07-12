@@ -20,20 +20,18 @@
 
 #### **优质资料汇总:**
 
-**[学习路线:](http://www.itcast.cn/news/20161108/11042455887.shtml)** **黑马程序员(C++/linux/设计模式)→大丙爱编程→cherno**
+**[学习路线:](http://www.itcast.cn/news/20161108/11042455887.shtml)** **黑马程序员(C++/linux/设计模式)→大丙爱编程→cherno
 
-- [ ] Linux系统编程网址：               							https://www.bilibili.com/video/BV1KE411q7e 
-- [ ] Linux网络编程网址：               			                https://www.bilibili.com/video/BV1iJ411S7UA
-- [ ] C++基础第一部分：   		 		                      	https://www.bilibili.com/video/BV1RW41147iK
-- [ ] C++基础第二部分：  	 	 			                      https://www.bilibili.com/video/BV1RW411476t
-- [ ] stl教程网址：         		  				                     https://www.bilibili.com/video/BV1PW411t7Xg
-- [ ] 设计模式教程网址：           			                  	https://www.bilibili.com/video/BV1KW411t7FV  
-- [ ] Cherno C++【英文】	         		                  	https://www.bilibili.com/video/BV1fP4y1w7iE/
-- [ ] 中科院软件所-机器人操作系统入门 		           https://www.bilibili.com/video/BV1mJ411R7Ni/?vd_source=7f98e46af73470a39ad6b1a64611b176
-- [ ] B站up面试汇总                                                     https://github.com/lxiao217/study428/
-- [ ] 张虎《机器人SLAM导航核心技术与实战》        https://github.com/xiihoo/Books_Robot_SLAM_Navigation
-
-
+- **Linux系统编程网址：**               							https://www.bilibili.com/video/BV1KE411q7e
+- **Linux网络编程网址：**               			                https://www.bilibili.com/video/BV1iJ411S7UA
+- **C++基础第一部分：**   		 		                      	https://www.bilibili.com/video/BV1RW41147iK
+- **C++基础第二部分：**  	 	 			                      https://www.bilibili.com/video/BV1RW411476t
+- **stl教程网址：**         		  				                     https://www.bilibili.com/video/BV1PW411t7Xg
+- **设计模式教程网址：**           			                  	https://www.bilibili.com/video/BV1KW411t7FV
+- **Cherno C++【英文】**	         		                  	https://www.bilibili.com/video/BV1fP4y1w7iE/
+- **中科院软件所-机器人操作系统入门** 		           https://www.bilibili.com/video/BV1mJ411R7Ni/?vd_source=7f98e46af73470a39ad6b1a64611b176
+- **B站up面试汇总**                                                     https://github.com/lxiao217/study428/
+- **张虎《机器人SLAM导航核心技术与实战》**        https://github.com/xiihoo/Books_Robot_SLAM_Navigation
 
 #### **学习资源搜索实用方法:**
 
