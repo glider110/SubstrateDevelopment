@@ -1,10 +1,10 @@
 /*
  * @Author: glider
  * @Date: 2023-07-12 22:31:48
- * @LastEditTime: 2023-07-12 22:55:54
+ * @LastEditTime: 2023-07-12 23:05:37
  * @FilePath: /SubstrateDevelopment/src/optimization_learn/curve_fitting_demo.cpp
  * @Version:  v0.01
- * @Description: 多点拟合逼近函数
+ * @Description: 多点拟合逼近函数  https://www.jianshu.com/p/e5b03cf22c80
  * ************************************************************************
  * Copyright (c) 2023 by  ${git_email}, All Rights Reserved. 
  * ************************************************************************

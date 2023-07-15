@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-27 11:07:59
- * @LastEditTime: 2023-06-29 12:38:25
+ * @LastEditTime: 2023-07-14 10:26:01
  * @FilePath: /SubstrateDevelopment/src/cherno/cherno.h
  * @Version:  v0.01
  * @Description: 
@@ -51,6 +51,11 @@ public:
     // static int s_v = 0;  //编译不过   必须类外初始化  加constexpr inline可以编译
 
 public:
+    Entity(const Entity& obj) = delete;     //glider note:一个类创建开始就含有6个隐藏函数
+    Entity(Entity&& obj) = default;
+    Entity& operator= (const Entity& obj) = default;
+    Entity& operator= (Entity&& obj) = default;
+
     Entity(/* args */){
         sm_v++;    //类外初始化
         LOG("这是Entity构造函数");
