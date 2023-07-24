@@ -7,3 +7,4 @@ target_link_libraries(glog_test glog )   #glider note: 只需链接就行 头文
 
 #memcpy 
 add_executable(memcpy memcpy.cpp)
+

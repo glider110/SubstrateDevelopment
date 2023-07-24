@@ -1,3 +1,9 @@
+**学习路径:**
+
+C++ →点云 → 优化问题 → 激光slam → 项目 → 简历
+
+其他:自动化脚本(wechat,webcore) 网站 docker  gpt
+
 **什么是野指针?产生情况**
 
 > free null 过程中 未对ptr赋值为null,导致指向的数据不对

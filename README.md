@@ -58,13 +58,14 @@
 
 - [ ] eigen_test.cpp测试(旋转的四种格式转换 /变换矩阵);
 - [ ] 【深蓝学院】激光SLAM理论与实践
-- [X] 泰勒公式 梯度下降 牛顿法 雅克比 海森
-- [X] [激光雷达与相机的标定](https://gitee.com/linClubs/lidar2cam_calibration)
+- [x] 泰勒公式 梯度下降 牛顿法 雅克比 海森
+- [x] slam原理推导:运动观察方程-贝叶斯公司-最小二乘优化
+- [x] [激光雷达与相机的标定](https://gitee.com/linClubs/lidar2cam_calibration)
+- [ ] cartographer后端优化
 
 #### 4.ROS学习
 
 - [X] **ros系统练习**
-
   - [X] 基本概念(packg,node,topic,message.lauch);
   - [X] 构建一个基本的catkin包流程;
   - [ ] 把李想的0到1搭建slam系统全部基于ros实际操作一遍就够了;
