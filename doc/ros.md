@@ -1,3 +1,13 @@
+---
+title: LINUX效率工具：
+date: YYYY-MM-DD HH:MM:SS
+tags: 开发记录
+categories: ros
+typora-root-url: ros
+---
+
+
+
 * [ ] catkin_create 和catkin_make 的区别;
 * [ ] ros不容许有中文路径,只能换到主目录下    /home/glider/project/L12/code....
 

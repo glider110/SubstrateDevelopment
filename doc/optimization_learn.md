@@ -1,3 +1,10 @@
+---
+title: LINUX效率工具：
+date: YYYY-MM-DD HH:MM:SS
+tags: 开发笔记
+categories: 算法
+---
+
 ## optimization_learn
 
 

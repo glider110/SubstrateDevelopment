@@ -1,7 +1,7 @@
 /*
  * @Author: glider
  * @Date: 2023-05-25 19:07:38
- * @LastEditTime: 2023-06-29 12:15:47
+ * @LastEditTime: 2023-08-15 12:08:07
  * @FilePath: /SubstrateDevelopment/src/cherno/cherno_main.cpp
  * @Version:  v0.01
  * @Description: 
@@ -19,7 +19,7 @@
 #include "ElapsedTimer.h"     //没有这句include_directories() 编译器找不到路径
 #include "timer.h"     //没有这句include_directories() 编译器找不到路径 
 #include "singleton.hpp"
-
+#include <vector.h>
 
 #define PR_DEBUG 1 //可以在这里切换成0，作为一个开关
 #if PR_DEBUG == 1   //如果PR_DEBUG为1
@@ -203,6 +203,20 @@ void test11()
     //move:降级生命周期
 }
 
+//stl
+void test12()
+{
+    vector<int> a = {1, 2, 3};
+    vector<int> b = {4,5,6,7,8,9};
+    for( auto i :a){
+        LOG(i);
+    }
+    a = b;
+    for( auto i :a){
+        LOG(i);
+    }
+}
+
 int main()
 {
     #ifdef GLIDERDEBUG1
@@ -212,5 +226,6 @@ int main()
     test5();
     // std::cin.get();
     #endif
+    test12();
 }
 int a = 111;   //全局区优先再编译时候处理,然后再找main 因此放在mian后面也能获取a的值

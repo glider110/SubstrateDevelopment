@@ -1,8 +1,5 @@
 ---
-title: myblog
-date: YYYY-MM-DD HH:MM:SS
-tags: 工作效率
-categories: hexo
+
 ---
 
 ### 个人网站搭建
@@ -73,4 +70,32 @@ hexo clean && hexo g && hexo d
 
 
 
+
+
+
+
+<iframe src="//player.bilibili.com/player.html?aid=230400727&bvid=BV1Yh411N74F&cid=1181260632&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
+<iframe class="bilibili" src="//player.bilibili.com/player.html?aid=14875394&cid=24237231&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+<div class="bilibili">
+    <iframe src="//player.bilibili.com/player.html?aid=14875394&cid=24237231&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
+
+
+<div style="position:relative; padding-bottom:75%; width:100%; height:0">
+    <iframe src="//player.bilibili.com/player.html?bvid=BV1xx411c7XW&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"></iframe>
+</div>
+
+
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
+src="//player.bilibili.com/player.html?aid=39807850&cid=69927212&page=1" scrolling="no" border="0" 
+frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
+height: 100%; left: 0; top: 0;"> </iframe></div>
 
