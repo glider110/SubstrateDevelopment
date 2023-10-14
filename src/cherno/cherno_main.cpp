@@ -19,7 +19,7 @@
 #include "ElapsedTimer.h"     //没有这句include_directories() 编译器找不到路径
 #include "timer.h"     //没有这句include_directories() 编译器找不到路径 
 #include "singleton.hpp"
-#include <vector.h>
+#include <vector>
 
 #define PR_DEBUG 1 //可以在这里切换成0，作为一个开关
 #if PR_DEBUG == 1   //如果PR_DEBUG为1
