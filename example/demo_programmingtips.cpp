@@ -87,9 +87,15 @@ void test3() {
     std::shared_ptr<int> ptra4;
     ptra4 = ptra3;
     std::shared_ptr<int> ptra5 = std::make_shared<int>(1);
-    std::shared_ptr<int> ptra6 = nullptr;
+    std::shared_ptr<int> ptra6 =nullptr;
     std::shared_ptr<int> ptra7 = std::make_shared<int>();
-
+    // std::shared_ptr<int> ptra8 =  ptra8.reset(new int(*a));
+    // std::shared_ptr<int> ptra9 = nullptr;
+    std::shared_ptr<int> ptra9;
+    ptra9.reset(new int(*ptra));
+    ptra9.reset(ptra);    //写法报错
+    // std::shared_ptr<int> ptra9.reset(new int(*ptra));//这样直接reset不行
+    
     // std::shared_ptr<int> ptra3 = new int(a);    //这种写法不对   对象和指针的区别
     std::cout << ptra.use_count() << " "<< ptra<<std::endl;
     std::cout << ptra2.use_count() << " "<< ptra2<<std::endl;
@@ -98,7 +104,12 @@ void test3() {
     std::cout << ptra5.use_count() << " "<< ptra5<<std::endl;
     std::cout << ptra6.use_count() << " "<< ptra6<<std::endl;
     std::cout << ptra7.use_count() << " "<< ptra7<<std::endl;
-    int aa = *ptra7;
+    // std::cout << ptra8.use_count() << " "<< ptra8<<std::endl;
+    std::cout << ptra9.use_count() << " "<< ptra9<<std::endl;
+   std::shared_ptr<int> aa = std::make_shared<int>();
+//    std::shared_ptr<int> aa ;
+     *aa= *ptra;
+      std::cout  << " aa "<< *aa << "   "<<aa <<std::endl;
       std::cout  << " xxxxx "<< *ptra5<<std::endl;
       std::cout  << " xxxxx "<< *ptra7<<std::endl;
     int b = 20;
@@ -412,7 +423,7 @@ void test15(){
 
 int main(int argc, char **argv) {
 
-    test15();
+    test3();
     // test_static();
     // test1(argc, argv);
     // NS_CLASS_STYLE::demo_programmingtips aa(3);

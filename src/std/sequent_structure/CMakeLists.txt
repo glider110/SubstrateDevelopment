@@ -3,6 +3,8 @@ message(STATUS "===================================添加编译cherno===========
 
 add_executable(no_para_structure no_para_structure.cpp )   
 add_executable(para_structure para_structure.cpp )   
+add_executable(thread_ptr thread_ptr.cpp )   
+add_executable(func_timer func_timer.cpp )   
 
 
 
