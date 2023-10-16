@@ -46,13 +46,13 @@ demo_programmingtips::~demo_programmingtips() {}
 } // namespace NS_CLASS_STYLE
 
 //数据输入
-auto test1 = [&](int argc, char **argv) {
-    cout << "argc: " << argc << endl;
-    for (int i = 0; i <= argc; ++i) {
-        cout << i << "  ";
-        cout << argv[i] << "   " << endl;
-    }
-};
+// auto test1 = [&](int argc, char **argv) {
+//     cout << "argc: " << argc << endl;
+//     for (int i = 0; i <= argc; ++i) {
+//         cout << i << "  ";
+//         cout << argv[i] << "   " << endl;
+//     }
+// };
 
 // lamda表达式
 void test2() {
