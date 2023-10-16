@@ -93,7 +93,7 @@ void test3() {
     // std::shared_ptr<int> ptra9 = nullptr;
     std::shared_ptr<int> ptra9;
     ptra9.reset(new int(*ptra));
-    ptra9.reset(ptra);    //写法报错
+    // ptra9.reset(ptra);    //写法报错
     // std::shared_ptr<int> ptra9.reset(new int(*ptra));//这样直接reset不行
     
     // std::shared_ptr<int> ptra3 = new int(a);    //这种写法不对   对象和指针的区别
