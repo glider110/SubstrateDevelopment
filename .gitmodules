@@ -1,9 +1,9 @@
 # [submodule "modules-3rd/lidar_undistortion_2d"]
 # 	path = modules-3rd/lidar_undistortion_2d
 # 	url = git@github.com:glider110/lidar_undistortion_2d.git
-# [submodule "modules-3rd/Creating-2D-laser-slam-from-scratch"]
-# 	path = modules-3rd/Creating-2D-laser-slam-from-scratch
-# 	url = git@github.com:glider110/Creating-2D-laser-slam-from-scratch.git
+[submodule "modules-3rd/Creating-2D-laser-slam-from-scratch"]
+	path = modules-3rd/Creating-2D-laser-slam-from-scratch
+	url = git@github.com:glider110/Creating-2D-laser-slam-from-scratch.git
 # [submodule "modules-3rd/Cpp_Primer_Practice"]
 # 	path = modules-3rd/Cpp_Primer_Practice
 # 	url = git@github.com:glider110/Cpp_Primer_Practice.git
