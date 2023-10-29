@@ -14,6 +14,6 @@
 #include <stdio.h>
 
 int main() {
-    std::cout << "hello glider!" << std::endl;
-    return 0; 4
+    std::cout << "hello glider!" << std::endl;  3
+    return 0;
 }
