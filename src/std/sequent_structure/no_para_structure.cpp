@@ -1,5 +1,14 @@
-//子类想构造无参对象，父类必须要写无参构造函数(隐式调用构造函数)
-//https://blog.csdn.net/weixin_60569662/article/details/121677816
+/*
+ * @Author: glider gaoxiaofan@standard-robots.com
+ * @Date: 2023-10-16 11:26:40
+ * @LastEditors: glider gaoxiaofan@standard-robots.com
+ * @LastEditTime: 2023-10-16 21:16:50
+ * @FilePath: /SubstrateDevelopment/src/std/sequent_structure/no_para_structure.cpp
+ * @Description:继承问题
+ * 子类想构造无参对象，父类必须要写无参构造函数(隐式调用构造函数)
+				https://blog.csdn.net/weixin_60569662/article/details/121677816
+*/
+
 #include <iostream>
 #include <string>
 using namespace std;

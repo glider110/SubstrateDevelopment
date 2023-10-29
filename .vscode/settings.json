@@ -2,8 +2,9 @@
     "doxdocgen.generic.paramTemplate": "@param[in] {param} ",
 
     // 在注释中搜索以 * // , # , ; , 开头的标签！ -- 或 / * 
+   // 在注释中搜索以 * // , # , ; , 开头的标签！ -- 或 / * 
     "todo-tree.regex.regex": "((\\*|//|#|<!--|;|/\\*|^)\\s*($TAGS):|^\\s*- \\[ \\])",
-    
+      
     "todo-tree.highlights.defaultHighlight": {
       "icon": "alert",
       "type": "text",
@@ -11,32 +12,33 @@
       "iconColour": "green"
     },
     "todo-tree.general.tags": [
-      "glider ?",     //未理解
-      "glider !",      //
-      "glider note",  //注释                                
-      "glider todo",  //待完成
-    //   "param",
+      "?(gxf)",     //未理解
+      "!(gxf)",      //
+      "NOTE(gxf)",  //注释                                
+      "TODO(gxf)",  //待完成
+      "FIXME(gxf)",
       "method",
     //   "c++11",
-      "glider url",      //未定义
+      "glider",      //未定义
     ],
 
-      //glider ?:   //未理解
-       //glider !:   //重点
-      //glider note: //注释
-      //glider todo: //待完成
+      //?(gxf):   //未理解
+      //!(gxf):   //重点
+      //NOTE(gxf): //注释
+      //TODO(gxf): 后续联调恢复测试 //待完成
       //glider url:
       //method:
+      //FIXME(gxf):
 
     "todo-tree.highlights.customHighlight": {
-      "glider ?": {
+      "?(gxf)": {
         "icon": "question",
         "gutterIcon": true,
         "foreground": "red",
         "iconColour": "red",
         "type": "text-and-comment"
       },
-      "glider !": {
+      "!(gxf)": {
         "foreground": "yellow",
         "icon": "issue-opened",
         "gutterIcon": true,
@@ -58,7 +60,7 @@
     //     "iconColour": "violet",
     //     "type": "text-and-comment",
     //   },
-      "glider note": {
+      "TODO(gxf)": {
         "icon": "note",
         "gutterIcon": true,
         "foreground": "orange",
@@ -66,10 +68,10 @@
         "iconColour": "orange",
         "type": "text-and-comment",
       },
-      "param": {
+      "FIXME(gxf)": {
         "icon": "issue-closed",
         "gutterIcon": true,
-        "foreground": "orange",
+        "foreground":  "#d3a0f0",
         "rulerColour": "orange",
         "iconColour": "orange",
         "type": "text-and-comment",
@@ -83,7 +85,7 @@
         "rulerLane": "full",
         "type": "line",
       },
-      "glider todo": {
+      "NOTE(gxf)": {
         "icon": "tag",
         "gutterIcon": true,
 
@@ -92,13 +94,13 @@
         "iconColour": "#33db24",
         "type": "text-and-comment",
       },
-    //   "glider": {
-    //       "icon": "tag",
-    //       "foreground": "#4400ff",
-    //       "rulerColour": "#4400ff",
-    //       "iconColour": "#4400ff",
-    //       "type": "text-and-comment",
-    //     },
+      "glider": {
+          "icon": "tag",
+          "foreground": "#4400ff",
+          "rulerColour": "#4400ff",
+          "iconColour": "#4400ff",
+          "type": "text-and-comment",
+        },
   
     },
     "python.autoComplete.extraPaths": [
