@@ -15,5 +15,5 @@
 2
 int main() {
     std::cout << "hello glider!" << std::endl;
-    return 0;
+    return 0; 4
 }
