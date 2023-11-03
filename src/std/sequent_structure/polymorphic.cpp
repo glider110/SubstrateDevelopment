@@ -2,7 +2,7 @@
  * @Author: glider gaoxiaofan@standard-robots.com
  * @Date: 2023-10-16 11:26:40
  * @LastEditors: glider gaoxiaofan@standard-robots.com
- * @LastEditTime: 2023-11-02 20:56:44
+ * @LastEditTime: 2023-11-03 14:04:24
  * @FilePath: /SubstrateDevelopment/src/std/sequent_structure/no_para_structure.cpp
  * @Description:多态问题
     1.  继承具备全部属性
@@ -42,7 +42,10 @@ public:
 	Son1() :Parent(){ cout << "子类无参构造函数" << endl; } ;
     void process(int a){cout << "子类函数 process" << endl;} ;   
     void fun(int a){cout << "纯虚函数子类实现 fun" << endl;}
-    void eat(int a){cout << "子类虚函数 eat" << endl;};
+    void eat(int a){
+        cout << "子类虚函数 eat" << endl;
+        Parent::eat(1111);
+    };
     void eat(){cout << "子类虚函数 eat 无参数" << endl;};
     void test(){
         this->FName = "glider";
@@ -97,7 +100,7 @@ int main()
     cout << "================测试多态获取父类的函数==================" <<endl;
     std::shared_ptr<Parent> parent_ptr1 = make_shared<Son1>();
     parent_ptr1->eat(1);
-    parent_ptr1->Parent::eat(1);
+    // parent_ptr1->Parent::eat(1);   //
 
 
   return 0;
