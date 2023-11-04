@@ -1,2 +1,10 @@
 build/*
 release/
+third_party
+modules-3rd/ImageUndistort
+doc
+data
+src/optimization_learn/build/*
+
+src/test_cmake_module/build/*
+src/test_cmake_module/*
