@@ -8,3 +8,6 @@ src/optimization_learn/build/*
 
 src/test_cmake_module/build/*
 src/test_cmake_module/*
+src/std/gtest/build/*
+third_party/googletest-release-1.10.0/*
+/home/glider/project/glider_ws/SubstrateDevelopment/third_party/gtest/build/*
