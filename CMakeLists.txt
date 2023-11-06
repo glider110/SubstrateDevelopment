@@ -43,14 +43,8 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/release/${CMAKE_SYSTEM_PROCESSOR}/
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W   -std=c++14 -pthread ")    #gdb调试时候是需要这句 -g
 
 #############################gtest单元测试#################################  
-
-    # add_executable(test_fixed_ratio gtest/fixed_ratio_sampler_test.cc)
-    # target_link_libraries(test_fixed_ratio fixed_ratio gtest gtest_main)     #依赖动态库
-    # add_test(NAME test_fixed_ratio COMMAND test_fixed_ratio)
-endif()
-
-    add_subdirectory(third_party/googletest-release-1.10.0 )
-    include_directories(third_party/googletest-release-1.10.0/googletest/include)
+add_subdirectory(third_party/googletest-release-1.10.0 )
+include_directories(third_party/googletest-release-1.10.0/googletest/include)
 
 #############################生成编译文件#################################
 ####动静态库
