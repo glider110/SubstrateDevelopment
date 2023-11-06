@@ -44,6 +44,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W   -std=c++14 -pthread ")    #gdb调�
 
 #############################gtest单元测试#################################  
 
+    # add_executable(test_fixed_ratio gtest/fixed_ratio_sampler_test.cc)
+    # target_link_libraries(test_fixed_ratio fixed_ratio gtest gtest_main)     #依赖动态库
+    # add_test(NAME test_fixed_ratio COMMAND test_fixed_ratio)
+endif()
 
     add_subdirectory(third_party/googletest-release-1.10.0 )
     include_directories(third_party/googletest-release-1.10.0/googletest/include)
