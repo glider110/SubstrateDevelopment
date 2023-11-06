@@ -42,7 +42,11 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/release/${CMAKE_SYSTEM_PROCESSOR}/
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W   -std=c++14 -pthread ")    #gdb调试时候是需要这句 -g
 
+#############################gtest单元测试#################################  
 
+
+    add_subdirectory(third_party/googletest-release-1.10.0 )
+    include_directories(third_party/googletest-release-1.10.0/googletest/include)
 
 #############################生成编译文件#################################
 ####动静态库
@@ -52,25 +56,11 @@ add_subdirectory(example)
 # add_subdirectory(src/cherno)                             #B站:c#csdn:herno C++课程
 # add_subdirectory(src/dianyunxia)                 #csdn:点云侠pcl课程
 add_subdirectory(src/std/sequent_structure)                 #类继承构造问题
+add_subdirectory(src/gtest)    #先依赖单元测试模块的库(先编译库)  gtest单元测试
 
 
 
-#############################gtest单元测试#################################
-##-------- Include directories----------##
-# include_directories(gtest)
-##---------Build target-------------------##      
-# add_subdirectory(gtest)    #先依赖单元测试模块的库(先编译库)
-# option(CMAKE_TEMPLATE_ENABLE_TEST "Whether to enable unit tests" ON)
-# if (CMAKE_TEMPLATE_ENABLE_TEST)
-#     message(STATUS "Unit tests enabled")
-#     enable_testing()
-#     add_subdirectory(third_party/googletest-release-1.10.0 EXCLUDE_FROM_ALL)
-#     include_directories(third_party/googletest-release-1.10.0/googletest/include)
 
-#     add_executable(test_fixed_ratio gtest/fixed_ratio_sampler_test.cc)
-#     target_link_libraries(test_fixed_ratio fixed_ratio gtest gtest_main)     #依赖动态库
-#     add_test(NAME test_fixed_ratio COMMAND test_fixed_ratio)
-# endif()
 
 #############################安装位置#################################(可以用install发布,也可以用release.sh脚本发布)
 # install(TARGETS ${PROJECT_NAME}        RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/Release)   #执行 make  install(在发布版本时候用)

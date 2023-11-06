@@ -1,9 +1,9 @@
 /*
  * @Author: 郭小凡 glider.guo@ankobot.com
  * @Date: 2022-07-07 11:29:48
- * @LastEditors: 郭小凡 glider.guo@ankobot.com
- * @LastEditTime: 2022-07-07 11:45:44
- * @FilePath: /SubstrateDevelopment/common1/fixed_ratio_sampler_test.cc
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-11-04 15:25:56
+ * @FilePath: /SubstrateDevelopment/src/gtest/fixed_ratio_sampler_test.cc
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 /*
