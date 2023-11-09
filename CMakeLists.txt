@@ -42,6 +42,8 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/release/${CMAKE_SYSTEM_PROCESSOR}/
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W   -std=c++14 -pthread ")    #gdb调试时候是需要这句 -g
 
+include_directories(utils)
+
 #############################gtest单元测试#################################  
 add_subdirectory(third_party/googletest-release-1.10.0 )
 include_directories(third_party/googletest-release-1.10.0/googletest/include)
@@ -53,7 +55,7 @@ add_subdirectory(example)
 # add_subdirectory(src/fengbingchun)           #csdn:fengbingchun项目拆分
 # add_subdirectory(src/cherno)                             #B站:c#csdn:herno C++课程
 # add_subdirectory(src/dianyunxia)                 #csdn:点云侠pcl课程
-add_subdirectory(src/std/sequent_structure)                 #类继承构造问题
+add_subdirectory(src/std/sequent_structure)                 #类继承构造问题/定时器/按键获取等
 add_subdirectory(src/gtest)    #先依赖单元测试模块的库(先编译库)  gtest单元测试
 
 

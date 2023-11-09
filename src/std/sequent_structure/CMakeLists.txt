@@ -4,7 +4,9 @@ message(STATUS "===================================添加编译cherno===========
 add_executable(no_para_structure no_para_structure.cpp )   
 add_executable(para_structure para_structure.cpp )   
 add_executable(thread_ptr thread_ptr.cpp )   
-add_executable(func_timer func_timer.cpp )  
+
+set(KEY /home/admins/project/SubstrateDevelopment/utils/key_monitor.cc  /home/admins/project/SubstrateDevelopment/utils/manual_ctrl.cpp)
+add_executable(func_timer func_timer.cpp ${KEY} )  
 add_executable(polymorphic polymorphic.cpp)
 
 # install(TARGETS ${PROJECT_NAME}        RUNTIME DESTINATION ${PROJECT_SOURCE_DIR}/Release)   #执行 make  install(在发布版本时候用)
