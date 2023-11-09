@@ -45,12 +45,12 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -W   -std=c++14 -pthread ")    #gdb调�
 include_directories(utils)
 
 #############################gtest单元测试#################################  
-add_subdirectory(third_party/googletest-release-1.10.0 )
-include_directories(third_party/googletest-release-1.10.0/googletest/include)
+# add_subdirectory(third_party/googletest-release-1.10.0 )
+# include_directories(third_party/googletest-release-1.10.0/googletest/include)
 
 #############################生成编译文件#################################
 ####动静态库
-add_subdirectory(example)         
+# add_subdirectory(example)         
 # add_subdirectory(src/carto)                        #计算机视觉life:李想slam项目拆分
 # add_subdirectory(src/fengbingchun)           #csdn:fengbingchun项目拆分
 # add_subdirectory(src/cherno)                             #B站:c#csdn:herno C++课程

@@ -9,7 +9,8 @@ set(CMAKE_CXX_STANDARD 11)
 # 添加测试目标
 add_executable(UnitTests
     # base_point_cloud_process.cpp
-    base_point_cloud_process_test.cpp
+    # base_point_cloud_process_test.cpp
+    filter_box_test.cpp
 )
 
 # # 链接Google Test库
