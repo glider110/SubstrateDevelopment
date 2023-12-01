@@ -56,12 +56,12 @@ int ControlKey::ScanKeyboard() {
 }
 
 void ControlKey::PrintUsage() {
-    std::cout << "\nManual Usage:\n"
-                 "  w  : go forward\n"
-                 "  s  : go backward\n"
-                 "  a  : turn left\n"
-                 "  d  : turn right\n"
-                 "space: stop\n";
+    std::cout << "\nManual Usage:\n";
+                //  "  w  : go forward\n"
+                //  "  s  : go backward\n"
+                //  "  a  : turn left\n"
+                //  "  d  : turn right\n"
+                //  "space: stop\n";
 }
 
 

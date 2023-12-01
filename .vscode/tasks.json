@@ -11,6 +11,23 @@
                             "kind": "build",
                             "isDefault": true
                     }
-            }
+             },
+
+             {
+                "label": "Run process",
+                "command": "cd release/x86/bin && ./cherno",
+                "type": "shell",
+                "args": [],
+                "problemMatcher": [
+                    "$tsc"
+                ],
+                "presentation": {
+                    "reveal": "always"
+                },
+                "icon": {
+                    "id": "server-environment",
+                    "color": "terminal.ansiRed"
+                 }
+              }
     ]
 }

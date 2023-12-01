@@ -1,0 +1,107 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+{
+	"name": "glider_native",
+	"build": {
+		"dockerfile": "Dockerfile",
+	},
+	"runArgs": [
+		// 下面三个选项为gdb调试所需要
+		"--cap-add=SYS_PTRACE",
+		"--security-opt",
+		"seccomp=unconfined",
+		// 若需要在容器中挂载串口设备，请打开下面一行配置
+		// "--device=/dev/ttyUSB0:/dev/apalis-uart3",
+		// 若需要在容器中代开GUI程序需要打开下面一行的配置
+		// "--net=host",
+		"--hostname=glider-dev-env",
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				// cpp
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"ms-vscode.cmake-tools",
+				"twxs.cmake",
+				"cheshirekow.cmake-format",
+				"akiramiyakoda.cppincludeguard",
+				"mine.cpplint",
+				// python
+				"ms-python.python",
+				"ms-python.autopep8",
+				"ms-python.pylint",
+				"frhtylcn.pythonsnippets",
+				"littlefoxteam.vscode-python-test-adapter",
+				// shell
+				"timonwong.shellcheck",
+				"foxundermoon.shell-format",
+				// git
+				"donjayamanne.githistory",
+				"eamodio.gitlens",
+				// others
+				"streetsidesoftware.code-spell-checker",
+				"ms-azuretools.vscode-docker",
+				"redhat.vscode-yaml",
+				"GitLab.gitlab-workflow",
+				"mechatroner.rainbow-csv",
+				"ms-vscode.live-server",
+			],
+			"settings": {
+				"terminal.integrated.shell.*": "/bin/zsh",
+				"files.insertFinalNewline": true,
+				"C_Cpp.autoAddFileAssociations": false,
+				"C_Cpp.clang_format_path": "/usr/bin/clang-format-12",
+				"C/C++ Include Guard.Comment Style": "Line",
+				"C/C++ Include Guard.Macro Type": "Filepath",
+				"C/C++ Include Guard.Remove Extension": false,
+				"C/C++ Include Guard.Spaces After Endif": 2,
+				"C/C++ Include Guard.Suffix": "_",
+				"gitlab.showPipelineUpdateNotifications": true,
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.autopep8"
+				},
+				"cSpell.words": [
+					"SROS",
+					"SRTOS",
+					"Bootloader",
+					"modbus",
+					"protobuf",
+					"GPIO",
+					"USART",
+					"jaka", // https://www.jaka.com/
+					// https://standard-robots.yuque.com/sn973i/afygpu/onkhsq#LDzQx
+					"EAC",
+					"EACP",
+					// https://standard-robots.yuque.com/sn973i/afygpu/gyusdk#gFf6O
+					"SEAC",
+					"SEACP",
+				],
+			},
+		}
+	},
+	"mounts": [
+		"src=${localEnv:HOME}/.zshrc,dst=/root/.zshrc,type=bind",
+		"src=${localEnv:HOME}/.oh-my-zsh,dst=/root/.oh-my-zsh,type=bind",
+		"src=${localEnv:HOME}/.zsh_history,dst=/root/.zsh_history,type=bind",
+		"src=/var/run/docker.sock,dst=/var/run/docker.sock,type=bind",
+	],
+	"remoteUser": "root",
+	"remoteEnv": {
+		// 若容器中运行UI程序出现如报错“Unable to init server: Could not connect: Connection refused”， 
+		// 请在本地执行：“xhost +”
+		"DISPLAY": "${localEnv:DISPLAY}"
+	},
+	"portsAttributes": {
+		"80": {
+			"label": "Matrix"
+		},
+		"5001": {
+			"label": "sros"
+		},
+		"5002": {
+			"label": "web-socket"
+		}
+	},
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace/SubstrateDevelopment,type=bind,consistency=cached",
+	"workspaceFolder": "/workspace/SubstrateDevelopment"
+}

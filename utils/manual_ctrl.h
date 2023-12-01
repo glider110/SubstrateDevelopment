@@ -17,8 +17,6 @@ public:
     bool get_monitor(char letter);
 
 private:
-
-
     void SetKeyboardAttr();
     void key_detect_handle();
     void PrintUsage();
