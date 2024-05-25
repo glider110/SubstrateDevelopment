@@ -421,12 +421,42 @@ void test15(){
     std::cout << "name_id : " <<atoll(name1)<< endl;
 }
 
+
+struct OriginCollideSize {  // 避障尺寸,考虑到有可能会顶升货架,所以该尺寸是避障处理器的输入参数
+    // 这个是货架的尺寸
+    double width;
+    double length;
+};
+typedef std::shared_ptr<OriginCollideSize> OriginCollideSize_Ptr;
+OriginCollideSize aa{11,22};
+OriginCollideSize_Ptr bb = make_shared<OriginCollideSize>(aa);
+
+
+
+// 测试传参引用和指针
+void test15_1(OriginCollideSize_Ptr a ){
+    a->length = 111;
+}
+void test15_2(const OriginCollideSize_Ptr a ){
+    a->length = 222;
+}
+void test15_3(const OriginCollideSize_Ptr &a ){
+    a->length = 333;
+}
+
+
 int main(int argc, char **argv) {
 
-    test3();
+    // test3();
     // test_static();
     // test1(argc, argv);
     // NS_CLASS_STYLE::demo_programmingtips aa(3);
     // aa.set();
+    std::cout<<  bb->length<< std::endl;
+    // test15_1(bb);
+    // test15_2(bb);
+    test15_3(bb);
+    std::cout<<  bb->length<< std::endl;
+
     return 0;
 }
